@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Starting the project")
+    # return HttpResponse("Starting the project")
+    return render(request, 'index.html')
