@@ -1,0 +1,69 @@
+*, *::before, *::after{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(left,#7579ff, #b224ef);
+    font-family: 'Nunito Sans', sans-serif;
+}
+ input,button{
+    border: none;
+    outline: none;
+    background: none;
+ }
+
+ .cont{
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    height: 550px;
+    background: #fff;
+ }
+
+ .form{
+    position: relative;
+    width: 640px;
+    height: 100%;
+    padding: 50px 30px;
+    -webkit-transition:-webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2 ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+ }
+
+ h2{
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+ }
+
+ label{
+    display: block;
+    width: 260px;
+    margin: 25px auto;
+    text-align: center;
+ }
+
+ label span{
+    font-size: 14px;
+    font-weight: 600;
+    color: #505f75;
+    text-transform: uppercase;
+ }
+ input{
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+ }
