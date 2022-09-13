@@ -5,15 +5,41 @@
 <head>
     <title>Canvas Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/home_style.css' %} ">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <section id="banner">
-        
+        <img src="{% static 'images/logo.png' %}" class="logo">  
+        <div class="banner-text">
+            <h1> Canvas </h1>
+            <p> Come, Enjoy & Explore </p>
+            
+            <div class="banner-btn">
+                <a href=""> <span> </span>Find out</a>
+                <a href=""><span> </span> Read more</a>
+            </div>
+
+        </div>
         
     </section>
 
-    <h1>Rendered html page from templates</h1>
+
+    <div id="sideNav">
+        <nav>
+            <ul>
+                <li> <a href="#"> HOME </a> </li>
+                <li> <a href="#"> FEATURES </a> </li>
+                <li> <a href="#"> SERVICES </a> </li>
+                <li> <a href="#"> TESTIMONIALS </a> </li>
+                <li> <a href="#"> MEET US </a> </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id = "menuBtn">
+        <img src="">
+    </div> 
 
 
 </body>
