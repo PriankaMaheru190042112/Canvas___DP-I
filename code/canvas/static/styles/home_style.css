@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#banner {
+  background: url('../images/bg_image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
