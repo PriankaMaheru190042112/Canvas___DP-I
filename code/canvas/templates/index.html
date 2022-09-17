@@ -5,12 +5,15 @@
 <head>
     <title>Canvas Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/home_style.css' %} ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
 
     <section id="banner">
-        <img src="{% static 'images/logo.png' %}" class="logo">  
+        {% comment %} <img src="{% static 'images/logo.png' %}" class="logo">   {% endcomment %}
         <div class="banner-text">
             <h1> Canvas </h1>
             <p> Come, Enjoy & Explore </p>
@@ -28,18 +31,212 @@
     <div id="sideNav">
         <nav>
             <ul>
-                <li> <a href="#"> HOME </a> </li>
-                <li> <a href="#"> FEATURES </a> </li>
-                <li> <a href="#"> SERVICES </a> </li>
-                <li> <a href="#"> TESTIMONIALS </a> </li>
-                <li> <a href="#"> MEET US </a> </li>
+                <li> <a href="#banner"> HOME </a> </li>
+                <li> <a href="#feature"> FEATURES </a> </li>
+                <li> <a href="#service"> SERVICES </a> </li>
+                <li> <a href="#testimonial"> TESTIMONIALS </a> </li>
+                <li> <a href="#footer"> MEET US </a> </li>
             </ul>
         </nav>
     </div>
 
     <div id = "menuBtn">
-        <img src="">
+        <img src="{% static 'images/menu.png' %}" id="menu">  
     </div> 
+
+
+    <!-- Features   -->
+
+    <section id = "feature">
+        <div class = "title-text">
+            <p> FEATURES </p>
+            <h1>Why Choose Us </h1>
+        </div>    
+
+        <div class = "feature-box">
+            <div class = "features">
+                <h1> Experienced Staff </h1>
+                <div class = "features-desc">
+                    <div class = "feature-icon"> 
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <div class = "feature-text"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum neque egestas congue quisque egestas. </p> </div>
+                </div>
+
+                <h1> Pre Booking Online </h1>
+                <div class = "features-desc">
+                    <div class = "feature-icon"> 
+                        <i class="fa fa-check-square-o"></i>
+                    </div>
+                    <div class = "feature-text"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum neque egestas congue quisque egestas. </p> </div>
+                </div>
+
+                <h1> Affordable Cost </h1>
+                <div class = "features-desc">
+                    <div class = "feature-icon"> 
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class = "feature-text"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum neque egestas congue quisque egestas. </p> </div>
+                </div>
+            </div>
+            <div class = "features-img">
+                <img src="{% static 'images/barber-man.jpg' %}" id="menu">  
+            </div>
+        </div>
+    </section>
+
+    <!--Service -->
+
+    <section id="service">
+        <div class="title-text">
+            <p> SERVICES </p>
+            <h1> We provide services <h1>
+        </div>
+
+        <div class="service-box">
+            <div class="single-service">
+                <img src="{% static 'images/pic-1.jpg' %}" id="menu">  
+                <div class="overlay"> </div> 
+                <div class="service-desc">
+                    <h3> Testing Text</h3>
+                    <hr>
+                    <p>This is testing This is testing This is testing This is testing This is testing</p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="{% static 'images/pic-2.jpg' %}" id="menu"> 
+                <div class="overlay"> </div> 
+                <div class="service-desc">
+                    <h3> Testing Text </h3>
+                    <hr>
+                    <p>This is testing This is testing This is testing This is testing This is testing</p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="{% static 'images/pic-3.jpg' %}" id="menu"> 
+                <div class="overlay"> </div> 
+                <div class="service-desc">
+                    <h3> Testing Text </h3>
+                    <hr>
+                    <p>This is testing This is testing This is testing This is testing This is testing</p>
+                </div>
+            </div>
+            <div class="single-service">
+                <img src="{% static 'images/pic-4.jpg' %}" id="menu"> 
+                <div class="overlay"> </div> 
+                <div class="service-desc">
+                    <h3> Testing Text </h3>
+                    <hr>
+                    <p>This is testing This is testing This is testing This is testing This is testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--Testimonials-->
+
+
+    <section id="testimonial">
+        <div class="title-text">
+            <p> TESTIMONIAL </p>
+            <h1> What Client Says<h1>
+        </div>
+
+        <div class="testimonial-row">
+            <div class="testimonial-col">
+                <div class = "user">
+                    <img src="{% static 'images/img-1.jpg' %}" id="menu"> 
+                    <div class="user-info">
+                        <h4>AJWAD ABRAR <i class="fa fa-twitter"> </i> </h4>
+                        <small> @ajwad_abrar </small>
+                    </div>
+                </div>
+                <p> egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut </p>
+            </div>
+            <div class="testimonial-col">
+                <di class = "user">
+                    <img src="{% static 'images/img-2.jpg' %}" id="menu"> 
+                    <div class="user-info">
+                        <h4>Tabassum Oeshy <i class="fa fa-twitter"> </i> </h4>
+                        <small> @tabassum_oeshy </small>
+                    </div>
+                </di v>
+                <p> egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut </p>
+            </div>
+            <div class="testimonial-col">
+                <div class = "user">
+                    <img src="{% static 'images/img-3.jpg' %}" id="menu"> 
+                    <div class="user-info">
+                        <h4>Prianka Maheru<i class="fa fa-twitter"> </i> </h4>
+                        <small> @prianka </small>
+                    </div>
+                </div>
+                <p> egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut </p>
+            </div>
+        </div>
+    <section>
+
+
+
+    <!--footer-->
+
+    <section id="footer">
+        <img src="{% static 'images/footer-img.png' %}" class="footer-img"> 
+        <div class="title-text">
+            <p> CONTACT </p>
+            <h1> Visit Shop Today<h1>
+        </div>
+    <div class="footer-row">
+        <div class="footer-left"> 
+            <h1> Opening Hours </h1>
+            <p><i class="fa fa-clock-o"></i> Monday to Friday - 9am to 9pm</p>
+            <p> <i class="fa fa-clock-o"></i>Saturday and Sunday - 8am to 11pm</p>
+        </div>
+        <div class="footer-right">
+            <h1>Get In Touch </h1>
+            <p>#30 Boardbazar, Gazipur, BD <i class="fa fa-map-marker"></i></p>
+            <p>example@website.com <i class="fa fa-paper"></i> </p>
+            <p>+880 1984567679 <i class="fa fa-phone"></i></p>
+        </div>
+    </div>
+
+    <div class="social-links">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-youtube-play"></i>
+        <p>Copyright Group 8 </p>
+    </div>
+
+    </section>
+
+
+    <script>
+        var menuBtn = document.getElementById("menuBtn");
+        var sideNav = document.getElementById("sideNav");
+        var menu = document.getElementById("menu");
+
+        sideNav.style.right = "-250px";
+
+        menuBtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src = "{% static 'images/close.png' %}"
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src = "{% static 'images/menu.png' %}"
+            }
+        }
+
+        // All animations will take exactly 500ms
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 1000,
+            speedAsDuration: true
+        });
+
+    </script>
 
 
 </body>
