@@ -1,4 +1,4 @@
-*, *::before, *::after{
+*, *:before, *:after{
     margin:0;
     padding: 0;
     box-sizing: border-box;
@@ -153,25 +153,25 @@ body{
    position: absolute;
    left: 0;
    top: 0;
-   width: 260px;
+   width: 280px;
    height: 100%;
    padding-top: 360px;
 }
 
-.img::before{
+.img:before{
    content: '';
    position: absolute;
    right: 0;
    top: 0;
    width: 900px;
    height: 100%;
-   background-image: url("static/images/art.jpg");
+   background-image: url("../images/auth-img.jpg");
    background-size: cover;
    transition: -webkit-transform 1.2s ease-in-out;
    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
 
-.img::after{
+.img:after{
    content: '';
    position: absolute;
    left: 0;
@@ -181,7 +181,7 @@ body{
    background: rgba(0,0,0,0.3);
 }
 
-.cont .s-signup .img::before{
+.cont .s-signup .img:before{
    -webkit-transform: translate3d(640px, 0, 0);
            transform: translate3d(640px, 0, 0);
 }
