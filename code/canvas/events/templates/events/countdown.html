@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+
+       <script src={% static 'main.js' %} defer> </script>
+
+{% endblock scripts %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-5">
+        <div> {{object.name}} will take place:</div>
+    </div>
+    <div class="col-7">    
+       <div id="event-box"> {{object.start_time|date:"M d, Y H:m:s"}}</div>
+    </div>
+  </div>     
+     <div> Time left: </div>
+     <div id="countdown-box" class="text-center mt-3 h1">
+      
+     </div>    
+{% endblock content %}

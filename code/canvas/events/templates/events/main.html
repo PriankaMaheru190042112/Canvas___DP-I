@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts %}
+
+       <script src={% static 'main.js' %} defer> </script>
+
+{% endblock scripts %}
+
+
+{% block content %}
+     {% for obj in object_list %}    
+
+          {% if obj.photos_added == 1 %}
+        <div id= "event-name">
+            <input id="hid" type="hidden" value={{obj.time}}>
+            <a href={{obj.get_absolute_url1}}>{{obj.name}}</a>
+        </div>
+        {% endif %}
+
+        
+     {% endfor %}
+
+{% endblock content %}
+
+
+

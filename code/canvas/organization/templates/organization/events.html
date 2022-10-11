@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+     {% for object in object_list %}    
+
+         
+        <div id= "eventName">
+            <input id="hid" type="hidden" value={{object.time}}>
+            <a href={{object.get_absolute_url2}}>{{object.name}}</a>
+        </div>
+        
+
+        
+     {% endfor %}
+
+{% endblock content %}

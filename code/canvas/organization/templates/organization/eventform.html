@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<form action="/organization/eventform/" method="post">{% csrf_token %}
+    <div class="form-group">
+      <label for="name">Event Name</label>
+      <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
+      
+    </div>
+    <div class="form-group">
+      <label for="start_time">Start Time</label>
+      <input required type="datetime-local" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
+    </div>
+   
+    <div class="form-group">
+      <label for="end_time">End Time</label>
+      <input required type="datetime-local" class="form-control" id="end_time" name="end_time" placeholder="Enter End Event time">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Event Type</label>
+      <input required type="text" class="form-control" id="type" name="type" placeholder="Enter Event type">
+    </div>
+    
+    <div class="form-group">
+      <label for="genre">Event Genre</label>
+      <input required type="text" class="form-control" id="genre" name="genre" placeholder="Enter Event Genre">
+    </div>
+    
+    <div class="form-group">
+      <label for="images">Upload Image</label>
+      <input required type="file" multiple class="form-control-file" id="images" name="images" placeholder="Enter Event Genre">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock content %}
