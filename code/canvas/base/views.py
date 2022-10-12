@@ -6,6 +6,11 @@ def index(request):
     return render(request, 'index.html')
 
 
-def auth(request):
+def user_auth(request):
     # return HttpResponse("Starting the project")
-    return render(request, 'auth.html') 
+    return render(request, 'user_auth.html') 
+
+
+def organization_auth(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization_auth.html') 
