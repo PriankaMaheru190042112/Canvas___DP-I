@@ -21,6 +21,10 @@ def eventform(request):
     return render(request, 'organization/eventform.html')
 
 
+def organization_auth(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization/organization_auth.html') 
+
 
 class EventsView(ListView):
     model= Event
