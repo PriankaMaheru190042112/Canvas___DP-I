@@ -2,16 +2,14 @@
 
 {% block css %}
 
-fieldset:disabled {
-  display: none;
-}
 
-{% endblock css %}
+{% endblock %}
+
 
 {% block content %}
 
 
-<form action="/organization/eventform/" method="post" name="eventform">{% csrf_token %}
+<form action="/organization/eventform/" method="post" name="eventform" id="myUniqueUploadId">{% csrf_token %}
     <div class="form-group">
       <label for="name">Event Name</label>
       <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
@@ -63,32 +61,75 @@ fieldset:disabled {
       </select>
     </div>
     
-    <div class="form-group">
+    {% comment %} <div class="form-group">
       <label for="images">Upload Image</label>
       <input required type="file" multiple class="form-control-file" id="images" name="images" placeholder="Enter Event Genre">
+    </div> {% endcomment %}
+
+    {% comment %} <div class="btcd-f-input">
+      <small>Multiple Upload</small>
+        <div class="btcd-f-wrp">
+          <label for="images">Upload Image</label>
+            <input multiple type="file" name="multiple[]" id="">
+        </div>
+        <div class="btcd-files">
+        </div>
+    </div> {% endcomment %}
+   
+    {% comment %} <div class="form-group"> 
+    <div class="custom-file-container" data-upload-id="myUniqueUploadId">
+       <label>
+        upload file
+        <a href="javascript:void(0)"
+        class="custom-file-container__image-clear"
+        title="Clear image"
+        >&times;</a>
+       </label> 
+
+       <label class="custom-file-container__custom-file">
+        <input
+        type="file"
+        name="image"
+        class="custom-file-container__custom-file__custom-file-input"
+        accept="image/*"
+        multiple
+        aria-label ="Choose file"
+        />
+        <input type="hidden" name="MAX_FILE_SIZE" value="10485760"/>
+        <span class="custom-file-container__custom-file__custom-file-control"></span>
+       </label> 
+       <div class="custom-file-container__image-preview"></div>
     </div>
+  </div> {% endcomment %}
+
+  <div class="form-group">
+    <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images">
+    
+  </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 
 {% endblock content %}
 
+
 {% block js %}
 
 
 <script>
-  $('#start_time').datepicker({
-    inline: true,
-    dateFormat: "mm/dd/yy",
-    changeFirstDay: false,
-    minDate: new Date(),
-    maxDate: "7D"
-    
-    });
  
-</script>
-{% endblock js %}
+  {% comment %} var upload = new FileUploadWithPreview("myUniqueUploadId") {% endcomment %}
 
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+{% endblock  %}
 
 
 

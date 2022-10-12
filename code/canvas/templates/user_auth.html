@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Authentication</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" consent="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/auth_style.css' %} ">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="cont">
+            <div class="form Sign-in">
+                <h2>Sign In</h2>
+                <label>
+                    <span>Email Address</span>
+                    <input type="email" name="email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" name="password">
+                </label>
+                <button class="submit" type="button">Sign In</button>
+                <p class="forget-pass">Forget Password ?</p>
+
+                <div class="social-media">
+                    <ul>
+                        <li><img src="{% static 'images/facebook.png' %}" class="facebook"></li>
+                        <li><img src="{% static 'images/twitter.png' %}" class="twitter"></li>
+                        <li><img src="{% static 'images/linkedin.png' %}" class="linkedin"></li>
+                        <li><img src="{% static 'images/instagram.png' %}" class="instagram"></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="sub-cont">
+                <div class="img">
+                    <div class="img-text m-up"> 
+                    <h2>New here?</h2>
+                    <p>Sign up and explore through the world of arts!</p>
+                </div>
+                    <div class="img-text m-in"> 
+                    <h2>One of us?</h2>
+                    <p>If you already have an account, just sign in.We have missed you!</p>
+                </div>
+                <div class="img-btn">
+                    <span class="m-up">Sign Up</span>
+                    <span class="m-in">Sign In</span>
+                </div>           
+            </div>
+            <div class="form Sign-up">
+                <h2>Sign up</h2>
+                <label>
+                    <span>Name</span>
+                    <input type="text">
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email">
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password">
+                </label>
+                <label>
+                    <span>Confirm Password</span>
+                    <input type="password">
+                </label>
+                <button type="button" class="submit">Sign Up Now</button>
+            </div>
+        </div>
+     </div>
+    <script type="text/javascript" src="{% static 'styles/script.js' %}"></script>
+  </body>
+</html>

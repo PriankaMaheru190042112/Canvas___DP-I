@@ -12,22 +12,25 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.min.css"/>
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
+    <script src="https://unpkg.com/file-upload-with-preview@3.1.3/dist/file-upload-with-preview.min.js"></script>
+    
     <!-- custom js -->
     {% block scripts %}
     {% endblock scripts %}
 
     <title>Home</title>
+    <style> {% block css %} {% endblock %}</style>
 </head>
 <body>
     <div class="container mt-3">
        {% block content %}
        {% endblock content %}
     </div>
-    
+    {% block js %} {% endblock%} 
 </body>
 </html>

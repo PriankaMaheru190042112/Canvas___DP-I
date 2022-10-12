@@ -33,7 +33,7 @@ class Event(models.Model):
 
 class Image(models.Model):
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
-    path = models.ImageField(upload_to = '')
+    path = models.ImageField(upload_to = 'images', default="")
     artist_name= models.CharField(max_length=200)
     size= models.IntegerField(max_length=200)
     price= models.IntegerField(max_length=200)

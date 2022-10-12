@@ -1,7 +1,10 @@
+from importlib.resources import path
 from tkinter.messagebox import NO
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Event
+
+from events.models import Image
+from .models import Event,Image,User,Organization
 from django.views.generic import ListView, DetailView
 
 
@@ -14,10 +17,15 @@ def eventform(request):
         end_time = request.POST.get('end_time', None)
         type = request.POST.get('type', '')
         genre = request.POST.get('genre', '')
-
+        images= request.FILES.get('images')
         event= Event(name= name, start_time=start_time, end_time=end_time, type=type, genre=genre)
-      
+
+        image= Image.objects.create(
+            path= images,
+        )
+       
         event.save()
+        image.save()
     return render(request, 'organization/eventform.html')
 
 
