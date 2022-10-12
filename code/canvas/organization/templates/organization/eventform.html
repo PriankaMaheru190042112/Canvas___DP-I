@@ -1,33 +1,66 @@
 {% extends 'base.html' %}
 
+{% block css %}
+
+fieldset:disabled {
+  display: none;
+}
+
+{% endblock css %}
 
 {% block content %}
 
 
-<form action="/organization/eventform/" method="post">{% csrf_token %}
+<form action="/organization/eventform/" method="post" name="eventform">{% csrf_token %}
     <div class="form-group">
       <label for="name">Event Name</label>
       <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
       
     </div>
     <div class="form-group">
+      <label for="description">Event Description</label>
+      <input required type="text" class="form-control" id="description" name="description" placeholder="Enter event description">
+      
+    </div>
+
+ 
+    <div class="form-group">
       <label for="start_time">Start Time</label>
       <input required type="datetime-local" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
     </div>
    
+
+    
     <div class="form-group">
       <label for="end_time">End Time</label>
       <input required type="datetime-local" class="form-control" id="end_time" name="end_time" placeholder="Enter End Event time">
     </div>
 
     <div class="form-group">
-      <label for="type">Event Type</label>
-      <input required type="text" class="form-control" id="type" name="type" placeholder="Enter Event type">
+      <p>Enter event type</p>
+        <label class="label-radio">
+        <input type="radio" name="type" value="free" class="fee-radios" checked/> Free </label>
+      <label class="label-radio">
+        <input type="radio" name="type" value="paid" class="fee-radios" /> Paid</label>
+      {% comment %} <select class="form-control" id="type">
+        <option name="type" value="free" selected>Free</option>
+        <option name="type" value="paid">Paid</option>
+      </select> {% endcomment %}
     </div>
     
+     <div class="paid">
+      <label for="fee">Event Fee</label>
+      <input type="number" class="form-control" id="fee" name="fee" placeholder="Enter Event Fee">
+    </div> 
+   
     <div class="form-group">
       <label for="genre">Event Genre</label>
-      <input required type="text" class="form-control" id="genre" name="genre" placeholder="Enter Event Genre">
+      <select class="form-control" id="genre" name="genre">
+        <option name="genre" value="Photography">Photography</option>
+        <option name="genre" value="Abstract Art">Abstract Art</option>
+        <option name="genre" value="Handicraft">Handicraft</option>
+
+      </select>
     </div>
     
     <div class="form-group">
@@ -39,3 +72,26 @@
   </form>
 
 {% endblock content %}
+
+{% block js %}
+
+
+<script>
+  $('#start_time').datepicker({
+    inline: true,
+    dateFormat: "mm/dd/yy",
+    changeFirstDay: false,
+    minDate: new Date(),
+    maxDate: "7D"
+    
+    });
+ 
+</script>
+{% endblock js %}
+
+
+
+
+
+
+
