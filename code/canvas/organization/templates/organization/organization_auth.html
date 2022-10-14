@@ -13,6 +13,7 @@
     <body>
         <div class="cont">
             <div class="form Sign-in">
+                <form action="/organization/organization_auth/" method="post"> {% csrf_token %}
                 <h2>Sign In</h2>
                 <label>
                     <span>Email Address</span>
@@ -22,7 +23,7 @@
                     <span>Password</span>
                     <input type="password" name="password">
                 </label>
-                <button class="submit" type="button">Sign In</button>
+                <button class="submit" type="submit" name="loginbtn">Sign In</button>
                 <p class="forget-pass">Forget Password ?</p>
 
                 <div class="social-media">
@@ -33,6 +34,8 @@
                         <li><img src="{% static 'images/instagram.png' %}" class="instagram"></li>
                     </ul>
                 </div>
+
+            </form>
             </div>
 
             
@@ -53,23 +56,25 @@
             </div>
             <div class="form Sign-up">
                 <h2>Sign up</h2>
+                <form action="/organization/organization_auth/" method="post"> {% csrf_token %}
                 <label>
                     <span>Name</span>
-                    <input type="text">
+                    <input type="text" name="name">
                 </label>
                 <label>
                     <span>Email</span>
-                    <input type="email">
+                    <input type="email" name="email">
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="password">
+                    <input type="password" name="password">
                 </label>
                 <label>
                     <span>Confirm Password</span>
-                    <input type="password">
+                    <input type="password" name="confirmpass">
                 </label>
-                <button type="button" class="submit">Sign Up Now</button>
+                <button type="submit" class="submit" name="registerbtn">Sign Up Now</button>
+            </form>
             </div>
         </div>
      </div>

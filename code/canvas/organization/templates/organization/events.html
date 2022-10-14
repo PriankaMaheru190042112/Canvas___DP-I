@@ -5,6 +5,18 @@
 
 {% block content %}
 
+  {% if orgs.is_authenticated %}
+  
+  <ul>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="#">Welcome, {{orgs.name}}</a>
+    </li>
+  </ul>
+  
+  {% endif %}
+      
+ 
      {% for object in object_list %}    
 
          
