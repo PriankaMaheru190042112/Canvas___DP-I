@@ -34,6 +34,11 @@ def organization_auth(request):
     return render(request, 'organization/organization_auth.html') 
 
 
+def organization_home(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization/organization_home.html') 
+
+
 class EventsView(ListView):
     model= Event
     template_name = 'organization/events.html'
