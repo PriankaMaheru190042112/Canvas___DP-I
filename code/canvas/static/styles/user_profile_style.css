@@ -174,7 +174,9 @@ header .btn{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
-} body {
+} 
+
+.body {
 background-color: #f9f9fa
 }
 
