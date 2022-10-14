@@ -11,3 +11,8 @@ def user_auth(request):
 def user_home(request):
     # return HttpResponse("Starting the project")
     return render(request, 'user/user_home.html') 
+
+
+def user_profile(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_profile.html') 
