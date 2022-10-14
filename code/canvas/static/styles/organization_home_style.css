@@ -17,12 +17,13 @@ body{
   width: 100%;
   min-height: 100vh;
   /* background: url(images/bg.jpg) no-repeat; */
-  background-color: #0d8758;
+  background-color: #f6f6f6;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 70px;
   padding: 20px 100px;
 }
 
@@ -50,12 +51,12 @@ header{
 
 header.sticky{
   background: #1483D5;
-  background: #04554d;
+  /* background: #d2551b; */
   padding: 15px 100px;
 }
 
 header .brand{
-  color: #fff;
+  color: rgb(9, 9, 9);
   font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
@@ -71,7 +72,7 @@ header .menu{
 }
 
 header .menu a{
-  color: #fff;
+  color: rgb(19, 12, 12);
   font-size: 20px;
   font-weight: 500;
   text-decoration: none;
@@ -83,8 +84,8 @@ header .menu a{
 }
 
 header .menu a:hover{
-  color: #fff;
-  background: #fff;
+  color: rgb(3, 0, 0);
+  background: rgb(11, 93, 49);
 }
 
 header .btn{
@@ -165,7 +166,7 @@ header .btn{
 
 
 .active{
-  background: rgb(55, 162, 107);
+  background: rgb(76, 170, 151);
   font-weight: 900;
-  color: blue;
+  color: rgb(243, 243, 243);
 }

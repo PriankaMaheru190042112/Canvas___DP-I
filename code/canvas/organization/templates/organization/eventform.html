@@ -1,138 +1,151 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block css %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--favicon-->
+     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}">
 
-
-{% endblock %}
-
-
-{% block content %}
-
-
-<form action="/organization/eventform/" method="post" name="eventform" id="myUniqueUploadId">{% csrf_token %}
-    <div class="form-group">
-      <label for="name">Event Name</label>
-      <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
-      
-    </div>
-    <div class="form-group">
-      <label for="description">Event Description</label>
-      <input required type="text" class="form-control" id="description" name="description" placeholder="Enter event description">
-      
-    </div>
-
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     
+     <link rel="stylesheet" type="text/css" href="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.min.css"/>
  
-    <div class="form-group">
-      <label for="start_time">Start Time</label>
-      <input required type="datetime-local" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
-    </div>
-   
+     <!-- jquery -->
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <script src="https://unpkg.com/file-upload-with-preview@3.1.3/dist/file-upload-with-preview.min.js"></script>
 
-    
-    <div class="form-group">
-      <label for="end_time">End Time</label>
-      <input required type="datetime-local" class="form-control" id="end_time" name="end_time" placeholder="Enter End Event time">
-    </div>
+    <title>Organization | Event</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/organization_event_style.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body>
 
-    <div class="form-group">
-      <p>Enter event type</p>
-        <label class="label-radio">
-        <input type="radio" name="type" value="free" class="fee-radios" checked/> Free </label>
-      <label class="label-radio">
-        <input type="radio" name="type" value="paid" class="fee-radios" /> Paid</label>
-      {% comment %} <select class="form-control" id="type">
-        <option name="type" value="free" selected>Free</option>
-        <option name="type" value="paid">Paid</option>
-      </select> {% endcomment %}
-    </div>
-    
-     <div class="paid">
-      <label for="fee">Event Fee</label>
-      <input type="number" class="form-control" id="fee" name="fee" placeholder="Enter Event Fee">
-    </div> 
-   
-    <div class="form-group">
-      <label for="genre">Event Genre</label>
-      <select class="form-control" id="genre" name="genre">
-        <option name="genre" value="Photography">Photography</option>
-        <option name="genre" value="Abstract Art">Abstract Art</option>
-        <option name="genre" value="Handicraft">Handicraft</option>
-
-      </select>
-    </div>
-    
-    {% comment %} <div class="form-group">
-      <label for="images">Upload Image</label>
-      <input required type="file" multiple class="form-control-file" id="images" name="images" placeholder="Enter Event Genre">
-    </div> {% endcomment %}
-
-    {% comment %} <div class="btcd-f-input">
-      <small>Multiple Upload</small>
-        <div class="btcd-f-wrp">
-          <label for="images">Upload Image</label>
-            <input multiple type="file" name="multiple[]" id="">
+    <header>
+      <a href="#" class="brand">Canvas</a>
+      <div class="menu">
+        <div class="btn">
+          <i class="fas fa-times close-btn"></i>
         </div>
-        <div class="btcd-files">
+        <a href="/organization/organization_home" >Home</a>
+        <a href="/organization/organization_profile">Profile</a>
+        <a href="/organization/eventform" class="active">Event</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="btn">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </header>
+    <section class="section-main">
+      
+      <form action="/organization/eventform/" method="post" name="eventform" id="myUniqueUploadId">{% csrf_token %}
+        <div class="form-group">
+          <label for="name">Event Name</label>
+          <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
+          
         </div>
-    </div> {% endcomment %}
-   
-    {% comment %} <div class="form-group"> 
-    <div class="custom-file-container" data-upload-id="myUniqueUploadId">
-       <label>
-        upload file
-        <a href="javascript:void(0)"
-        class="custom-file-container__image-clear"
-        title="Clear image"
-        >&times;</a>
-       </label> 
-
-       <label class="custom-file-container__custom-file">
-        <input
-        type="file"
-        name="image"
-        class="custom-file-container__custom-file__custom-file-input"
-        accept="image/*"
-        multiple
-        aria-label ="Choose file"
-        />
-        <input type="hidden" name="MAX_FILE_SIZE" value="10485760"/>
-        <span class="custom-file-container__custom-file__custom-file-control"></span>
-       </label> 
-       <div class="custom-file-container__image-preview"></div>
-    </div>
-  </div> {% endcomment %}
-
-  <div class="form-group">
-    <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images">
+        <div class="form-group">
+          <label for="description">Event Description</label>
+          <input required type="text" class="form-control" id="description" name="description" placeholder="Enter event description">
+          
+        </div>
     
-  </div>
+     
+        <div class="form-group">
+          <label for="start_time">Start Time</label>
+          <input required type="datetime-local" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
+        </div>
+       
+    
+        
+        <div class="form-group">
+          <label for="end_time">End Time</label>
+          <input required type="datetime-local" class="form-control" id="end_time" name="end_time" placeholder="Enter End Event time">
+        </div>
+    
+        <div class="form-group">
+          {% comment %} <p>Enter event type</p> {% endcomment %}
+          <label for="chkPaid" class="check"><span>It is a paid event</a></span></label>
+           <input type="checkbox" value="none" id="chkPaid" onclick="EnableDisableTextBox(this)" name="check" required/>
+            
+        </div>
+        
+         <div class="paid">
+          <label for="fee">Event Fee</label>
+          <input type="text" id="fees" disabled="disabled" />
+        </div> 
+       
+        <div class="form-group">
+          <label for="genre">Event Genre</label>
+          <select class="form-control" id="genre" name="genre">
+            <option name="genre" value="Photography">Photography</option>
+            <option name="genre" value="Abstract Art">Abstract Art</option>
+            <option name="genre" value="Handicraft">Handicraft</option>
+    
+          </select>
+        </div>
+        
+    
+      <div class="form-group">
+        <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images">
+      </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-
-{% endblock content %}
+    </section>
 
 
-{% block js %}
-
-
-<script>
+    <script>
  
-  {% comment %} var upload = new FileUploadWithPreview("myUniqueUploadId") {% endcomment %}
+      {% comment %} var upload = new FileUploadWithPreview("myUniqueUploadId") {% endcomment %}
+    
+      var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+          var output = document.getElementById('output');
+          output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      };
+    </script>
 
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('output');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  };
-</script>
-{% endblock  %}
+    <!-- Disable enable -->
+    <script type="text/javascript">
+      function EnableDisableTextBox(chkPassport) {
+          var fees = document.getElementById("fees");
+         fees.disabled = chkPaid.checked ? false : true;
+          if (!fees.disabled) {
+              fees.focus();
+          }
+      }
+    </script>
+    
 
 
+    <script type="text/javascript">
+    //javascript for navigation bar effect on scroll
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("header");
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
 
+    //javascript for responsive navigation sidebar menu
+    var menu = document.querySelector('.menu');
+    var menuBtn = document.querySelector('.menu-btn');
+    var closeBtn = document.querySelector('.close-btn');
 
+    menuBtn.addEventListener("click", () => {
+      menu.classList.add('active');
+    });
 
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove('active');
+    });
+    </script>
 
+  </body>
+</html>
