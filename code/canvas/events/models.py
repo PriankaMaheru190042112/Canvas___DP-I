@@ -1,10 +1,12 @@
 from distutils.command.upload import upload
 from email.policy import default
+from enum import unique
 from turtle import back
 from unicodedata import name
 from django.db import models
 from django.urls import reverse
 from datetime import datetime
+from cryptography.fernet import Fernet
 
 # Create your models here.
 
@@ -47,25 +49,32 @@ class Image(models.Model):
 class User(models.Model):
     id= models.IntegerField(primary_key= True)
     name = models.CharField( max_length=200)
-    email= models.EmailField(max_length=200)
+    email= models.EmailField(max_length=200, unique=True)
     password= models.CharField(max_length=200)
-    phone= models.IntegerField(max_length=200)
-    profile_picture= models.CharField(max_length=200)
+    phone= models.IntegerField(max_length=200, null=True)
+    profile_picture= models.CharField(max_length=200, null=True)
     
 
     def __str__(self):
         return str(self.name)
+    
+        
 
 
 class Organization(models.Model):
     id= models.IntegerField(primary_key= True)
     name = models.CharField( max_length=200)
-    email= models.EmailField(max_length=200)
+    email= models.EmailField(max_length=200, unique=True)
     password= models.CharField(max_length=200)
-    phone= models.IntegerField(max_length=200)
-    profile_picture= models.CharField(max_length=200)
+    phone= models.IntegerField(max_length=200, null=True)
+    profile_picture= models.CharField(max_length=200, null=True)
     
 
 
     def __str__(self):
         return str(self.id)    
+
+    def name(self):
+        return str(self.name)    
+
+    
