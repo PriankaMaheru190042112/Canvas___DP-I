@@ -86,6 +86,21 @@ def register(request):
 
 
 
+def organization_home(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization/organization_home.html') 
+    
+    
+def organization_profile(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization/organization_profile.html') 
+
+
+def organization_event(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'organization/organization_event.html') 
+
+
 class EventsView(ListView):
     model= Event
     template_name = 'organization/events.html'
