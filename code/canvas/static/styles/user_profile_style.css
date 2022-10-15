@@ -302,10 +302,10 @@ font-family:"Poppins", sans-serif;
 }
 
 .f-w-600 {
-font-weight: 550;
+font-weight: 500;
 font-family:"Poppins", sans-serif;
-font-size: 18px;
-color: #36774d;
+font-size: 22px;
+color:green;
 padding-left: 10px;
 }
 
@@ -351,8 +351,11 @@ button{
   cursor: pointer;
 }
 
-.info2{
-  padding-bottom: 50px;
+.row{
+  padding-bottom: -50px;
+  font-weight: 400;
+  margin-top: 10px;
+ 
 }
 
 .btn{
@@ -373,3 +376,16 @@ button{
 .submit:hover{
   background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
 }
+
+.name1{
+  color:black;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.email{
+  color: #070707;
+  font-weight: 400;
+  font-size: 18px;
+}
+
