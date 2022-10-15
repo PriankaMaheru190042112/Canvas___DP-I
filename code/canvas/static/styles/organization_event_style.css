@@ -12,19 +12,28 @@ body{
   min-height: 100vh;
 }
 
+.Head_section{
+  background-color: #ffffff;
+  margin: auto;
+  width: 50%;
+  padding-top: 120px;
+  color: rgb(46, 138, 237);
+}
+
 .section-main{
   position: relative;
   width: 100%;
   min-height: 100vh;
   /* background: url(images/bg.jpg) no-repeat; */
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
-  padding: 20px 100px;
+  margin-top: 0px;
+  padding: 50px 100px;
+  font-weight: 600;
 }
 
 .section-main h1{
@@ -51,7 +60,7 @@ header{
 
 header.sticky{
   background: #1483D5;
-  background: #fffffe;
+  background: #f6ecec;
   padding: 15px 100px;
 }
 

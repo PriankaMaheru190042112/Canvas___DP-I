@@ -39,6 +39,8 @@
         <i class="fas fa-bars menu-btn"></i>
       </div>
     </header>
+
+    <section class="Head_section"> <h1> Create your event from here on: </h1> </section>
     <section class="section-main">
       
       <form action="/organization/eventform/" method="post" name="eventform" id="myUniqueUploadId">{% csrf_token %}
@@ -55,7 +57,6 @@
     
      
         <div class="form-group">
-<<<<<<< HEAD
           <label for="start_time">Start Date</label>
           <input required type="date" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
         </div>
@@ -63,16 +64,11 @@
         <div class="form-group">
           <label for="time1">Start Time</label>
           <input required type="time" class="form-control" id="time1" name="time1">
-=======
-          <label for="start_time">Start Time</label>
-          <input required type="date" class="form-control" id="start_time" name="start_time" placeholder="Enter Start Event time">
->>>>>>> 72f5d5338f2f72330ab9c088f959b231d2d132fb
         </div>
        
     
         
         <div class="form-group">
-<<<<<<< HEAD
           <label for="end_time">End Date</label>
           <input required type="date" class="form-control" id="end_time" name="end_time">
         </div>
@@ -80,22 +76,27 @@
         <div class="form-group">
           <label for="time2">End Time</label>
           <input required type="time" class="form-control" id="time2" name="time2">
-=======
-          <label for="end_time">End Time</label>
-          <input required type="date" class="form-control" id="end_time" name="end_time" placeholder="Enter End Event time">
->>>>>>> 72f5d5338f2f72330ab9c088f959b231d2d132fb
+        </div>
+
+        <div class="form-group">
+          <label for="frame_w">Frame Width</label>
+          <input required type="number" class="form-control" id="frame_w" name="frame_w">
+        </div>
+
+        <div class="form-group">
+          <label for="frame_h">Frame Height</label>
+          <input required type="number" class="form-control" id="frame_h" name="frame_h">
         </div>
     
         <div class="form-group">
-          {% comment %} <p>Enter event type</p> {% endcomment %}
-          <label for="chkPaid" class="check"><span>It is a paid event</a></span></label>
+          <label for="chkPaid" class="check"><span>It is a paid event</span></label>
            <input type="checkbox" value="none" id="chkPaid" onclick="EnableDisableTextBox(this)" name="check" required/>
             
         </div>
         
-         <div class="paid">
+         <div class="form-group paid">
           <label for="fee">Event Fee</label>
-          <input type="text" id="fees" disabled="disabled" />
+          <input type="text" id="fees" class="form-control" disabled="disabled" />
         </div> 
        
         <div class="form-group">
@@ -104,7 +105,6 @@
             <option name="genre" value="Photography">Photography</option>
             <option name="genre" value="Abstract Art">Abstract Art</option>
             <option name="genre" value="Handicraft">Handicraft</option>
-    
           </select>
         </div>
         
@@ -113,8 +113,18 @@
         <label for="images">Upload photos</label> <br>
         <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images">
       </div>
+
+      <div class="form-group">
+         <label for="chkSell" class="check"><span> Images are sellable </span></label>
+           <input type="checkbox" value="none" id="chkSell" onclick="EnableDisableImageFee(this)" name="check" required/>
+      </div>
+      
+       <div class="form-group">
+        <label for="fee">Image Price</label>
+        <input type="text" id="img_price" class="form-control" disabled="disabled" />
+      </div> 
     
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </form>
 
     </section>
@@ -151,6 +161,15 @@
               fees.focus();
           }
       }
+
+      function EnableDisableImageFee(chkSell) {
+        var img_price = document.getElementById("img_price");
+       img_price.disabled = chkSell.checked ? false : true;
+        if (!img_price.disabled) {
+          img_price.focus();
+        }
+    }
+
     </script>
     
 
