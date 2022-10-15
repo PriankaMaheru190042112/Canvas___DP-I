@@ -16,3 +16,7 @@ def user_home(request):
 def user_profile(request):
     # return HttpResponse("Starting the project")
     return render(request, 'user/user_profile.html') 
+
+def user_gallery(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_gallery.html') 
