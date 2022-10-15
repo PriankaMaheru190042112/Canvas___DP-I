@@ -72,9 +72,9 @@ def register(request):
         password = request.POST.get('password')
         orgs= Organization.objects.filter(email = email,password= encryptPassword(password))
 
-        # org = authenticate(request, email=email, password= encryptPassword(password))
+        org = authenticate(request, email=email, password= encryptPassword(password))
         if orgs is not None:
-            # login(request, org)
+            login(request, org)
             print("login successful")
             return HttpResponseRedirect("/organization/organization_home")
 
@@ -84,11 +84,14 @@ def register(request):
     form = AuthenticationForm()
     return render(request=request,template_name="organization/organization_auth.html", context={"login_form":form}) 
 
+    
+
 
 
 def organization_home(request):
     # return HttpResponse("Starting the project")
-    return render(request, 'organization/organization_home.html') 
+    objects = Event.objects.all()
+    return render(request, 'organization/organization_home.html',{'objects':objects}) 
     
     
 def organization_profile(request):

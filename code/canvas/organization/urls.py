@@ -12,6 +12,6 @@ urlpatterns = [
       path('organization_home/',views.organization_home, name='organization_home'),
        path('organization_profile/',views.organization_profile, name='organization_profile'),
       path('eventform/',views.eventform , name='eventform'),
-      path('eventlist/', EventsView.as_view(), name='event_list'),
+      # path('eventlist/', EventsView.as_view(), name='event_list'),
       path('eventdetail/<int:pk>/', EventDetail.as_view(),name= 'event_detail'),   
 ]

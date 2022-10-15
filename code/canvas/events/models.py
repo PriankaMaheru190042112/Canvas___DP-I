@@ -30,7 +30,9 @@ class Event(models.Model):
         return reverse('events:event-detail', kwargs={'pk': self.pk})
 
     def get_absolute_url2(self):
-        return reverse('organization:event_detail', kwargs={'pk': self.pk})    
+        return reverse('organization:event_detail', kwargs={'pk': self.pk}) 
+    def get_absolute_url3(self):
+        return reverse('user:event_detail', kwargs={'pk': self.pk})        
         
 
 class Image(models.Model):
@@ -68,7 +70,8 @@ class Organization(models.Model):
     password= models.CharField(max_length=200)
     phone= models.IntegerField(max_length=200, null=True)
     profile_picture= models.CharField(max_length=200, null=True)
-    
+    USERNAME_FIELD= ['email']
+    REQUIRED_FIELDS = ['name']
 
 
     def __str__(self):

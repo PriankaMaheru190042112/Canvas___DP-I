@@ -28,7 +28,21 @@
       </div>
     </header>
     <section class="section-main">
-      <h1>Sticky Navigation Bar</h1>
+      <h1>
+        Sticky
+        {% for object in objects %}    
+
+         
+        <div id= "eventName">
+            <input id="hid" type="hidden" value={{object.time}}>
+            <a href={{object.get_absolute_url3}}>{{object.name}}</a>
+        </div>
+        
+
+        
+     {% endfor %}
+
+      </h1>
     </section>
     <section class="section-two">
       <h2>Home</h2>
