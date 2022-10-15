@@ -19,7 +19,9 @@ def user_profile(request):
     return render(request, 'user/user_profile.html') 
 
 
-
+def user_gallery(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_gallery.html') 
 
 class EventDetail(DetailView):
     model= Event

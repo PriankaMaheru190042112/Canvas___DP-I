@@ -76,7 +76,7 @@ def register(request):
         if orgs is not None:
             login(request, org)
             print("login successful")
-            return HttpResponseRedirect("/organization/organization_home")
+            return HttpResponseRedirect("/organization/organization_home",{'orgs':orgs})
 
         else:
             print("login failed")    

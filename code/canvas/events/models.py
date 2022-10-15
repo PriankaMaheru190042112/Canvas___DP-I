@@ -65,7 +65,7 @@ class User(models.Model):
 
 class Organization(models.Model):
     id= models.IntegerField(primary_key= True)
-    name = models.CharField( max_length=200)
+    name = models.CharField( max_length=200, default="")
     email= models.EmailField(max_length=200, unique=True)
     password= models.CharField(max_length=200)
     phone= models.IntegerField(max_length=200, null=True)
@@ -77,7 +77,6 @@ class Organization(models.Model):
     def __str__(self):
         return str(self.id)    
 
-    def name(self):
-        return str(self.name)    
+    
 
     
