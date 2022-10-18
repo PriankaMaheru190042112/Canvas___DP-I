@@ -3,6 +3,7 @@ from email.policy import default
 from enum import unique
 from turtle import back
 from unicodedata import name
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.urls import reverse
 from datetime import datetime
@@ -13,12 +14,17 @@ from cryptography.fernet import Fernet
 class Event(models.Model):
     id= models.IntegerField(primary_key= True)
     name = models.CharField( max_length=200)
-    start_time= models.DateTimeField(blank=True, null=True)
-    end_time= models.DateTimeField(blank=True, null=True)
-    type= models.CharField(max_length=200)
+    description = models.CharField( max_length=200)
+    start_date= models.DateField(blank=True, null=True)
+    start_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
+    end_date= models.DateTimeField(null= True, blank=True)
+    end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
+    frame_width=  models.IntegerField(max_length= 100)
+    frame_height= models.IntegerField(max_length= 100)
     genre= models.CharField(max_length=200)
-    fee= models.IntegerField(max_length=200, default=0)
-    photos_added= models.IntegerField(max_length=1, default=0)
+    fee= models.IntegerField(max_length=200, default=0, null=True)
+    img_path = models.ImageField(upload_to = 'event_images')
+    img_price =models.IntegerField(max_length = 100, default=0, null= True)
     # organization= models.ForeignKey(Organization, on_delete=models.CASCADE)
 
 

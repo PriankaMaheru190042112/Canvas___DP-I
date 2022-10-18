@@ -28,21 +28,22 @@
       </div>
     </header>
     <section class="section-main">
-      <h1>
-        Sticky
-        {% for object in objects %}    
-
-         
+      <h4>
+        {% for object in objects %} 
+        <p>        
         <div id= "eventName">
             <input id="hid" type="hidden" value={{object.time}}>
-            <a href={{object.get_absolute_url3}}>{{object.name}}</a>
-        </div>
-        
+            <a href={{object.get_absolute_url3}}>{{object.name}}: {{object.start_date}}- {{object.start_time}}</a>
+            
+        </div> 
+      </p>    
+         {% endfor %}
+       
 
-        
-     {% endfor %}
+      </h4>
 
-      </h1>
+      
+
     </section>
     <section class="section-two">
       <h2>Home</h2>

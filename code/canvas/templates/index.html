@@ -55,86 +55,34 @@
             <h1> Explore the exhibitions </h1>
         </div>   
         
-        
-        <div id="myBtnContainer" class="center">
-            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-            <button class="btn" onclick="filterSelection('photography')"> Photography</button>
-            <button class="btn" onclick="filterSelection('abstract')"> Abstract Art</button>
-            <button class="btn" onclick="filterSelection('solo')"> Solo</button>
-        </div>
-          
-            <div class="container">
-            <div class="filterDiv photography">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv photography">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv abstract">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv photography">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv photography">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv photography">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="filterDiv solo">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                      <h4><b>Break The Circle</b></h4> 
-                      <p>In 3 days</p> 
-                      <a href="">Event Details</a>
-                    </div>
-                  </div>
-            </div>
+        <form action="{% url 'index' %}" method="post">{% csrf_token %} 
 
+        
+
+         <div id="myBtnContainer" class="center">
+            <button class="btn active" onclick="filterSelection('all')" > Show all</button>
+            <button class="btn" onclick="filterSelection('photography')" type="submit" value="photography" name="photography"> Photography</button>
+            <button class="btn" onclick="filterSelection('abstract')" type="submit", value="abstract_art", name="abstract_art" > Abstract Art</button>
+            <button class="btn" onclick="filterSelection('solo')" type="submit" value="solo" name="solo"> Solo</button>
+        </div> 
+         <form> 
+            <div class="container">
+            {% for object in objects %}     
+            <div class="filterDiv">
+                <div class="card">
+                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
+                    <div class="container2">
+                        <div id= "eventName">
+                            <h4><b>{{object.name}}</b></h4> 
+                            <p>{{object.start_date}}</p> 
+                        </div>
+                      
+                     
+                      <a href="/organization/organization_auth" >Event Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
             </div>
 
 

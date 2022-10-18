@@ -1,3 +1,4 @@
+from email.mime import image
 from importlib.resources import path
 from multiprocessing import AuthenticationError
 from tkinter.messagebox import NO
@@ -7,8 +8,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import login, authenticate 
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from events.models import Image
-from .models import Event,Image,User,Organization
+from events.models import User,Organization,Event, Image
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
 from django.core.mail import EmailMessage
@@ -17,19 +17,23 @@ from django.core.mail import EmailMessage
 def eventform(request):
     if request.method == "POST":
         name = request.POST.get('name', '')
+        desc = request.POST.get('description')
+        start_date= request.POST.get('start_date',None)
         start_time = request.POST.get('start_time',None)
+        end_date= request.POST.get('end_date',None)
         end_time = request.POST.get('end_time', None)
-        type = request.POST.get('type', '')
-        genre = request.POST.get('genre', '')
+        frame_width= request.POST.get('frame_w')
+        frame_height= request.POST.get('frame_h') 
+        fee= request.POST.get('fees')
+        genre = request.POST.get('genre')
         images= request.FILES.get('images')
-        event= Event(name= name, start_time=start_time, end_time=end_time, type=type, genre=genre)
+        img_price = request.POST.get('img_price')
+        event= Event(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time, frame_width=frame_width,
+                    frame_height=frame_height, fee=fee, genre=genre, img_path=images, img_price=img_price)
 
-        image= Image.objects.create(
-            path= images,
-        )
-       
+
         event.save()
-        image.save()
+
     return render(request, 'organization/eventform.html')
 
 
