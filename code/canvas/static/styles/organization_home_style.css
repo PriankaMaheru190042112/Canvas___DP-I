@@ -17,7 +17,7 @@ body{
   width: 100%;
   min-height: 100vh;
   /* background: url(images/bg.jpg) no-repeat; */
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -51,7 +51,7 @@ header{
 
 header.sticky{
   background: #1483D5;
-  /* background: #d2551b; */
+  background: #f6ecec;
   padding: 15px 100px;
 }
 
@@ -95,25 +95,6 @@ header .btn{
   display: none;
 }
 
-.section-two{
-  min-height: 100vh;
-  background: #001018;
-  padding: 20px 100px;
-}
-
-.section-two h2{
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 50px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 30px 0;
-}
-
-.section-two p{
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
-  margin: 30px 0;
-}
 
 
 
