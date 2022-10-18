@@ -27,25 +27,7 @@
         <i class="fas fa-bars menu-btn"></i>
       </div>
     </header>
-    <section class="section-main">
-      <h4>
-        {% comment %} {% for object in objects %} 
-        <p>        
-        <div id= "eventName">
-            <input id="hid" type="hidden" value={{object.time}}>
-            <a href={{object.get_absolute_url3}}>{{object.name}}: {{object.start_date}}- {{object.start_time}}</a>
-            
-        </div> 
-      </p>    
-         {% endfor %}
-        {% endcomment %}
 
-      </h4>
-
-      
-
-    </section>
-     <!-- Filter Events   -->
 
 
       <!-- Filter Events   -->
@@ -54,21 +36,21 @@
       
     <section id = "filter_events">
       <div class = "title-text">
-          <p> Events Coming Up! </p>
-          <h1> Explore the exhibitions </h1>
+        <br> 
+          {% comment %} <h2> Events Coming Up! </h2> {% endcomment %}
       </div>   
-      
-      <form action="{% url 'user:user_home' %}" method="post"> {% csrf_token %}
-        <label for="genre">Choose a Category:</label>
-        <select id="genre" name="genre">
-            {% for genre in genres %}
-            <option value="{{genre.genre_name}}" name="genre">{{genre.genre_name}}</option>
-            
-            {% endfor %}
-         
-        </select>
-        <input type="submit" value="submit" name ="filterbtn">
-    </form>
+
+      <div >
+        <form action="{% url 'user:user_home' %}" method="post"> {% csrf_token %}
+          <label for="genre"class="center_div">Choose a Category to filter:</label>
+          <select id="genre" name="genre">
+              {% for genre in genres %}
+              <option value="{{genre.genre_name}}" name="genre">{{genre.genre_name}}</option>         
+              {% endfor %}      
+          </select>
+          <input type="submit" value="submit" name ="filterbtn">
+        </form>
+      </div>
 
     
           <div class="container">
