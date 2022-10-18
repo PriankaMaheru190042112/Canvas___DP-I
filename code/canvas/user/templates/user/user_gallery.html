@@ -27,9 +27,42 @@
         <i class="fas fa-bars menu-btn"></i>
       </div>
     </header>
+
+    {% comment %} Section starts {% endcomment %}
     <section class="section-main">
-      <h1>Sticky Navigation Bar</h1>
+
+      <div class="rt-container">
+        <div class="col-rt-12">
+            <div class="Scriptcontent">
+      <section>
+        <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
+        <div class="gallery">
+            <div class="gallery-item item-3x4">
+                <img class="thumb placeholder" src="{% static 'images\1.jpg' %}" data-src="{% static 'images\1.jpg' %}" data-image="{% static 'images\1.jpg' %}" data-title="Photo by Daniel J. Schwarz (1)" alt="Photo by Daniel J. Schwarz">
+                <div class="caption"><span>Caption 1</span></div>
+            </div>
+            <div class="gallery-item item-3x4">
+                <img class="thumb placeholder" src="{% static 'images\2.jpg' %}" data-src="{% static 'images\2.jpg' %}" data-image="{% static 'images\2.jpg' %}" data-title="Photo by Daniel J. Schwarz (1)" alt="Photo by Daniel J. Schwarz">
+                <div class="caption"><span>Caption 1</span></div>
+            </div>
+            <div class="gallery-item item-3x4">
+                <img class="thumb placeholder" src="{% static 'images\3.jpg' %}" data-src="{% static 'images\3.jpg' %}" data-image="{% static 'images\3.jpg' %}" data-title="Photo by Daniel J. Schwarz (1)" alt="Photo by Daniel J. Schwarz">
+                <div class="caption"><span>Caption 1</span></div>
+            </div>
+            <div class="gallery-item item-3x4">
+                <img class="thumb placeholder" src="{% static 'images\4.jpg' %}" data-src="{% static 'images\4.jpg' %}" data-image="{% static 'images\4.jpg' %}" data-title="Photo by Daniel J. Schwarz (1)" alt="Photo by Daniel J. Schwarz">
+                <div class="caption"><span>Caption 1</span></div>
+            </div>
+           
+        </div>
+      </section>
+              
+            </div>
+        </div>
+        </div>
     </section>
+
+    {% comment %} Setion ends {% endcomment %}
 
 
     <script type="text/javascript">
@@ -52,6 +85,11 @@
       menu.classList.remove('active');
     });
     </script>
+
+        <!-- jQuery -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <!-- Gallery JS -->
+        <script src="{% static 'js/user_gallery_js.js' %}"></script>
 
   </body>
 </html>
