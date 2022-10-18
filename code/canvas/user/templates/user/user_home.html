@@ -57,12 +57,16 @@
       </div>   
       
       
-      <div id="myBtnContainer" class="center">
-          <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-          <button class="btn" onclick="filterSelection('photography')"> Photography</button>
-          <button class="btn" onclick="filterSelection('abstract')"> Abstract Art</button>
-          <button class="btn" onclick="filterSelection('solo')"> Solo</button>
-      </div>
+      <form action="/action_page.php">
+        <label for="genre">Choose a Category:</label>
+        <select id="genre" name="genre">
+          <option value="all">All</option>
+          <option value="Photography">Photography</option>
+          <option value="Abstract Art">Abstract Art</option>
+          <option value="Handicraft">Handicraft</option>
+        </select>
+        <input type="submit">
+    </form>
         
           <div class="container">
           <div class="filterDiv photography">
