@@ -31,6 +31,7 @@
         <nav>
             <ul>
                 <li> <a href="#banner"> HOME </a> </li>
+                <li> <a href="#filter_events"> EVENTS </a> </li>
                 <li> <a href="#feature"> FEATURES </a> </li>
                 <li> <a href="#service"> SERVICES </a> </li>
                 <li> <a href="#testimonial"> TESTIMONIALS </a> </li>
@@ -52,25 +53,22 @@
     <section id = "filter_events">
         <div class = "title-text">
             <p> Events Coming Up! </p>
-            <h1> Explore the exhibitions </h1>
         </div>   
-        
-        
-    
 
-    </section> 
-     
-    <form action="{% url 'index' %}" method="post"> {% csrf_token %}
-        <label for="genre">Choose a Category:</label>
-        <select id="genre" name="genre">
-            {% for genre in genres %}
-            <option value="{{genre.genre_name}}" name="genre">{{genre.genre_name}}</option>
-            
-            {% endfor %}
-         
-        </select>
-        <input type="submit" value="submit" name ="filterbtn">
-    </form>
+
+        <div class="center_div"> 
+            <form action="{% url 'index' %}" method="post"> {% csrf_token %}
+                <label for="genre">Choose a Category:</label>
+                <select id="genre" name="genre">
+                    {% for genre in genres %}
+                    <option value="{{genre.genre_name}}" name="genre">{{genre.genre_name}}</option>
+                    
+                    {% endfor %}
+                
+                </select>
+                <input type="submit" value="submit" name ="filterbtn">
+            </form>
+        </div>
 
 
     
@@ -94,6 +92,9 @@
 
 
         </div>
+
+    </section> 
+
 
 
 
