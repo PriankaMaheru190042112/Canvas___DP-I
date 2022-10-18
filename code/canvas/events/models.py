@@ -53,6 +53,12 @@ class Image(models.Model):
         return str(self.event_id)
 
 
+class Genre(models.Model):
+    genre_id =models.IntegerField(primary_key= True)
+    genre_name= models.CharField(max_length=200)
+
+
+
 
 class User(models.Model):
     id= models.IntegerField(primary_key= True)
