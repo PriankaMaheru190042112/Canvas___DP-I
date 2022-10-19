@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'events',
     'organization',
     'user',
+    'Admin'
 ]
 
 MIDDLEWARE = [
