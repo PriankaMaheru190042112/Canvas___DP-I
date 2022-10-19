@@ -49,7 +49,6 @@ header{
 }
 
 header.sticky{
-  background: #ffffff;
   /* background: #d2551b; */
   padding: 15px 100px;
 }
@@ -93,7 +92,10 @@ header .btn{
   cursor: pointer;
   display: none;
 }
-
+ .row{
+  margin-top: 80px;
+  padding-top: 40px;
+ }
 
 
 
@@ -168,6 +170,10 @@ header .btn{
 
 
 /* 1st css */
+
+h2{
+  text-align: center;
+}
 
 
 
