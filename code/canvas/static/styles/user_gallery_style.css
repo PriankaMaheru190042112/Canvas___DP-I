@@ -92,7 +92,10 @@ header .btn{
   cursor: pointer;
   display: none;
 }
-
+ .row{
+  margin-top: 80px;
+  padding-top: 40px;
+ }
 
 
 
@@ -167,6 +170,10 @@ header .btn{
 
 
 /* 1st css */
+
+h2{
+  text-align: center;
+}
 
 
 
