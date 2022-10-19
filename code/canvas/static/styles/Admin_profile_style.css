@@ -1,0 +1,394 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  background: url(bg.jpg)no-repeat;
+ background-size: cover;
+ background-position: center;
+ 
+}
+
+.section-main{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* background: url(images/bg.jpg) no-repeat; */
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  padding: 20px 100px;
+}
+
+.section-main h1{
+  /* color: rgba(255, 255, 255, 0.5); */
+  font-size: 60px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 80px;
+}
+
+header{
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  transition: 0.6s;
+}
+
+header.sticky{
+  background: #1483D5;
+  /* background: #d2551b; */
+  padding: 15px 100px;
+}
+
+header .brand{
+  color: rgb(9, 9, 9);
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+header .menu{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .menu a{
+  color: rgb(19, 12, 12);
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 30px;
+  padding: 0 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property: color, background;
+}
+
+header .menu a:hover{
+  color: rgb(3, 0, 0);
+  background: rgb(230, 123, 70);
+}
+
+header .btn{
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+@media (max-width: 1060px){
+  header .btn{
+    display: block;
+  }
+
+  header .menu{
+    position: fixed;
+    background: #1483D5;
+    /* background: #1c9e58; */
+    flex-direction: column;
+    min-width: 400px;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    padding: 80px 50px;
+    transition: 0.5s;
+    transition-property: right;
+  }
+
+  header .menu.active{
+    right: 0;
+  }
+
+  header .menu .close-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 25px;
+  }
+
+  header .menu a{
+    display: block;
+    font-size: 20px;
+    margin: 20px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 630px){
+  .section-main h1{
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+
+
+.active{
+  background: rgb(76, 170, 151);
+  font-weight: 900;
+  color: rgb(243, 243, 243);
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+} 
+
+.body {
+background-color: #f9f9fa
+}
+
+.padding {
+padding: 3rem !important
+}
+
+.user-card-full {
+overflow: hidden;
+}
+
+.card {
+border-radius: 5px;
+-webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+border: none;
+margin-bottom: 30px;
+}
+
+.m-r-0 {
+margin-right: 0px;
+}
+
+.m-l-0 {
+margin-left: 0px;
+}
+
+.user-card-full .user-profile {
+border-radius: 5px 0 0 5px;
+
+}
+
+.bg-c-lite-green {
+background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+background: linear-gradient(to right, #063e1a, #52af7e);
+width: 50px;
+height: 550px;
+text-align: center;
+}
+
+.txt{
+  text-align: center;
+  margin-top: 65px;
+}
+
+
+.user-profile {
+padding: 20px 0;
+}
+
+.card-block {
+padding: 1.25rem;
+}
+
+.m-b-25 {
+margin-bottom: 25px;
+}
+
+.img-radius{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+
+
+.name{
+  font-size: 30px;
+  font-family:"Poppins", sans-serif;
+}
+
+.card .card-block p {
+line-height: 20px;
+}
+
+@media only screen and (min-width: 1400px){
+p {
+font-size: 18px;
+font-family:"Poppins", sans-serif;
+}
+}
+
+.card-block {
+padding: 1.25rem;
+height: 80px;
+}
+
+.b-b-default {
+border-bottom: 1px solid #e0e0e0;
+font-family:"Poppins", sans-serif;
+}
+
+.m-b-20 {
+margin-bottom: 20px;
+font-family:"Poppins", sans-serif;
+}
+
+.p-b-5 {
+padding-bottom: 5px !important;
+font-family:"Poppins", sans-serif;
+}
+
+.card .card-block p {
+line-height: 25px;
+}
+
+.m-b-10 {
+margin-bottom: 10px;
+font-family:"Poppins", sans-serif;
+}
+
+.text-muted {
+color: #919aa3 !important;
+font-family:"Poppins", sans-serif;
+padding-left: 10px;
+}
+
+.b-b-default {
+border-bottom: 1px solid #e0e0e0;
+font-family:"Poppins", sans-serif;
+}
+
+.f-w-600 {
+font-weight: 500;
+font-family:"Poppins", sans-serif;
+font-size: 22px;
+color:green;
+padding-left: 10px;
+}
+
+
+.m-b-20 {
+margin-bottom: 30px;
+font-family:"Poppins", sans-serif;
+
+}
+
+
+.m-t-40 {
+margin-top: 5px;
+font-family:"Poppins", sans-serif;
+}
+
+.p-b-5 {
+padding-bottom: 20px !important;
+padding-left: 10px;
+padding-top: -10px;
+font-family:"Poppins", sans-serif;
+}
+
+.m-b-10 {
+margin-bottom: 10px;
+
+}
+
+.m-t-40 {
+margin-top: 20px;
+padding-left: 10px;
+font-family:"Poppins", sans-serif;
+}
+
+
+button{
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 36px;
+  color: rgb(252, 250, 250);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.row{
+  padding-bottom: -50px;
+  font-weight: 400;
+  margin-top: 10px;
+ 
+}
+
+.btn{
+  padding-left: 10px;
+  padding-right: 50px;
+  
+}
+
+.submit{
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-weight: 450;
+  font-family: "Poppins", sans-serif;
+  background: -webkit-linear-gradient(left,#52af7e, #063e1a);
+}
+.submit:hover{
+  background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
+}
+
+.name1{
+  color:black;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.email{
+  color: #070707;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.checked {
+  color: orange;
+}
