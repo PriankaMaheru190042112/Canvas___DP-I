@@ -32,7 +32,6 @@
         <a href="/organization/organization_home" >Home</a>
         <a href="/organization/organization_profile">Profile</a>
         <a href="/organization/eventform" class="active">Event</a>
-        <a href="#">Blog</a>
         <a href="#">Logout</a>
       </div>
       <div class="btn">
@@ -79,7 +78,7 @@
           <input required type="time" class="form-control" id="end_time" name="end_time">
         </div>
         
-        <div class="form-group">
+        {% comment %} <div class="form-group">
           <label for="time2">Judge Name</label>
           <input type="text" class="form-control" id="judge_name" name="judge_name">
         </div>
@@ -92,7 +91,7 @@
         <div class="form-group">
           <label for="time2">Judge Achievements</label>
           <input type="text" class="form-control" id="judge_ach" name="judge_ach">
-        </div>
+        </div> {% endcomment %}
 
         <div class="form-group">
           <label for="frame_w">Frame Width</label>
