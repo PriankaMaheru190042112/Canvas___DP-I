@@ -105,7 +105,7 @@
     
         <div class="form-group">
           <label for="chkPaid" class="check"><span>It is a paid event</span></label>
-           <input type="checkbox" value="none" id="chkPaid" onclick="EnableDisableTextBox(this)" name="check"/>
+          <input type="checkbox" value="none" id="chkPaid" onclick="EnableDisableTextBox(this)" name="check"/>
             
         </div>
         
@@ -138,6 +138,18 @@
         <label for="fee">Image Price</label>
         <input type="text" id="img_price" name="img_price" class="form-control" disabled="disabled" />
       </div> 
+
+      {% comment %} <div class="row"> {% endcomment %}
+        <div class="new_photo" id="new_photo_field">
+          <label for="images">Upload photos</label> <br>
+          <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images"> 
+      
+          <a class="extra-fields-photo" href="#new_photo_field">Add More Photo</a> 
+        </div>
+      
+        <div class="photo_records_dynamic"></div>
+      
+      {% comment %} </div> {% endcomment %}
     
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
@@ -146,6 +158,7 @@
 
 
     <script>
+
  
       var date = new Date();
       date.setDate(date.getDate() + 7);
@@ -209,6 +222,11 @@
       menu.classList.remove('active');
     });
     </script>
+
+    <script type="text/javascript"
+
+    <script src="{% static 'js/eventform_dynamic_field_js.js' %}"></script>
+
 
   </body>
 </html>
