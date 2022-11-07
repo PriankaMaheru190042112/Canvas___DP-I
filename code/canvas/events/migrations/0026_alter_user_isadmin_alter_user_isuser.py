@@ -6,10 +6,12 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
+        
         (
             "events",
             "0025_delete_organization_user_isadmin_user_isorganization_and_more",
         ),
+
     ]
 
     operations = [
