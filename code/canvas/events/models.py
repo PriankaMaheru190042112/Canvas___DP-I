@@ -8,6 +8,7 @@ from django.db import models
 from django.urls import reverse
 from datetime import datetime
 from cryptography.fernet import Fernet
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -60,35 +61,32 @@ class Genre(models.Model):
 
 
 
-class User(models.Model):
-    id= models.IntegerField(primary_key= True)
-    name = models.CharField( max_length=200)
-    email= models.EmailField(max_length=200, unique=True)
-    password= models.CharField(max_length=200)
-    phone= models.IntegerField(max_length=200, null=True)
+class User(AbstractUser):
+    phone= models.CharField(max_length=200, null=True)
     profile_picture= models.CharField(max_length=200, null=True)
+    isUser =  models.BooleanField(default=False, null=False)
+    isOrganization =  models.BooleanField(default=False, null=False)
+    isAdmin =  models.BooleanField(default=True, null=False)
     
 
-    def __str__(self):
-        return str(self.name)
+#     def __str__(self):
+#         return str(self.name)
     
         
 
 
-class Organization(models.Model):
-    id= models.IntegerField(primary_key= True)
-    name = models.CharField( max_length=200, default="")
-    email= models.EmailField(max_length=200, unique=True)
-    password= models.CharField(max_length=200)
-    phone= models.IntegerField(max_length=200, null=True)
-    profile_picture= models.CharField(max_length=200, null=True)
-    USERNAME_FIELD= ['email']
-    REQUIRED_FIELDS = ['name']
+# class Organization(models.Model):
+#     id= models.IntegerField(primary_key= True)
+#     name = models.CharField( max_length=200, default="")
+#     email= models.EmailField(max_length=200, unique=True)
+#     password= models.CharField(max_length=200)
+#     phone= models.IntegerField(max_length=200, null=True)
+#     profile_picture= models.CharField(max_length=200, null=True)
+#     USERNAME_FIELD= ['email']
+#     REQUIRED_FIELDS = ['name']
 
 
-    def __str__(self):
-        return str(self.id)    
-
-    
+#     def __str__(self):
+#         return str(self.id)    
 
     

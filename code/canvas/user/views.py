@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from events.models import User,Organization, Event,Image, Genre
+from events.models import User, Event,Image, Genre
 from django.views.generic import ListView, DetailView
 # Create your views here.
 from django.utils.timezone import now

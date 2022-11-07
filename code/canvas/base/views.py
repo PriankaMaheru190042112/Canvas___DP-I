@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render
-from events.models import User,Organization, Event,Image, Genre
+from events.models import Event,Image, Genre
 # Create your views here.
 from django.utils.timezone import now
 

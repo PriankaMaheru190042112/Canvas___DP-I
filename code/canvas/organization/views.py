@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import login, authenticate 
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from events.models import User,Organization,Event, Image
+from events.models import Event, Image
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
 from django.core.mail import EmailMessage
