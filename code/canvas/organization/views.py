@@ -9,12 +9,16 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from events.models import Event, Image
+from authentication_user.models import User
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
 from django.core.mail import EmailMessage
+
+from .forms import CreateUserForm,EventForm
 # Create your views here.
 
 def eventform(request):
+   
     if request.method == "POST":
         name = request.POST.get('name', '')
         desc = request.POST.get('description')
@@ -22,71 +26,67 @@ def eventform(request):
         start_time = request.POST.get('start_time',None)
         end_date= request.POST.get('end_date',None)
         end_time = request.POST.get('end_time', None)
-        frame_width= request.POST.get('frame_w')
-        frame_height= request.POST.get('frame_h') 
         fee= request.POST.get('fees')
         genre = request.POST.get('genre')
+
         images= request.FILES.get('images')
         img_price = request.POST.get('img_price')
-        event= Event(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time, frame_width=frame_width,
-                    frame_height=frame_height, fee=fee, genre=genre, img_path=images, img_price=img_price)
+        frame_width= request.POST.get('frame_w')
+        frame_height= request.POST.get('frame_h') 
+        print(name)
+        event= Event.objects.create(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
+                     fee=fee, genre=genre)
+        
+        # event.save()
 
+        
+        for i in images:
+               Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
+            #    event.image = image
+               image.save() 
 
         event.save()
+        
+        
 
     return render(request, 'organization/eventform.html')
 
 
-def encryptPassword(password):
-        key= Fernet.generate_key()
-        fernet= Fernet(key)
-        encpassword = fernet.encrypt(password.encode())
-        return encpassword
-
-def decryptPassword(password):
-        key= Fernet.generate_key()
-        fernet= Fernet(key)
-        encpassword = fernet.encrypt(password.decode())
-        return encpassword
 
 
 def register(request):
     # return HttpResponse("Starting the project")
-    if request.method=='POST' and 'registerbtn' in request.POST:
-        name= request.POST.get('name')
-        email= request.POST.get('email')
-        password= request.POST.get('password')
-        confirmpass= request.POST.get('confirmpass')
-        # hashed_pass= make_password(password)
-        
-        if(password == confirmpass):
-            password= encryptPassword(password)
-            organization= Organization(name= name, email=email, password=password)
-
-            organization.save()
-        else:
-          print("password doesn't match") 
-    
-       # temp = "organization/organization_auth.html"
-        return render(request, 'organization/organization_auth.html') 
-
+    form = CreateUserForm()
+    if request.method == 'POST' and 'registerbtn' in request.POST:
+        form = CreateUserForm(request.POST)
+        # username = request.POST.get('username')
+        email = request.POST.get('email')
+        # password1 = request.POST.get('password1')
+        if form.is_valid():
+            form.save()
+            uobj = User.objects.get(email=email)    
+            uobj.isAdmin = False
+            uobj.isUser = False
+            uobj.isOrganization = True
+            uobj.save()
 
     elif request.method=='POST' and 'loginbtn' in request.POST:
-        email= request.POST.get('email')
-        password = request.POST.get('password')
-        orgs= Organization.objects.filter(email = email,password= encryptPassword(password))
-
-        org = authenticate(request, email=email, password= encryptPassword(password))
-        if orgs is not None:
-            login(request, org)
-            print("login successful")
-            return HttpResponseRedirect("/organization/organization_home",{'orgs':orgs})
-
+        # email= request.POST.get('email')
+        name= request.POST.get('name')
+        password = request.POST.get('password')  
+        print("done")
+        org = authenticate(request, username= name , password = password)
+        if (org is not None):
+                login(request, org)
+                print("success")
+                return redirect('/organization/organization_home/')
+                
         else:
-            print("login failed")    
-            
-    form = AuthenticationForm()
-    return render(request=request,template_name="organization/organization_auth.html", context={"login_form":form}) 
+                # messages.info(request, "Username or Password is incorrect.")
+                print("error")
+
+    context = {'form': form }
+    return render(request,"organization/organization_auth.html", context) 
 
     
 

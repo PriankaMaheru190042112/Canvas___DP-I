@@ -43,6 +43,7 @@
     <section class="section-main">
       
       <form action="/organization/eventform/" method="post" enctype="multipart/form-data" name="eventform" id="myUniqueUploadId">{% csrf_token %}
+       
         <div class="form-group">
           <label for="name">Event Name</label>
           <input required type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
@@ -78,31 +79,7 @@
           <input required type="time" class="form-control" id="end_time" name="end_time">
         </div>
         
-        {% comment %} <div class="form-group">
-          <label for="time2">Judge Name</label>
-          <input type="text" class="form-control" id="judge_name" name="judge_name">
-        </div>
-
-        <div class="form-group">
-          <label for="time2">Judge Affiliation</label>
-          <input type="text" class="form-control" id="judge_aff" name="judge_aff">
-        </div>
-
-        <div class="form-group">
-          <label for="time2">Judge Achievements</label>
-          <input type="text" class="form-control" id="judge_ach" name="judge_ach">
-        </div> {% endcomment %}
-
-        {% comment %} <div class="form-group">
-          <label for="frame_w">Frame Width</label>
-          <input required type="number" class="form-control" id="frame_w" name="frame_w">
-        </div>
-
-        <div class="form-group">
-          <label for="frame_h">Frame Height</label>
-          <input required type="number" class="form-control" id="frame_h" name="frame_h">
-        </div>
-     {% endcomment %}
+      
         <div class="form-group">
           <label for="chkPaid" class="check"><span>It is a paid event</span></label>
           <input type="checkbox" value="none" id="chkPaid" onclick="EnableDisableTextBox(this)" name="check"/>
@@ -123,29 +100,11 @@
           </select>
         </div>
         
-    
-      {% comment %} <div class="form-group">
-        <label for="images">Upload photos</label> <br>
-        <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images">
-      </div> {% endcomment %}
-
-      {% comment %} <div class="form-group">
-         <label for="chkSell" class="check"><span> Images are sellable </span></label>
-           <input type="checkbox" value="none" id="chkSell" onclick="EnableDisableImageFee(this)" name="check" />
-      </div>
-      
-       <div class="form-group">
-        <label for="fee">Image Price</label>
-        <input type="text" id="img_price" name="img_price" class="form-control" disabled="disabled" />
-      </div>  {% endcomment %}
-
+  
       <div id="new_photo_field"  style="background-color: #F0F8FF;">
         <div class="new_photo">
           <label for="images">Upload photo</label> <br>
           <input multiple type="file" accept="image/*" onchange="loadFile(event)" name="images"> 
-
-          {% comment %} <br> <label for="chkSell" class="check"><span> Images are sellable </span></label>
-           <input type="checkbox" value="none" id="chkSell" onclick="EnableDisableImageFee(this)" name="check" /> {% endcomment %}
 
           <br> <label for="fee">Image Price</label>
           <input type="text" id="img_price" name="img_price" class="form-control" />
@@ -159,16 +118,13 @@
           <a class="extra-fields-photo" href="#new_photo_field">Add More Photo</a> 
         </div>
  
-       {% comment %} <div class="new_photo" id="new_photo_field">
-        <label for="fee">Image Price</label>
-        <input type="text" id="img_price" name="img_price" class="form-control" />
-      </div>   {% endcomment %}
-      
         <div class="photo_records_dynamic"></div>
       
-      </div>
+      </div> 
+      
     
         <button type="submit" class="btn btn-success">Submit</button>
+    
       </form>
 
     </section>
