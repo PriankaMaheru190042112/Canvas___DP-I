@@ -46,7 +46,11 @@
                         <img src="{% static 'images\org_img.jpg' %}" class="img-radius" alt="User-Profile-Image">
                     </div>
                     
-                    <h6 class="f-w-700 name">IUTPS</h6>
+                    <h6 class="f-w-700 name">   
+                      {% if user.is_authenticated%}
+                        {{request.user.username}}
+                      {% endif %}
+                    </h6>
                     <p>Organization</p>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -66,11 +70,18 @@
                     <div class="row info1">
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600 name1">Name</p>
-                        <h6 class="text-muted f-w-400">IUTPS</h6>
+                        <h6 class="text-muted f-w-400">       
+                          {% if user.is_authenticated%}
+                            {{request.user.username}}
+                          {% endif %}
+                        </h6>
                     </div>
                         <div class="col-sm-6">
                             <p class="m-b-10 f-w-600 email">Email</p>
-                            <h6 class="text-muted f-w-400">iutps@gmail.com</h6>
+                            <h6 class="text-muted f-w-400">
+                              {% if user.is_authenticated%}
+                                {{request.user.email}}
+                              {% endif %}</h6>
                         </div>
                        
                     </div>
