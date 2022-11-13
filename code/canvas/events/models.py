@@ -11,6 +11,7 @@ from cryptography.fernet import Fernet
 from django.contrib.auth.models import AbstractUser
 import os
 from django.template.defaultfilters import slugify
+from authentication_user.models import User
 # Create your models here.
 
 class Event(models.Model):

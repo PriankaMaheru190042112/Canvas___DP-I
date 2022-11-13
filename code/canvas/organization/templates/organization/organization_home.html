@@ -29,8 +29,8 @@
     <section class="section-main">
       <h1>Welcome IUTPS
 
-
-        {% comment %} {% for object in objects %}    
+{% comment %} 
+      {% for object in objects %}    
 
          
         <div id= "eventName">
@@ -40,13 +40,13 @@
         
 
         
-     {% endfor %} {% endcomment %}
+     {% endfor %}  {% endcomment %}
 
-       {% comment %} {% if org.is_authenticated%}
+       {% if user.is_authenticated%}
          
-        hello {{org.name}}
+        hello {{request.user.username}}
        
-       {% endif %} {% endcomment %}
+       {% endif %}
 
 
       </h1>

@@ -12,6 +12,7 @@ from events.models import Event, Image
 from authentication_user.models import User
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
+from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 
 from .forms import CreateUserForm,EventForm
@@ -91,7 +92,7 @@ def register(request):
     
 
 
-
+@login_required(login_url='/organization/organization_auth/')
 def organization_home(request):
     # return HttpResponse("Starting the project")
     objects = Event.objects.all()
