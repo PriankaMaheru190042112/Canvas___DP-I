@@ -13,16 +13,22 @@
     <body>
         <div class="cont">
             <div class="form Sign-in">
+                <form action="/user/user_auth/" method="post"> {% csrf_token %}
                 <h2>Sign In</h2>
-                <label>
+                {% comment %} <label>
                     <span>Email Address</span>
                     <input type="email" name="email">
                 </label>
+                  {% endcomment %}
+                 <label>
+                    <span>Username</span>
+                    <input type="text" name="name">
+                </label> 
                 <label>
                     <span>Password</span>
                     <input type="password" name="password">
                 </label>
-                <button class="submit" type="button">Sign In</button>
+                <button class="submit" type="submit" name="loginbtn">Sign In</button>
                 <p class="forget-pass">Forget Password ?</p>
 
                 <div class="social-media">
@@ -33,6 +39,7 @@
                         <li><img src="{% static 'images/instagram.png' %}" class="instagram"></li>
                     </ul>
                 </div>
+            </form>
             </div>
 
             
@@ -52,8 +59,9 @@
                 </div>           
             </div>
             <div class="form Sign-up">
+                <form action="/user/user_auth/" method="post"> {% csrf_token %}
                 <h2>Sign up</h2>
-                <label>
+                {% comment %} <label>
                     <span>Name</span>
                     <input type="text">
                 </label>
@@ -68,8 +76,15 @@
                 <label>
                     <span>Confirm Password</span>
                     <input type="password">
-                </label>
-                <button type="button" class="submit">Sign Up Now</button>
+                </label> {% endcomment %}
+                {{form.username}} {{form.email}} {{form.password1}}
+              {{form.password2}}
+
+              <div>
+                {{form.errors.password2}} {{form.errors.email}}
+              </div>
+                <button type="submit" class="submit" name="registerbtn">Sign Up Now</button>
+            </form>
             </div>
         </div>
      </div>

@@ -15,7 +15,7 @@ from authentication_user.models import User
 # Create your models here.
 
 class Event(models.Model):
-    id= models.IntegerField(primary_key= True)
+    id= models.IntegerField(primary_key=True)
     name = models.CharField( max_length=200)
     description = models.CharField( max_length=200)
     start_date= models.DateField(blank=True, null=True)
@@ -28,7 +28,7 @@ class Event(models.Model):
 
 
     def __str__(self):
-        return str(self.id)
+        return str(self.name)
     
 
     def get_absolute_url1(self):
@@ -47,7 +47,7 @@ def get_image_filename(instance, filename):
 
 class Image(models.Model):
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
-    image= models.ImageField(upload_to=get_image_filename)
+    image= models.ImageField(upload_to=get_image_filename, verbose_name='Image')
     # img_path = models.ImageField(upload_to = 'event_images')
     img_price =models.IntegerField(max_length = 100, default=0, null= True)
     frame_height = models.IntegerField(max_length=200)
@@ -58,8 +58,8 @@ class Image(models.Model):
     # price= models.IntegerField(max_length=200)
     
 
-    def __str__(self):
-        return str(self.event_id)
+    # def __str__(self):
+    #     return str(self.event_id)
 
 
 class Genre(models.Model):

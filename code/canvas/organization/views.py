@@ -5,7 +5,7 @@ from tkinter.messagebox import NO
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.hashers import make_password, check_password
-from django.contrib.auth import login, authenticate 
+from django.contrib.auth import login, authenticate ,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from events.models import Event, Image
@@ -18,6 +18,7 @@ from django.core.mail import EmailMessage
 from .forms import CreateUserForm,EventForm
 # Create your views here.
 
+@login_required
 def eventform(request):
    
     if request.method == "POST":
@@ -30,7 +31,7 @@ def eventform(request):
         fee= request.POST.get('fees')
         genre = request.POST.get('genre')
 
-        images= request.FILES.get('images')
+        images= request.FILES.getlist('images')
         img_price = request.POST.get('img_price')
         frame_width= request.POST.get('frame_w')
         frame_height= request.POST.get('frame_h') 
@@ -38,15 +39,16 @@ def eventform(request):
         event= Event.objects.create(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
                      fee=fee, genre=genre)
         
-        # event.save()
+        event.save()
 
         
         for i in images:
-               Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
+               e= Event.objects.get(name = name)
+               image = Image.objects.create(event_id= e, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
             #    event.image = image
                image.save() 
-
-        event.save()
+        
+    
         
         
 
@@ -55,7 +57,7 @@ def eventform(request):
 
 
 
-def register(request):
+def registerlogin(request):
     # return HttpResponse("Starting the project")
     form = CreateUserForm()
     if request.method == 'POST' and 'registerbtn' in request.POST:
@@ -91,13 +93,18 @@ def register(request):
 
     
 
-
-@login_required(login_url='/organization/organization_auth/')
+@login_required
 def organization_home(request):
     # return HttpResponse("Starting the project")
     objects = Event.objects.all()
     return render(request, 'organization/organization_home.html',{'objects':objects}) 
-    
+
+@login_required
+def organization_logout(request):  
+    logout(request)
+    # return HttpResponseRedirect(reverse('/user/user_home/'))
+    return render(request, 'organization/organization_auth.html') 
+        
     
 def organization_profile(request):
     # return HttpResponse("Starting the project")

@@ -8,7 +8,7 @@ from events.models import Event,Image
 genres =(
     ("1", "Photography"),
     ("2", "Abstract Art"),
-    ("3", ""),
+    ("3", "Handicraft"),
     
 )
   

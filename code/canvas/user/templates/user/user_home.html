@@ -20,7 +20,7 @@
         <a href="/user/user_home" class="active">Home</a>
         <a href="/user/user_profile">Profile</a>
         <a href="/user/user_gallery">Gallery</a>
-        <a href="#">Logout</a>
+        <a href="{% url 'user:user_logout' %}">Logout</a>
       </div>
       <div class="btn">
         <i class="fas fa-bars menu-btn"></i>
@@ -28,7 +28,7 @@
     </header>
 
 
-
+   
       <!-- Filter Events   -->
 
 
@@ -38,7 +38,11 @@
         <br> 
           {% comment %} <h2> Events Coming Up! </h2> {% endcomment %}
       </div>   
-
+      {% if user.is_authenticated%}
+         
+     <h1> hello {{request.user.username}} </h1>   
+     {% endif %}
+  
       <div >
         <form action="{% url 'user:user_home' %}" method="post"> {% csrf_token %}
           <label for="genre"class="center_div">Choose a Category to filter:</label>
