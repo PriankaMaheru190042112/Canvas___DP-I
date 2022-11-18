@@ -23,7 +23,7 @@
         <a href="/user/user_home" >Home</a>
         <a href="/user/user_profile" class="active">Profile</a>
         <a href="/user/user_gallery">Gallery</a>
-        <a href="#">Logout</a>
+        <a href="{% url 'user:user_logout' %}">Logout</a>
       </div>
       <div class="btn">
         <i class="fas fa-bars menu-btn"></i>
@@ -45,7 +45,11 @@
                         <img src="{% static 'images\img.jpg (2).jpg' %}" class="img-radius" alt="User-Profile-Image">
                     </div>
                     
-                    <h6 class="f-w-700 name">Nafisa Tabassum</h6>
+                    <h6 class="f-w-700 name">
+                      {% if user.is_authenticated%}
+                        {{request.user.username}}
+                      {% endif %}
+                    </h6>
                     <p>User</p></div>
                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                 
@@ -56,11 +60,19 @@
                     <div class="row info1">
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600 name1">Name</p>
-                        <h6 class="text-muted f-w-400">Nafisa Tabassum</h6>
+                        <h6 class="text-muted f-w-400">
+                          {% if user.is_authenticated%}
+                            {{request.user.username}}
+                          {% endif %}
+                        </h6>
                     </div>
                         <div class="col-sm-6">
                             <p class="m-b-10 f-w-600 email">Email</p>
-                            <h6 class="text-muted f-w-400">oeshy@gmail.com</h6>
+                            <h6 class="text-muted f-w-400">
+                              {% if user.is_authenticated%}
+                                {{request.user.email}}
+                              {% endif %}
+                            </h6>
                         </div>
                        
                     </div>

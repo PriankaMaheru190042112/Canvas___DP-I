@@ -37,7 +37,7 @@
           <a href="/user/user_home">Home</a>
           <a href="/user/user_profile">Profile</a>
           <a href="/user/user_gallery" class="active">Gallery</a>
-          <a href="#">Logout</a>
+          <a href="{% url 'user:user_logout' %}">Logout</a>
         </div>
         <div class="btn">
           <i class="fas fa-bars menu-btn"></i>
@@ -91,6 +91,42 @@
              
           </div>
         </section>
+
+        {% comment %} Rating {% endcomment %}
+        <form class="rating">
+          <label>
+            <input type="radio" name="stars" value="1" />
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>   
+          </label>
+          <label>
+            <input type="radio" name="stars" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="5" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+        </form>
+
+        {% comment %} Rating {% endcomment %}
                 
               </div>
           </div>
@@ -100,7 +136,16 @@
       {% comment %} Setion ends {% endcomment %}
   
   
-      {% comment %} <script type="text/javascript">
+      <script type="text/javascript">
+
+        {% comment %} rating {% endcomment %}
+        $(':radio').change(function() {
+          console.log('New star rating: ' + this.value);
+        });
+
+        {% comment %} rating ends {% endcomment %}
+
+
       //javascript for navigation bar effect on scroll
       window.addEventListener("scroll", function(){
         var header = document.querySelector("header");
