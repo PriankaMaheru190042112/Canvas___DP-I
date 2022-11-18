@@ -22,7 +22,7 @@ from .forms import CreateUserForm,EventForm
 def eventform(request):
    
     if request.method == "POST":
-        name = request.POST.get('name', '')
+        name = request.POST.get('name')
         desc = request.POST.get('description')
         start_date= request.POST.get('start_date',None)
         start_time = request.POST.get('start_time',None)
@@ -39,16 +39,17 @@ def eventform(request):
         event= Event.objects.create(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
                      fee=fee, genre=genre)
         
-        event.save()
+        print(images)
 
         
         for i in images:
-               e= Event.objects.get(name = name)
-               image = Image.objects.create(event_id= e, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
+            #    e= Event.objects.get(name = name)
+               print(i, len(i), 'inner loop')
+               image = Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
             #    event.image = image
                image.save() 
         
-    
+        event.save()
         
         
 
