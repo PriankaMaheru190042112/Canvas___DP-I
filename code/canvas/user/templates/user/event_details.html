@@ -13,17 +13,21 @@
         <div> {{object.name}} will take place:</div>
     </div>
     <div class="col-7">    
-       <div id="event-box"> {{object.start_date|date:"M d, Y"}}</div>
-       <div id="eventssss">{{object.start_time|time:"H:m:s"}}</div
+       <div id="event-box"> {{object.start_date|date:"M d, Y"}}
+      {{object.start_time|time:"H:m:s"}}</div>
     </div>
   </div>     
      <div> Time left: </div>  
       
 
      <div id="countdown-box" class="text-center mt-3 h1">  
+        
+     </div>
+    
+     <div>
+      
 
      </div>
-      
       
        
 {% endblock content %}

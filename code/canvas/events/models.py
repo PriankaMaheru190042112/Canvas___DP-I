@@ -15,8 +15,8 @@ from authentication_user.models import User
 # Create your models here.
 
 class Event(models.Model):
-    id= models.IntegerField(primary_key=True)
-    name = models.CharField( max_length=200)
+    event_id= models.AutoField(primary_key=True)
+    name = models.CharField(max_length=200 , null=False)
     description = models.CharField( max_length=200)
     start_date= models.DateField(blank=True, null=True)
     start_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
@@ -24,8 +24,7 @@ class Event(models.Model):
     end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
     genre= models.CharField(max_length=200)
     fee= models.IntegerField(max_length=200, default=0, null=True)
-    # organization= models.ForeignKey(Organization, on_delete=models.CASCADE)
-
+   
 
     def __str__(self):
         return str(self.name)
@@ -39,16 +38,13 @@ class Event(models.Model):
     def get_absolute_url3(self):
         return reverse('user:event_detail', kwargs={'pk': self.pk})        
     
-def get_image_filename(instance, filename):
-        name = instance.event.name
-        slug = slugify(name)
-        return "images/%s-%s" % (slug, filename)  
-   
-
 class Image(models.Model):
+    
+    def get_folder_name(self, filename):
+        return f'{self.event_id}/{filename}'
+
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
-    image= models.ImageField(upload_to=get_image_filename, verbose_name='Image')
-    # img_path = models.ImageField(upload_to = 'event_images')
+    image= models.ImageField(upload_to=get_folder_name, verbose_name='Image')
     img_price =models.IntegerField(max_length = 100, default=0, null= True)
     frame_height = models.IntegerField(max_length=200)
     frame_width = models.IntegerField(max_length= 200)
@@ -58,8 +54,8 @@ class Image(models.Model):
     # price= models.IntegerField(max_length=200)
     
 
-    # def __str__(self):
-    #     return str(self.event_id)
+    def __str__(self):
+        return str(self.event_id)
 
 
 class Genre(models.Model):

@@ -54,7 +54,7 @@
     {% block js %} {% endblock%} 
 </section>
 
-    <section class="section-main">
+    {% comment %} <section class="section-main">
 
         <div class="rt-container">
           <div class="col-rt-12">
@@ -100,7 +100,7 @@
       {% comment %} Setion ends {% endcomment %}
   
   
-      <script type="text/javascript">
+      {% comment %} <script type="text/javascript">
       //javascript for navigation bar effect on scroll
       window.addEventListener("scroll", function(){
         var header = document.querySelector("header");
@@ -125,7 +125,7 @@
           <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
           <!-- Gallery JS -->
           <script src="{% static 'js/user_gallery_js.js' %}"></script>
-  
+   {% endcomment %} 
 
 </body>
 </html>
