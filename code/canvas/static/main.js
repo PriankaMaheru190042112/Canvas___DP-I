@@ -20,7 +20,7 @@ setInterval(()=>{
 //    console.log(d)
     if(diff>0){
        
-        countdownBox.innerHTML = d + " days, " +h + " hours, "+ m + " minutes, " +s  +" secondssssss"
+        countdownBox.innerHTML = d + " days, " +h + " hours, "+ m + " minutes, " +s  +" seconds"
 
     }
 

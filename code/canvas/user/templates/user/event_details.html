@@ -3,112 +3,118 @@
 
 {% block scripts %}
 
-       <script src={% static 'main.js' %} defer> </script>
-       <script src="{% static 'js/user_gallery_js.js' %}"></script>
+  <script src={% static 'main.js' %} defer> </script>
+  <script src="{% static 'js/user_gallery_js.js' %}"></script>
 
 {% endblock scripts %}
 
 {% block content %}
+
   <div class="row">
     <div class="col-5">
         <div> {{object.name}} will take place:</div>
     </div>
     <div class="col-7">    
-       <div id="event-box"> {{object.start_date|date:"M d, Y"}}
-      {{object.start_time|time:"H:m:s"}}</div>
+      <div id="event-box"> {{object.start_date|date:"M d, Y"}}
+        {{object.start_time|time:"H:m:s"}}
+      </div>
     </div>
-  </div>     
-     <div> Time left: </div>  
+  </div>
+  
+  
+  <div> 
+    Time left: 
+  </div>  
       
 
-     <div id="countdown-box" class="text-center mt-3 h1">  
+  <div id="countdown-box" class="text-center mt-3 h1">  
         
-     </div>
+  </div>
 
-     <section class="section-main">
+  <section class="section-main">
 
-      <div class="rt-container">
-        <div class="col-rt-12">
-            <div class="Scriptcontent">
-      <section>
-        <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
-        <div class="gallery">
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\1.jpg' %}" data-src="{% static 'images\1.jpg' %}" data-image="{% static 'images\1.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
+    <div class="rt-container">
+      <div class="col-rt-12">
+        <div class="Scriptcontent">
+          <section>
+            <div class="gallery">
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\1.jpg' %}" data-src="{% static 'images\1.jpg' %}" data-image="{% static 'images\1.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>
+
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\2.jpg' %}" data-src="{% static 'images\2.jpg' %}" data-image="{% static 'images\2.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>
+
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\3.jpg' %}" data-src="{% static 'images\3.jpg' %}" data-image="{% static 'images\3.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>
+
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\4.jpg' %}" data-src="{% static 'images\4.jpg' %}" data-image="{% static 'images\4.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>
+
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\5.jpg' %}" data-src="{% static 'images\5.jpg' %}" data-image="{% static 'images\5.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>
+
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder" src="{% static 'images\6.jpg' %}" data-src="{% static 'images\6.jpg' %}" data-image="{% static 'images\6.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption 1</span></div>
+              </div>         
             </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\2.jpg' %}" data-src="{% static 'images\2.jpg' %}" data-image="{% static 'images\2.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\3.jpg' %}" data-src="{% static 'images\3.jpg' %}" data-image="{% static 'images\3.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\4.jpg' %}" data-src="{% static 'images\4.jpg' %}" data-image="{% static 'images\4.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\5.jpg' %}" data-src="{% static 'images\5.jpg' %}" data-image="{% static 'images\5.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\6.jpg' %}" data-src="{% static 'images\6.jpg' %}" data-image="{% static 'images\6.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-          
-           
-        </div>
-      </section>
+          </section>
               
-            </div>
-        </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
     {% comment %} Setion ends {% endcomment %}
 
 
-      {% comment %} Rating {% endcomment %}
-      <form class="rating">
-        <label>
-          <input type="radio" name="stars" value="1" />
-          <span class="icon">★</span>
-        </label>
-        <label>
-          <input type="radio" name="stars" value="2" />
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-        </label>
-        <label>
-          <input type="radio" name="stars" value="3" />
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>   
-        </label>
-        <label>
-          <input type="radio" name="stars" value="4" />
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-        </label>
-        <label>
-          <input type="radio" name="stars" value="5" />
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-          <span class="icon">★</span>
-        </label>
-      </form>
+  {% comment %} Rating {% endcomment %}
+  <section>
+  <form class="rating">
+    <label>
+      <input type="radio" name="stars" value="1" />
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" name="stars" value="2" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" name="stars" value="3" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>   
+    </label>
+    <label>
+      <input type="radio" name="stars" value="4" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+    <label>
+      <input type="radio" name="stars" value="5" />
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+      <span class="icon">★</span>
+    </label>
+  </form>
+</section>
 
-      {% comment %} Rating {% endcomment %}
+  {% comment %} Rating {% endcomment %}
 
-      
-
-     </div>
       
        
 {% endblock content %}
