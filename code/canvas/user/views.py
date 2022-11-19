@@ -96,4 +96,9 @@ def user_gallery(request):
 
 class EventDetail(DetailView):
     model= Event
-    template_name= 'user/event_details.html'    
+    template_name= 'user/event_details.html' 
+    
+    
+def user_cart(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_cart.html')        
