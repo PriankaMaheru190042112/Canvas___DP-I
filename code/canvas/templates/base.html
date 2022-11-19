@@ -44,72 +44,26 @@
         </div>
       </header>
 
-  <section class="countdown" style = "padding-top: 100px;" >
-    <div class="container mt-3">
+    <section class="countdown" style = "padding-top: 100px;" >
+      <div class="container mt-3">
 
-       {% block content %}
-       
-       {% endblock content %}
-    </div>
-    {% block js %} {% endblock%} 
-</section>
+        {% block content %}
+        
+        {% endblock content %}
+      </div>
+      {% block js %} {% endblock%} 
+    </section>
 
-    {% comment %} <section class="section-main">
-
-        <div class="rt-container">
-          <div class="col-rt-12">
-              <div class="Scriptcontent">
-                <h2>Gallery</h2>
-        <section>
-          <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
-          <div class="gallery">
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\1.jpg' %}" data-src="{% static 'images\1.jpg' %}" data-image="{% static 'images\1.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\2.jpg' %}" data-src="{% static 'images\2.jpg' %}" data-image="{% static 'images\2.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\3.jpg' %}" data-src="{% static 'images\3.jpg' %}" data-image="{% static 'images\3.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\4.jpg' %}" data-src="{% static 'images\4.jpg' %}" data-image="{% static 'images\4.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\5.jpg' %}" data-src="{% static 'images\5.jpg' %}" data-image="{% static 'images\5.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-              <div class="gallery-item item-3x4">
-                  <img class="thumb placeholder" src="{% static 'images\6.jpg' %}" data-src="{% static 'images\6.jpg' %}" data-image="{% static 'images\6.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                  <div class="caption"><span>Caption </span></div>
-              </div>
-            
-             
-          </div>
-        </section>
-
-       
-                
-              </div>
-          </div>
-          </div>
-      </section>
-  
-      {% comment %} Setion ends {% endcomment %}
   
   
-      <script type="text/javascript">
+    <script type="text/javascript">
 
-        {% comment %} rating {% endcomment %}
-        $(':radio').change(function() {
-          console.log('New star rating: ' + this.value);
-        });
+      {% comment %} rating {% endcomment %}
+    $(':radio').change(function() {
+        console.log('New star rating: ' + this.value);
+    });
 
-        {% comment %} rating ends {% endcomment %}
+      {% comment %} rating ends {% endcomment %}
 
 
       //javascript for navigation bar effect on scroll
@@ -132,11 +86,9 @@
       });
       </script>
   
-          <!-- jQuery -->
-          <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-          <!-- Gallery JS -->
-          <script src="{% static 'js/user_gallery_js.js' %}"></script>
-   {% endcomment %} 
+    <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+   
 
 </body>
 </html>
