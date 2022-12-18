@@ -10,6 +10,9 @@ from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+
+
 
 def registerlogin(request):
     # return HttpResponse("Starting the project")
@@ -32,7 +35,7 @@ def registerlogin(request):
         password = request.POST.get('password')  
         print("done")
         user = authenticate(request, username=name , password = password)
-        if (user is not None):
+        if (user is not None and user.isUser==True):
                 login(request, user)
                 print("success")
                 return redirect('/user/user_home/')
@@ -56,7 +59,7 @@ def user_home(request):
 
    today = now().date()
    objects= Event.objects.filter(start_date__gte=today).order_by('start_date')[:5]
-   print("blablabla")
+   
 
    if q =="Photography":
         today = now().date()
@@ -73,6 +76,9 @@ def user_home(request):
         'genres': genres ,
         'objects': objects
     }
+
+   current_user =request.user
+   print(current_user.username)  
 
    return render(request, 'user/user_home.html',context) 
 
@@ -97,3 +103,17 @@ def user_gallery(request):
 class EventDetail(DetailView):
     model= Event
     template_name= 'user/event_details.html'    
+    # queryset= Event.objects.filter()
+    context_object_name= 'event_id'
+    
+    def get_context_data(self, **kwargs):
+        context=super(EventDetail,self).get_context_data(**kwargs)
+        context['image']= Image.objects.filter(event_id= self.object)
+        return context
+
+# def event_detail_view(request, event_id):
+#     context={}
+#     context["data"] = Event.objects.get(event_id=event_id)
+    
+
+#     return render(request, 'event_detail.html',context)

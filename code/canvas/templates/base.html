@@ -25,7 +25,7 @@
     {% endblock scripts %}
 
     <title>User | Gallery</title>
-    <styl> {% block css %} {% endblock %}</style>
+    <style> {% block css %} {% endblock %}</style>
 </head>
 <body>
     <header>
@@ -93,7 +93,8 @@
         </section>
 
         {% comment %} Rating {% endcomment %}
-        <form class="rating">
+
+        {% comment %} <form class="rating">
           <label>
             <input type="radio" name="stars" value="1" />
             <span class="icon">★</span>
@@ -124,7 +125,7 @@
             <span class="icon">★</span>
             <span class="icon">★</span>
           </label>
-        </form>
+        </form> {% endcomment %}
 
         {% comment %} Rating {% endcomment %}
                 
@@ -170,7 +171,7 @@
           <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
           <!-- Gallery JS -->
           <script src="{% static 'js/user_gallery_js.js' %}"></script>
-   {% endcomment %} 
+   
 
 </body>
 </html>

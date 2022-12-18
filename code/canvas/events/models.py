@@ -6,7 +6,7 @@ from unicodedata import name
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.urls import reverse
-from datetime import datetime
+from datetime import date, datetime
 from cryptography.fernet import Fernet
 from django.contrib.auth.models import AbstractUser
 import os
@@ -20,7 +20,7 @@ class Event(models.Model):
     description = models.CharField( max_length=200)
     start_date= models.DateField(blank=True, null=True)
     start_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
-    end_date= models.DateTimeField(null= True, blank=True)
+    end_date= models.DateField(null= True, blank=True)
     end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
     genre= models.CharField(max_length=200)
     fee= models.IntegerField(max_length=200, default=0, null=True)
@@ -36,7 +36,13 @@ class Event(models.Model):
     def get_absolute_url2(self):
         return reverse('organization:event_detail', kwargs={'pk': self.pk}) 
     def get_absolute_url3(self):
-        return reverse('user:event_detail', kwargs={'pk': self.pk})        
+        return reverse('user:event_detail', kwargs={'pk': self.pk})  
+
+    def start_date_difference(self):
+        return (date.today() - self.start_date) == 0   
+
+    def start_time_difference(self):
+        return(datetime.datetime.now() -self.start_time) == 0        
     
 class Image(models.Model):
     

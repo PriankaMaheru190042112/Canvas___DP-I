@@ -43,8 +43,7 @@ def eventform(request):
 
         
         for i in images:
-            #    e= Event.objects.get(name = name)
-               print(i, len(i), 'inner loop')
+            #    e= Event.objects.get(name = n
                image = Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
             #    event.image = image
                image.save() 
@@ -80,7 +79,7 @@ def registerlogin(request):
         password = request.POST.get('password')  
         print("done")
         org = authenticate(request, username= name , password = password)
-        if (org is not None):
+        if (org is not None and org.isOrganization==True):
                 login(request, org)
                 print("success")
                 return redirect('/organization/organization_home/')
