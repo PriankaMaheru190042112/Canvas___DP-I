@@ -9,6 +9,8 @@ urlpatterns = [
       path('user_home/',views.user_home , name='user_home'),  
       path('user_profile/',views.user_profile , name='user_profile'),  
       path('user_logout/',views.user_logout , name='user_logout'),
-      path('eventdetail/<int:pk>/', EventDetail.as_view(),name= 'event_detail'), 
-      path('user_gallery/',views.user_gallery , name='user_gallery'),  
+      path('eventdetail/<int:pk>/', EventDetail.as_view(),name= 'event_detail'),   
+      path('user_gallery/',views.user_gallery , name='user_gallery'), 
+      path('user_cart/',views.user_cart , name='user_cart')
+        
 ]

@@ -44,8 +44,8 @@
         </div>
       </header>
 
-  <section class="countdown" style = "padding-top: 100px;" >
-    <div class="container mt-3">
+    <section class="countdown" style = "padding-top: 100px;" >
+      <div class="container mt-3">
 
        {% block content %}
        
@@ -137,14 +137,14 @@
       {% comment %} Setion ends {% endcomment %}
   
   
-      <script type="text/javascript">
+    <script type="text/javascript">
 
-        {% comment %} rating {% endcomment %}
-        $(':radio').change(function() {
-          console.log('New star rating: ' + this.value);
-        });
+      {% comment %} rating {% endcomment %}
+    $(':radio').change(function() {
+        console.log('New star rating: ' + this.value);
+    });
 
-        {% comment %} rating ends {% endcomment %}
+      {% comment %} rating ends {% endcomment %}
 
 
       //javascript for navigation bar effect on scroll

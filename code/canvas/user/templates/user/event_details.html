@@ -3,11 +3,13 @@
 
 {% block scripts %}
 
-       <script src={% static 'main.js' %} defer> </script>
+  <script src={% static 'main.js' %} defer> </script>
+  <script src="{% static 'js/user_gallery_js.js' %}"></script>
 
 {% endblock scripts %}
 
 {% block content %}
+
   <div class="row">
     <div class="col-5">
       <div id="event_name"> <h1>{{event_id.name}} </h1></div>

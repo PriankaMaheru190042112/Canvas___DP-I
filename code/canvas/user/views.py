@@ -102,7 +102,8 @@ def user_gallery(request):
 
 class EventDetail(DetailView):
     model= Event
-    template_name= 'user/event_details.html'    
+    template_name= 'user/event_details.html' 
+
     # queryset= Event.objects.filter()
     context_object_name= 'event_id'
     
@@ -117,3 +118,8 @@ class EventDetail(DetailView):
     
 
 #     return render(request, 'event_detail.html',context)
+    
+    
+def user_cart(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_cart.html')        
