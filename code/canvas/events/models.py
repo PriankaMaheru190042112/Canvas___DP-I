@@ -42,8 +42,24 @@ class Event(models.Model):
         return (date.today() - self.start_date) == 0   
 
     def start_time_difference(self):
-        return(datetime.datetime.now() -self.start_time) == 0        
-    
+        time = datetime.now().strftime("%H:%M")
+        diff=  time - self.start_time
+        return(diff) < 0     
+
+    # def one_hr_difference(self):
+    #     time = datetime.now()
+    #     start_time= self.start_time
+    #     diff=  time - datetime.strptime(start_time,"%H:%M:%S")
+    #     diff= diff.total_seconds() / (60*60)
+    #     return (diff) > 15
+
+    def object_name(self):   
+        return(self.name)
+
+    def join_url(self):
+        return reverse('user:user_join_form', kwargs={'pk': self.pk})
+
+
 class Image(models.Model):
     
     def get_folder_name(self, filename):
@@ -68,6 +84,16 @@ class Genre(models.Model):
     genre_id =models.IntegerField(primary_key= True)
     genre_name= models.CharField(max_length=200)
 
+
+
+class Participant(models.Model):
+    participant_id= models.AutoField(primary_key=True)
+    participant_name= models.CharField(max_length=200)
+    event_name=models.CharField(max_length=200)
+    code= models.IntegerField(max_length=200)
+
+    def __str__(self):
+        return str(self.participant_id)
 
 
 
