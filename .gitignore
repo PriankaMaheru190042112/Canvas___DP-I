@@ -3,3 +3,5 @@
 *.pyc
 db.*
 *.idea
+*.png
+*.jpg
