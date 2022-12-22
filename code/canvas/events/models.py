@@ -12,10 +12,13 @@ from django.contrib.auth.models import AbstractUser
 import os
 from django.template.defaultfilters import slugify
 from authentication_user.models import User
+from django.conf import settings
+
 # Create your models here.
 
 class Event(models.Model):
     event_id= models.AutoField(primary_key=True)
+    org = models.CharField(max_length=200,null=True)
     name = models.CharField(max_length=200 , null=False)
     description = models.CharField( max_length=200)
     start_date= models.DateField(blank=True, null=True)
@@ -24,6 +27,7 @@ class Event(models.Model):
     end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
     genre= models.CharField(max_length=200)
     fee= models.IntegerField(max_length=200, default=0, null=True)
+    is_approved= models.BooleanField(default=False)
    
 
     def __str__(self):
@@ -38,12 +42,31 @@ class Event(models.Model):
     def get_absolute_url3(self):
         return reverse('user:event_detail', kwargs={'pk': self.pk})  
 
+    def get_absolute_url4(self):
+        return reverse('Admin:event_detail', kwargs={'pk': self.pk})      
+
     def start_date_difference(self):
         return (date.today() - self.start_date) == 0   
 
     def start_time_difference(self):
-        return(datetime.datetime.now() -self.start_time) == 0        
-    
+        time = datetime.now().strftime("%H:%M")
+        diff=  time - self.start_time
+        return(diff) < 0     
+
+    # def one_hr_difference(self):
+    #     time = datetime.now()
+    #     start_time= self.start_time
+    #     diff=  time - datetime.strptime(start_time,"%H:%M:%S")
+    #     diff= diff.total_seconds() / (60*60)
+    #     return (diff) > 15
+
+    def object_name(self):   
+        return(self.name)
+
+    def join_url(self):
+        return reverse('user:user_join_form', kwargs={'pk': self.pk})
+
+
 class Image(models.Model):
     
     def get_folder_name(self, filename):
@@ -68,6 +91,16 @@ class Genre(models.Model):
     genre_id =models.IntegerField(primary_key= True)
     genre_name= models.CharField(max_length=200)
 
+
+
+class Participant(models.Model):
+    participant_id= models.AutoField(primary_key=True)
+    participant_name= models.CharField(max_length=200)
+    event_name=models.CharField(max_length=200)
+    code= models.IntegerField(max_length=200)
+
+    def __str__(self):
+        return str(self.participant_id)
 
 
 

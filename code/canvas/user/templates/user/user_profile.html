@@ -33,7 +33,9 @@
 
     
     <section class="section-main">
-      {% comment %} Oeshy start  {% endcomment %}
+      
+      {% if user.is_authenticated%}
+
       <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
@@ -47,9 +49,9 @@
                     </div>
                     
                     <h6 class="f-w-700 name">
-                      {% if user.is_authenticated%}
+                
                         {{request.user.username}}
-                      {% endif %}
+                
                     </h6>
                     <p>User</p></div>
                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
@@ -62,60 +64,66 @@
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600 name1">Name</p>
                         <h6 class="text-muted f-w-400">
-                          {% if user.is_authenticated%}
+                        
                             {{request.user.username}}
-                          {% endif %}
+                      
                         </h6>
                     </div>
                         <div class="col-sm-6">
                             <p class="m-b-10 f-w-600 email">Email</p>
                             <h6 class="text-muted f-w-400">
-                              {% if user.is_authenticated%}
+                          
                                 {{request.user.email}}
-                              {% endif %}
+                        
                             </h6>
                         </div>
                        
                     </div>
                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
 
-                    <div class="row">
+           <form action="/user/user_profile/" method="POST"> {% csrf_token %}
 
+                  <div class="row">    
+                    <div class="col-md-8">
+                    <div class="inputs px-4">
+                      <span>Old Password</span>
+                      <input type="password" class="form-control" name="pass1">
+                    </div>
+                  </div>
 
-                     <div class="col-md-8">
-                        <div class="inputs px-4">
-                          <span>Name</span>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-
-                     <div class="col-md-8">
-                        <div class="inputs px-4">
-                          <span>Email</span>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-
-
+                   <div class="row">    
                       <div class="col-md-8">
                       <div class="inputs px-4">
-                        <span>Password</span>
-                        <input type="text" class="form-control">
+                        <span>New Password</span>
+                        <input type="password" class="form-control" name="pass2">
                       </div>
                     </div>
+                     
+                    <div class="btn">
+                      <button type="submit" class="submit" name="update_pass_btn">Update</button></div>
+                  </div>
 
-
+                </form>
+          
+                <div class="btn">
+                    <button type="submit" class="submit" name="update_img_btn">Update</button></div>
+                </div>
+                
+                <form action="/user/user_profile/" method="POST"> {% csrf_token %}   
                     <div class="col-md-8">
                       <div class="inputs px-4">
                         <div class="profile-pic-div">
-                            <label for="file" id="uploadBtn">Choose Photo</label>
-                            <input type="file" id="file">
+                          <br>
+                            <label for="file" id="uploadBtn">Choose Photobjkhjcghcghcgh</label>
+                            <input type="file" id="file" name="pro_img">
                           </div>
                         </div>
                     </div>
-                <div class="btn">
-                    <button type="submit" class="submit" name="registerbtn">Update</button></div>
-                </div>
+
+              
+
+              </form>
+
                 </div>
             </div>
         </div>
@@ -125,6 +133,7 @@
     </div>
 </div>
     
+{% endif %}
     </section>
 
     <script type="text/javascript">

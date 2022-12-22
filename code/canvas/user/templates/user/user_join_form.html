@@ -1,0 +1,21 @@
+<form method="POST" action="/user/user_join_form/{{e.event_id}}/">{% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Enter your username">
+
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="number" class="form-control" id="code" name="code" placeholder="Enter the code to join ">
+    </div>
+   <br>
+
+   <input type="hidden" name="eid" id="eid" value="{{e.event_id}}"> 
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+  {{e.name}}

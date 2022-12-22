@@ -1,5 +1,6 @@
+import random
 from django.shortcuts import render
-from events.models import Event,Image, Genre
+from events.models import Event,Image, Genre,Participant
 from django.views.generic import ListView, DetailView
 # Create your views here.
 from django.utils.timezone import now
@@ -10,8 +11,7 @@ from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-
+from django.contrib.auth.hashers import make_password
 
 
 def registerlogin(request):
@@ -54,9 +54,15 @@ def user_home(request):
     # return HttpResponse("Starting the project")
    objects= Event.objects.all()
    genres = Genre.objects.all()
-   q= request.POST.get('genre')
-   print(q)
+   participants= Participant.objects.filter(participant_name= request.user.username)
 
+   print(participants)
+   if(participants):
+    flag=1
+   else:
+    flag=0 
+
+   q= request.POST.get('genre')
    today = now().date()
    objects= Event.objects.filter(start_date__gte=today).order_by('start_date')[:5]
    
@@ -74,11 +80,39 @@ def user_home(request):
    context={
 
         'genres': genres ,
-        'objects': objects
+        'objects': objects,
+        'participants': participants,
+        'flag': flag
     }
 
-   current_user =request.user
-   print(current_user.username)  
+   
+
+   if request.method == 'POST' and 'paybtn' in request.POST:
+    ename=request.POST.get('ename')
+    print(ename)
+
+    current_user =request.user.username
+    print(current_user)  
+    code = random.randint(1000,2000)
+    print(code)
+    
+    participant= Participant.objects.create(participant_name=current_user, event_name= ename, code=code)
+    participant.save()
+
+
+   if request.method == 'POST' and 'pubbtn' in request.POST:
+    pub=request.POST.get('pub')
+    print(pub)
+
+    current_user =request.user.username
+    print(current_user)  
+    code = 0
+    print(code)
+    
+    participant= Participant.objects.create(participant_name=current_user, event_name= pub, code=code)
+    participant.save()
+   
+   
 
    return render(request, 'user/user_home.html',context) 
 
@@ -92,7 +126,26 @@ def user_logout(request):
 
 
 def user_profile(request):  
-    # return HttpResponse("Starting the project")
+    
+    if request.method == 'POST' and 'update_pass_btn' in request.POST:
+       pass1= request.POST.get('pass1')
+       pass2= request.POST.get('pass2')
+       pro_img= request.FILES.get('pro_img')
+       current_user = request.user.username
+
+       print(pass1)
+       print(pass2)
+       u = authenticate(request, username=current_user, password = pass1)
+       if (u is not None and u.isUser==True):
+           print("vhjfvjehfjj")
+           u.password= make_password(pass2)
+           u.save()
+
+
+
+     
+
+
     return render(request, 'user/user_profile.html') 
 
 
@@ -123,3 +176,33 @@ class EventDetail(DetailView):
 def user_cart(request):
     # return HttpResponse("Starting the project")
     return render(request, 'user/user_cart.html')        
+
+
+def user_virtual_box(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_virtual_box.html')        
+
+
+def user_join_form(request,pk):
+    e = Event.objects.filter(event_id= pk)
+
+    if request.method == "POST":
+        name = request.POST.get('name')
+        code = request.POST.get('code')
+        eid= request.POST.get('eid')
+        print(name)
+        print(code)
+        
+        join = Participant.objects.get(participant_name= name, code=code)
+
+        if(join):
+            print(join.participant_id)
+            print(eid)
+            return redirect('user:event_detail', eid)
+           
+
+
+
+    return render(request, 'user/user_join_form.html', {'e': e[0]})
+
+    

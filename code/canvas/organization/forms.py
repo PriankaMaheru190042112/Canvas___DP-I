@@ -47,35 +47,3 @@ class CreateUserForm(UserCreationForm):
         fields = ['email','username', 'password1', 'password2']
 
 
-class EventForm(forms.ModelForm):
-
-    event_name = forms.CharField(widget=forms.TextInput(attrs={
-        "type": "text",
-        "placeholder": "Name"
-    }))
-    event_description = forms.CharField(max_length=200)
-    start_date = forms.DateField() 
-    start_time= forms.TimeField()
-    end_date= forms.DateField() 
-    end_time= forms.TimeField() 
-    is_paid= forms.BooleanField(required=False, label="It is a paid event")
-
-    fee = forms.IntegerField(widget=forms.NumberInput(attrs={
-        "type": "number",
-        "placeholder": "fee"
-    })) 
-
-    genre= forms.ChoiceField(choices= genres)
-
-    class Meta:
-        model = Event
-        fields = ['event_name', 'event_description', 'start_date','start_time','end_date', 'end_time','is_paid','fee','genre']
-
-
-# class ImageForm(forms.ModelForm):
-#     class Meta:
-#         model = Image
-#         fields = ['image']
-#         widgets = {
-#             'image': ClearableFileInput(attrs={'multiple': True}),
-#         }    

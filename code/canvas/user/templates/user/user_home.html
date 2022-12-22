@@ -9,7 +9,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/user_home_style.css' %} ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+        </script>
 
+  
   </head>
   <body>
 
@@ -44,7 +49,7 @@
       {% if user.is_authenticated%}
          
      <h1> hello {{request.user.username}} </h1>   
-     {% endif %}
+
   
       <div >
         <form action="{% url 'user:user_home' %}" method="post"> {% csrf_token %}
@@ -60,81 +65,108 @@
 
     
           <div class="container">
-            {% for object in objects %}     
+
+            {% for object in objects %} 
+            {% if object.is_approved == True %}
+            <div>     
             <div class="filterDiv">
                 <div class="card">
                     <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
                     <div class="container2">
                         <div id= "eventName" class="text-dark">
-                            <h4><b>{{object.name}}</b></h4> 
-                            <p>{{object.start_date}}</p> 
+                           <div id="event_name">{{object.name}}</div> 
+                           <div id="event_date">{{object.start_date}} </div>
                             <b><p> {{object.genre}}</p></b>
 
-                             {% if object.fee %}
-                           <a href="#" data-bs-toggle="modal" data-bs-target="#event_register"> It's a private event,Register NOW!! </a>
-                             
-                             {% endif %}
-                            <br>
-                            
-                            {% if object.start_date_difference %}
-                                 {% if object.start_time_difference %}
-                 
-                                      <a href={{object.get_absolute_url3}}>Event is going on!!!</a>
+                            {% if object.fee %}
 
-                                 {% else %}
-                                       <a href={{object.get_absolute_url3}}>Event is today!!!</a>
+                        
 
-                                 {% endif %}
+                               <div id ="{{object.event_id}}" ></div>
+                                      
+                                <div id="x{{object.event_id}}" style="display:block"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ object.name }}"> It's a private event,Register NOW!! </button> </div>
+
+                                </div>
+
+                                                                                               <!-- Modal for event register payment-->
+                                                                  <div class="modal fade" id="{{object.name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                      <div class="modal-content">
+                                                                        <div class="modal-header text-dark">
+                                                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body text-dark">
+                                                                         You are registering for {{object.name}}
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                                                          <form method="POST" action="/user/user_home/">{% csrf_token %}
+                                                                            
+                                                                          <input type="hidden" name="ename" id="ename" value= "{{object.name}}"> 
+                                                                            <button type="submit" class="btn btn-primary" name="paybtn" id="paybtn" >Pay with Bkash</button>
+                                                                          </form>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+
 
                             {% else %}
-                                 <a href={{object.get_absolute_url3}}>Event Details</a> 
+                        <form method="POST" action="/user/user_home/">{% csrf_token %}
+                          <input type="hidden" name="pub" id="pub" value= "{{object.name}}"> 
+
+                          <div id="z{{object.event_id}}">  </div>
+                          <div id="y{{object.event_id}}" style="display:block"> <button type="submit" class="btn btn-primary" name="pubbtn" id="pubbtn">  This is a public event. Click if you are interested!!! </button> </div>
+
+                        </form>     
+                            {% endif %}
+                            <br>
                             
+
+
+
+                            {% if object.start_date_difference %}
+                                    {% if object.fee %}
+                                      <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
+
+                                      {% else %}
+                                      <a href={{object.get_absolute_url3}}>Event is going on, JOIN NOW!!!</a>
+
+                                      {% endif %}
+            
+                            {% else %}
+                                  {% if object.fee %}
+                                  <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
+
+                                  {% endif %}
+                              
+                                  <a href={{object.get_absolute_url3}}>Event Details</a>                           
+                                  
                             {% endif %}
                             
-                             
-                               
-                            
-                          
                         </div>
-                        
-                        
-
-
- <!-- Button trigger modal -->
-{% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#event_register">
-  Launch demo modal
-</button> {% endcomment %}
-
-<!-- Modal for event register payment-->
-<div class="modal fade" id="event_register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header text-dark">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-dark">
-        bjjjhjkhjkkhj
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Pay with Bkash</button>
-      </div>
-    </div>
-  </div>
-</div>
-
                     </div>
                 </div>
             </div>
-            {% endfor %} 
-    
-          
+            {% endif %}
+            {% endfor %}        
+            {% endif %}
+      
           </div>
-
+        
 
   </section> 
 
+
+  <div class="container"> <h1>Notification Tab </h1> 
+    
+                    <div id="notify">  </div>
+                     <br>    
+                     
+                    </div>
+  
 
 {% comment %} For filtering {% endcomment %}
 <script>
@@ -204,8 +236,139 @@
     closeBtn.addEventListener("click", () => {
       menu.classList.remove('active');
     });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
+    </script>
+
+    <script>
+      const dates= [
+      {% for participant in  participants %}
+      {% for object in objects %}
+      {% if participant.event_name == object.name %}
+      {
+       edate: "{{object.start_date}}",
+       etime: "{{object.start_time}}",
+       pname: "{{participant.participant_name}}",
+       ename: "{{participant.event_name}}"
+      },
+      {% endif %} 
+      {% endfor %}
+      {% endfor %}
+      ]
+
+      for(let i=0 ; i< dates.length; i++){
+
+        const now= new Date().getTime()
+        const edate= Date.parse(dates[i].edate)
+        console.log(edate)
+        const d= Math.floor((edate / (1000*60*60*24)) - (now /(1000*60*60*24)))
+        const h= Math.floor((edate  / (1000*60*60) - (now /(1000*60*60))) %24)
+        console.log(d)
+        console.log(h)
+
+       
+        if(d!=0 && h <= 6){
+          
+          s = dates[i].pname +"  has shown interest in " + dates[i].ename
+          console.log(s)     
+          document.getElementById("notify").innerHTML =  s
+
+        }
+
+
+      }
+
+  
+
+     const regbtn = [
+     {% for participant in  participants %}
+     {% for object in objects %}
+     {% if participant.event_name == object.name %}
+     {% if object.fee %}
+     {
+      pname: "{{participant.participant_name}}",
+      ename: "{{participant.event_name}}",
+      eid : "{{object.event_id}}"
+     },
+     {% endif %}
+     {% endif %} 
+     {% endfor %}
+     {% endfor %}
+     ]
+
+     const obj= [
+     {% for object in objects %}
+     {% if object.fee %}
+     {
+      edate: "{{object.start_date}}",
+      etime: "{{object.start_time}}",
+      eid : "{{object.event_id}}",
+      ename: "{{object.name}}"
+     },
+     {% endif %}
+     {% endfor %}
+     ]
+      
+     for(let j=0 ; j< obj.length; j++){
+       for(let k=0; k<regbtn.length; k++){
+            if(obj[j].ename == regbtn[k].ename){
+
+                    document.getElementById(regbtn[k].eid).innerHTML= "You Have registered for this event"
+                    document.getElementById('x'+ regbtn[k].eid).style.display= 'none'
+            }
+            
+        }
+     }
+
+     const pub_obj= [
+     {% for object in objects %}
+     {% if object.fee == null %}
+     {
+      edate: "{{object.start_date}}",
+      etime: "{{object.start_time}}",
+      eid : "{{object.event_id}}",
+      ename: "{{object.name}}"
+     },
+     {% endif %}
+     {% endfor %}
+     ]
+    
+      
+     const pub_btn = [
+     {% for participant in  participants %}
+     {% for object in objects %}
+     {% if participant.event_name == object.name %}
+     {% if object.fee == null %}
+     {
+      pname: "{{participant.participant_name}}",
+      ename: "{{participant.event_name}}",
+      eid : "{{object.event_id}}"
+     },
+     {% endif %}
+     {% endif %} 
+     {% endfor %}
+     {% endfor %}
+     ]
+     
+     for(let a=0 ; a< pub_obj.length; a++){
+     
+      for(let b=0; b<pub_btn.length; b++){
+           if(pub_obj[a].ename == pub_btn[b].ename){
+                 
+                   document.getElementById('z'+pub_btn[b].eid).innerHTML= "You Have registered for this event"
+                   document.getElementById('y'+ pub_btn[b].eid).style.display= 'none'
+           }
+           
+       }
+    }
+
+
+
+     
+    </script>  
+    
+    
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
   </body>
 </html>
