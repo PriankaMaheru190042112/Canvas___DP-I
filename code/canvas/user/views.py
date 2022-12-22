@@ -11,8 +11,7 @@ from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from django.db.models import Q
+from django.contrib.auth.hashers import make_password
 
 
 def registerlogin(request):
@@ -127,7 +126,26 @@ def user_logout(request):
 
 
 def user_profile(request):  
-    # return HttpResponse("Starting the project")
+    
+    if request.method == 'POST' and 'update_pass_btn' in request.POST:
+       pass1= request.POST.get('pass1')
+       pass2= request.POST.get('pass2')
+       pro_img= request.FILES.get('pro_img')
+       current_user = request.user.username
+
+       print(pass1)
+       print(pass2)
+       u = authenticate(request, username=current_user, password = pass1)
+       if (u is not None and u.isUser==True):
+           print("vhjfvjehfjj")
+           u.password= make_password(pass2)
+           u.save()
+
+
+
+     
+
+
     return render(request, 'user/user_profile.html') 
 
 

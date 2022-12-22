@@ -423,7 +423,7 @@ function getLoopedIndex(index) {
     return index;
 }
 
-// Re-maps a number from one range to another.
+// Re-maps a number from one range to another. 
 function mapRange(value, fromIn, toIn, fromOut, toOut) {
     return fromOut + (toOut - fromOut) * (value - fromIn) / (toIn - fromIn);
 }
