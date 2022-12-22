@@ -51,7 +51,7 @@ header{
   align-items: center;
   padding: 20px 100px;
   transition: 0.6s;
-}
+} 
 
 header.sticky{
   background: #1483D5;

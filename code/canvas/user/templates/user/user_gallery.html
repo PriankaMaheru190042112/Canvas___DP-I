@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,7 +19,8 @@
         </div>
         <a href="/user/user_home">Home</a>
         <a href="/user/user_profile">Profile</a>
-        <a href="/user/user_gallery" class="active">Gallery</a>
+        <a href="/user/user_gallery" class="active">Events</a>
+        <a href="/user/user_cart">Purchase</a>
         <a href="#">Logout</a>
       </div>
       <div class="btn">
@@ -28,60 +29,23 @@
     </header>
 
     {% comment %} Section starts {% endcomment %}
-    <section class="section-main">
+    {% comment %} <section class="section-main">
 
-      <div class="rt-container">
-        <div class="col-rt-12">
-            <div class="Scriptcontent">
-      <section>
-        <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
-        <div class="gallery">
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\1.jpg' %}" data-src="{% static 'images\1.jpg' %}" data-image="{% static 'images\1.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\2.jpg' %}" data-src="{% static 'images\2.jpg' %}" data-image="{% static 'images\2.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\3.jpg' %}" data-src="{% static 'images\3.jpg' %}" data-image="{% static 'images\3.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\4.jpg' %}" data-src="{% static 'images\4.jpg' %}" data-image="{% static 'images\4.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\5.jpg' %}" data-src="{% static 'images\5.jpg' %}" data-image="{% static 'images\5.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{% static 'images\6.jpg' %}" data-src="{% static 'images\6.jpg' %}" data-image="{% static 'images\6.jpg' %}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-          
-           
-        </div>
-      </section>
-              
-            </div>
-        </div>
-        </div>
+       
     </section>
 
     {% comment %} Setion ends {% endcomment %}
 
 
-    <script type="text/javascript">
+    {% comment %} <script type="text/javascript">
     //javascript for navigation bar effect on scroll
     window.addEventListener("scroll", function(){
       var header = document.querySelector("header");
       header.classList.toggle('sticky', window.scrollY > 0);
-    });
+    }); {% endcomment %}
 
-    //javascript for responsive navigation sidebar menu
-    var menu = document.querySelector('.menu');
+    {% comment %} //javascript for responsive navigation sidebar menu {% endcomment %}
+    {% comment %} var menu = document.querySelector('.menu');
     var menuBtn = document.querySelector('.menu-btn');
     var closeBtn = document.querySelector('.close-btn');
 
@@ -92,12 +56,12 @@
     closeBtn.addEventListener("click", () => {
       menu.classList.remove('active');
     });
-    </script>
+  </script> {% endcomment %} 
 
-        <!-- jQuery -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-        <!-- Gallery JS -->
-        <script src="{% static 'js/user_gallery_js.js' %}"></script>
+  {% comment %} <!-- jQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <!-- Gallery JS -->
+  <script src="{% static 'js/user_gallery_js.js' %}"></script> {% endcomment %}
 
-  </body>
-</html>
+  {% comment %} </body>
+</html> {% endcomment %} 
