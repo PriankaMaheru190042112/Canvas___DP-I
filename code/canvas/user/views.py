@@ -178,6 +178,11 @@ def user_cart(request):
     return render(request, 'user/user_cart.html')        
 
 
+def user_virtual_box(request):
+    # return HttpResponse("Starting the project")
+    return render(request, 'user/user_virtual_box.html')        
+
+
 def user_join_form(request,pk):
     e = Event.objects.filter(event_id= pk)
 
