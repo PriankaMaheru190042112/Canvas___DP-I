@@ -1,12 +1,528 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Box</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <title>Virtual Room</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/user_virtual_box_style.css' %} ">
+  </head>
+  
+  <body style="margin: 0;">
+    <div class="room">
+      <input class="room-zoom" id="room-zoom" type="checkbox" name="zoom">
+      <input class="room-dark" id="room-dark" type="checkbox" name="dark">
+      <div class="room-body">
+        <input id="room-sample-0-1" type="radio" name="animate-0" checked="checked">
+        <input id="room-sample-0-2" type="radio" name="animate-0">
+        <input id="room-sample-0-3" type="radio" name="animate-0">
+        <input id="room-sample-0-4" type="radio" name="animate-0">
+        <input id="room-sample-0-5" type="radio" name="animate-0">
+        <input id="room-sample-0-6" type="radio" name="animate-0">
+        <input id="room-sample-0-7" type="radio" name="animate-0">
+        <input id="room-sample-0-8" type="radio" name="animate-0">
+        <input id="room-sample-0-9" type="radio" name="animate-0">
+        <input id="room-sample-0-10" type="radio" name="animate-0">
+        <input id="room-sample-0-11" type="radio" name="animate-0">
+        <input id="room-sample-0-12" type="radio" name="animate-0">
+        <input id="room-sample-0-13" type="radio" name="animate-0">
+        <input id="room-sample-0-14" type="radio" name="animate-0">
+        <input id="room-sample-0-15" type="radio" name="animate-0">
+        <input id="room-sample-0-16" type="radio" name="animate-0">
+        <input id="room-sample-0-17" type="radio" name="animate-0">
+        <input id="room-sample-0-18" type="radio" name="animate-0">
+        <input id="room-sample-0-19" type="radio" name="animate-0">
+        <input id="room-sample-0-20" type="radio" name="animate-0">
+        <input id="room-sample-0-21" type="radio" name="animate-0">
+        <input id="room-sample-0-22" type="radio" name="animate-0">
+        <input id="room-sample-0-23" type="radio" name="animate-0">
+        <input id="room-sample-0-24" type="radio" name="animate-0">
+        <input id="room-sample-0-25" type="radio" name="animate-0">
+        <input id="room-sample-0-26" type="radio" name="animate-0">
+        <input id="room-sample-0-27" type="radio" name="animate-0">
+        <input id="room-sample-0-28" type="radio" name="animate-0">
+        <input id="room-sample-0-29" type="radio" name="animate-0">
+        <input id="room-sample-0-30" type="radio" name="animate-0">
+        <input id="room-sample-0-31" type="radio" name="animate-0">
+        <input id="room-sample-0-32" type="radio" name="animate-0">
+        <input id="room-sample-0-33" type="radio" name="animate-0">
+        <input id="room-sample-0-34" type="radio" name="animate-0">
+        
+        <div class="room-arena">
+          <div class="walls">
+            <div class="wall">
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/1.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    1st. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    5th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    9th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    13th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    17th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    21th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    25th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    29th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/5.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    33th. element
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="wall">
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/4.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    2st. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    6th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    10th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    14th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    18th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    22th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    26th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    30th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/6.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    34th. element
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="wall">
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/3.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    3st. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    7th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    11th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    15th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    19th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    23th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    27th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/7.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    31th. element
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="wall">
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/2.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    4st. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    8th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    12th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    16th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    20th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    24th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    28th. element
+                  </span>
+                </p>
+              </div>
+              <div class="item">
+                <a class="item-image">
+                  <img src="img/room/8.jpg">
+                </a>
+                <p class="item-desc">
+                  <span>
+                    32th. element
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="ceil"></div>
+            <div class="floor"></div>
+          </div>
+        </div>
+        <div class="navigations">
+          <label for="room-sample-0-1">
+            <span>1</span>
+          </label>
+          <label for="room-sample-0-2">
+            <span>2</span>
+          </label>
+          <label for="room-sample-0-3">
+            <span>3</span>
+          </label>
+          <label for="room-sample-0-4">
+            <span>4</span>
+          </label>
+          <label for="room-sample-0-5">
+            <span>5</span>
+          </label>
+          <label for="room-sample-0-6">
+            <span>6</span>
+          </label>
+          <label for="room-sample-0-7">
+            <span>7</span>
+          </label>
+          <label for="room-sample-0-8">
+            <span>8</span>
+          </label>
+          <label for="room-sample-0-9">
+            <span>9</span>
+          </label>
+          <label for="room-sample-0-10">
+            <span>10</span>
+          </label>
+          <label for="room-sample-0-11">
+            <span>11</span>
+          </label>
+          <label for="room-sample-0-12">
+            <span>12</span>
+          </label>
+          <label for="room-sample-0-13">
+            <span>13</span>
+          </label>
+          <label for="room-sample-0-14">
+            <span>14</span>
+          </label>
+          <label for="room-sample-0-15">
+            <span>15</span>
+          </label>
+          <label for="room-sample-0-16">
+            <span>16</span>
+          </label>
+          <label for="room-sample-0-17">
+            <span>17</span>
+          </label>
+          <label for="room-sample-0-18">
+            <span>18</span>
+          </label>
+          <label for="room-sample-0-19">
+            <span>19</span>
+          </label>
+          <label for="room-sample-0-20">
+            <span>20</span>
+          </label>
+          <label for="room-sample-0-21">
+            <span>21</span>
+          </label>
+          <label for="room-sample-0-22">
+            <span>22</span>
+          </label>
+          <label for="room-sample-0-23">
+            <span>23</span>
+          </label>
+          <label for="room-sample-0-24">
+            <span>24</span>
+          </label>
+          <label for="room-sample-0-25">
+            <span>25</span>
+          </label>
+          <label for="room-sample-0-26">
+            <span>26</span>
+          </label>
+          <label for="room-sample-0-27">
+            <span>27</span>
+          </label>
+          <label for="room-sample-0-28">
+            <span>28</span>
+          </label>
+          <label for="room-sample-0-29">
+            <span>29</span>
+          </label>
+          <label for="room-sample-0-30">
+            <span>30</span>
+          </label>
+          <label for="room-sample-0-31">
+            <span>31</span>
+          </label>
+          <label for="room-sample-0-32">
+            <span>32</span>
+          </label>
+          <label for="room-sample-0-33">
+            <span>33</span>
+          </label>
+          <label for="room-sample-0-34">
+            <span>34</span>
+          </label>
+        </div>
+        <!-- <div class="paginations">
+          <label for="room-sample-0-1">1</label>
+          <label for="room-sample-0-2">2</label>
+          <label for="room-sample-0-3">3</label>
+          <label for="room-sample-0-4">4</label>
+          <label for="room-sample-0-5">5</label>
+          <label for="room-sample-0-6">6</label>
+          <label for="room-sample-0-7">7</label>
+          <label for="room-sample-0-8">8</label>
+        </div> -->
+        <label for="room-zoom" class="exit"></label>
+        <label for="room-zoom" class="zoom"></label>
+        <label for="room-dark" class="dark"></label>
+      </div>
+    </div>
+  </body>
 </html>
