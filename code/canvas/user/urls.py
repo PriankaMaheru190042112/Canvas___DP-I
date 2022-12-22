@@ -12,6 +12,7 @@ urlpatterns = [
       path('eventdetail/<int:pk>/', EventDetail.as_view(),name= 'event_detail'),   
       path('user_gallery/',views.user_gallery , name='user_gallery'), 
       path('user_cart/',views.user_cart , name='user_cart'),
+      path('user_virtual_box/',views.user_virtual_box , name='user_virtual_box'),
       path('user_join_form/<int:pk>/',views.user_join_form , name='user_join_form')
 
       
