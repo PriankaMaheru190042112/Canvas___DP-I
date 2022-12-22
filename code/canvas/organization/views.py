@@ -15,7 +15,7 @@ from cryptography.fernet import Fernet
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 
-from .forms import CreateUserForm,EventForm
+from .forms import CreateUserForm
 # Create your views here.
 
 @login_required
@@ -35,8 +35,8 @@ def eventform(request):
         img_price = request.POST.get('img_price')
         frame_width= request.POST.get('frame_w')
         frame_height= request.POST.get('frame_h') 
-        print(name)
-        event= Event.objects.create(name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
+        
+        event= Event.objects.create(org=request.user.username, name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
                      fee=fee, genre=genre)
         
         print(images)
@@ -123,3 +123,10 @@ class EventsView(ListView):
 class EventDetail(DetailView):
     model= Event
     template_name= 'organization/eventDetail.html'
+
+    context_object_name= 'event_id'
+    
+    def get_context_data(self, **kwargs):
+        context=super(EventDetail,self).get_context_data(**kwargs)
+        context['image']= Image.objects.filter(event_id= self.object)
+        return context

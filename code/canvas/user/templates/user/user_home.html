@@ -48,7 +48,7 @@
       {% if user.is_authenticated%}
          
      <h1> hello {{request.user.username}} </h1>   
-     
+
   
       <div >
         <form action="{% url 'user:user_home' %}" method="post"> {% csrf_token %}
@@ -66,6 +66,7 @@
           <div class="container">
 
             {% for object in objects %} 
+            {% if object.is_approved == True %}
             <div>     
             <div class="filterDiv">
                 <div class="card">
@@ -148,6 +149,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}        
             {% endif %}
       

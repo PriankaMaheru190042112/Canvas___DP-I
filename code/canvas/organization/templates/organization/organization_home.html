@@ -27,29 +27,41 @@
       </div>
     </header>
     <section class="section-main">
-      <h1>Welcome IUTPS
-
-{% comment %} 
-      {% for object in objects %}    
-
-         
-        <div id= "eventName">
-            <input id="hid" type="hidden" value={{object.time}}>
-            <a href={{object.get_absolute_url2}}>{{object.name}}</a>
-        </div>
-        
-
-        
-     {% endfor %}  {% endcomment %}
+      <h3>
 
        {% if user.is_authenticated%}
          
         hello {{request.user.username}}
+
+      
+     
+           {% for object in objects%}    
+      
+               {% if object.org == request.user.username %}
+                    {% if object.is_approved == False %}
+
+                        <div id= "eventName">
+                          
+                          Your request for <a href={{object.get_absolute_url2}}>{{object.name}}</a> is pending
+                        </div>
+                    {% else %}
+                    <div id= "eventName">
+                          
+                      Your request for <a href={{object.get_absolute_url2}}>{{object.name}}</a> has been accepted
+                    </div>
+
+                    {% endif %}
+
+              {% endif %}
+              
+           {% endfor %}
+      
+
        
        {% endif %}
 
 
-      </h1>
+      </h3>
     </section>
 
 
