@@ -88,44 +88,48 @@
                     </div>
                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
 
-                    <div class="row">
+                    <form action="/user/user_profile/" method="POST"> {% csrf_token %}
 
-
-                     <div class="col-md-8">
+                      <div class="row">    
+                        <div class="col-md-8">
                         <div class="inputs px-4">
-                          <span>Name</span>
-                          <input type="text" class="form-control">
+                          <span>Old Password</span>
+                          <input type="password" class="form-control" name="pass1">
                         </div>
                       </div>
-
-                     <div class="col-md-8">
-                        <div class="inputs px-4">
-                          <span>Email</span>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-
-
-                      <div class="col-md-8">
-                      <div class="inputs px-4">
-                        <span>Password</span>
-                        <input type="text" class="form-control">
-                      </div>
-                    </div>
-
-
-                    <div class="col-md-8">
-                      <div class="inputs px-4">
-                        <div class="profile-pic-div">
-                            <label for="file" id="uploadBtn">Choose Photo</label>
-                            <input type="file" id="file">
+    
+                       <div class="row">    
+                          <div class="col-md-8">
+                          <div class="inputs px-4">
+                            <span>New Password</span>
+                            <input type="password" class="form-control" name="pass2">
                           </div>
                         </div>
-                    </div>
-                <div class="btn">
-                    <button type="submit" class="submit" name="registerbtn">Update</button></div>
-                </div>
-                </div>
+                         
+                        <div class="btn">
+                          <button type="submit" class="submit" name="update_pass_btn">Update</button></div>
+                      </div>
+    
+                    </form>
+              
+                   
+                    <form action="/user/user_profile/" method="POST"> {% csrf_token %}   
+                        <div class="col-md-8">
+                          <div class="inputs px-4">
+                            <div class="profile-pic-div">
+                              <br>
+                                <label for="file" id="uploadBtn">Choose Photo</label>
+                                <input type="file" id="file" name="pro_img">
+                              </div>
+                            </div>
+                        </div>
+    
+                        <div class="btn">
+                          <button type="submit" class="submit" name="update_img_btn">Update</button></div>
+                      </div>
+                      
+    
+                  </form>
             </div>
         </div>
     </div>

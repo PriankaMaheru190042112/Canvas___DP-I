@@ -34,6 +34,8 @@
     <section class="section-main">
       
       {% if user.is_authenticated%}
+         {% for u_info in u_info %}
+             {% if u_info.username == request.user.username %}
 
       <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -44,11 +46,10 @@
             <div class="col-sm-4 bg-c-lite-green user-profile">
                 <div class="card-block text-center text-white txt">
                     <div class="m-b-25">
-                        <img src="{% static 'images\img.jpg (2).jpg' %}" class="img-radius" alt="User-Profile-Image">
-                    </div>
-                    
+                        <img src={{ u_info.profile_picture }} class="img-radius" alt="User-Profile-Image">
+                    </div> 
                     <h6 class="f-w-700 name">
-                
+                         
                         {{request.user.username}}
                 
                     </h6>
@@ -104,22 +105,22 @@
 
                 </form>
           
-                <div class="btn">
-                    <button type="submit" class="submit" name="update_img_btn">Update</button></div>
-                </div>
-                
+               
                 <form action="/user/user_profile/" method="POST"> {% csrf_token %}   
                     <div class="col-md-8">
                       <div class="inputs px-4">
                         <div class="profile-pic-div">
                           <br>
-                            <label for="file" id="uploadBtn">Choose Photobjkhjcghcghcgh</label>
+                            <label for="file" id="uploadBtn">Choose Photo</label>
                             <input type="file" id="file" name="pro_img">
                           </div>
                         </div>
                     </div>
 
-              
+                    <div class="btn">
+                      <button type="submit" class="submit" name="update_img_btn">Update</button></div>
+                  </div>
+                  
 
               </form>
 
@@ -131,7 +132,9 @@
  </div>
     </div>
 </div>
-    
+
+{% endif %}
+{% endfor %}
 {% endif %}
     </section>
 
