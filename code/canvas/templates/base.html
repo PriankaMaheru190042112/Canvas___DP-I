@@ -36,7 +36,8 @@
           </div>
           <a href="/user/user_home">Home</a>
           <a href="/user/user_profile">Profile</a>
-          <a href="/user/user_gallery" class="active">Gallery</a>
+          <a href="/user/user_gallery" class="active">Events</a>
+          <a href="/user/user_cart">Purchase</a>
           <a href="{% url 'user:user_logout' %}">Logout</a>
         </div>
         <div class="btn">
@@ -170,7 +171,7 @@
           <!-- jQuery -->
           <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
           <!-- Gallery JS -->
-          <script src="{% static 'js/user_gallery_js.js' %}"></script>
+          <script src="{% static 'js/user_gallery_js.js' %}"></script> 
    
 
 </body>
