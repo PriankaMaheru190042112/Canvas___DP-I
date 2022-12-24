@@ -45,6 +45,9 @@ class Event(models.Model):
     def get_absolute_url4(self):
         return reverse('Admin:event_detail', kwargs={'pk': self.pk})      
 
+    def get_absolute_url5(self):
+        return reverse('user:user_cart', kwargs={'pk': self.pk})  
+
     def start_date_difference(self):
         return (date.today() - self.start_date) == 0   
 
@@ -85,7 +88,6 @@ class Image(models.Model):
 
     def __str__(self):
         return str(self.event_id)
-
 
 class Genre(models.Model):
     genre_id =models.IntegerField(primary_key= True)
