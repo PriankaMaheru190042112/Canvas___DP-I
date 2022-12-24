@@ -34,6 +34,9 @@
 
     
     <section class="section-main">
+      {% if user.is_authenticated%}
+      {% for u_info in u_info %}
+          {% if u_info.username == request.user.username %}
       
       <div class="page-content page-container" id="page-content">
         <div class="padding">
@@ -48,9 +51,7 @@
                     </div>
                     
                     <h6 class="f-w-700 name">   
-                      {% if user.is_authenticated%}
                         {{request.user.username}}
-                      {% endif %}
                     </h6>
                     <p>Organization</p>
                     <span class="fa fa-star checked"></span>
@@ -72,23 +73,20 @@
                       <div class="col-sm-6">
                         <p class="m-b-10 f-w-600 name1">Name</p>
                         <h6 class="text-muted f-w-400">       
-                          {% if user.is_authenticated%}
                             {{request.user.username}}
-                          {% endif %}
                         </h6>
                     </div>
                         <div class="col-sm-6">
                             <p class="m-b-10 f-w-600 email">Email</p>
                             <h6 class="text-muted f-w-400">
-                              {% if user.is_authenticated%}
                                 {{request.user.email}}
-                              {% endif %}</h6>
+                              </h6>
                         </div>
                        
                     </div>
                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
 
-                    <form action="/user/user_profile/" method="POST"> {% csrf_token %}
+                    <form action="/organization/organization_profile/" method="POST"> {% csrf_token %}
 
                       <div class="row">    
                         <div class="col-md-8">
@@ -113,7 +111,7 @@
                     </form>
               
                    
-                    <form action="/user/user_profile/" method="POST"> {% csrf_token %}   
+                    <form action="/organization/organization_profile/" method="POST"> {% csrf_token %}   
                         <div class="col-md-8">
                           <div class="inputs px-4">
                             <div class="profile-pic-div">
@@ -137,7 +135,9 @@
  </div>
     </div>
 </div>
-    
+{% endif %}
+{% endfor %}
+{% endif %}
     </section>
 
     <script type="text/javascript">

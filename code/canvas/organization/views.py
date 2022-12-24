@@ -15,12 +15,13 @@ from cryptography.fernet import Fernet
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 
+
 from .forms import CreateUserForm
 # Create your views here.
 
 @login_required
 def eventform(request):
-   
+    current_user= request.user.username 
     if request.method == "POST":
         name = request.POST.get('name')
         desc = request.POST.get('description')
@@ -43,9 +44,24 @@ def eventform(request):
 
         
         for i in images:
-            #    e= Event.objects.get(name = n
+        
                image = Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
-            #    event.image = image
+            #    photo = Image.open(image)
+            #    w, h = photo.size
+    
+            #    drawing = ImageDraw.Draw(photo)
+            #    font = ImageFont.truetype("RobotoBlack.ttf", 68)
+            #    text = "© " + current_user + "   "
+            #    text_w, text_h = drawing.textsize(text, font)
+            #    pos = w - text_w, (h - text_h) - 50
+            #    c_text = Image.new('RGB', (text_w, (text_h)), color = '#000000')
+            #    drawing = ImageDraw.Draw(c_text)
+            #    drawing.text((0,0), text, fill="#ffffff", font=font)
+            #    c_text.putalpha(100)
+            #    photo.paste(c_text, pos, c_text)
+            #    photo.save(image)
+    
+
                image.save() 
         
         event.save()
@@ -107,8 +123,30 @@ def organization_logout(request):
         
     
 def organization_profile(request):
-    # return HttpResponse("Starting the project")
-    return render(request, 'organization/organization_profile.html') 
+    current_user = request.user.username
+    u_info = User.objects.all()
+    if request.method == 'POST' and 'update_pass_btn' in request.POST:
+       pass1= request.POST.get('pass1')
+       pass2= request.POST.get('pass2')
+
+       u = authenticate(request, username=current_user, password = pass1)
+       if (u is not None and u.isOrganization==True):
+           print("vhjfvjehfjj")
+           u.password= make_password(pass2)
+           u.save()
+    
+    elif request.method == 'POST' and 'update_img_btn' in request.POST:
+
+        pro_img= request.POST.get('pro_img')
+        u = User.objects.get(username= current_user)
+        u.profile_picture = pro_img
+        u.save()
+
+    context={
+        'u_info' : u_info
+    }
+
+    return render(request, 'organization/organization_profile.html',context) 
 
 
 def organization_event(request):

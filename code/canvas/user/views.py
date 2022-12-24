@@ -171,11 +171,12 @@ class EventDetail(DetailView):
         context['image']= Image.objects.filter(event_id= self.object)
         return context
 
-    
-def user_cart(request):
-    # return HttpResponse("Starting the project")
-    return render(request, 'user/user_cart.html')        
 
+
+def user_cart(request,pk):
+    e = Event.objects.filter(event_id= pk)
+
+    return render(request, 'user/user_cart.html', {'e': e[0]})
 
 def user_virtual_box(request):
     # return HttpResponse("Starting the project")
