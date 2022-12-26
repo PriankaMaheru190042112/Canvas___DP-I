@@ -7,7 +7,7 @@
     <!-- jQuery -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <!-- Gallery JS -->
-  <script src={% static 'js/user_gallery_js.js' %}></script>
+  <script src="{% static 'js/user_gallery_js.js' %}"></script>
 
 {% endblock scripts %}
 
@@ -28,12 +28,18 @@
      <div id="countdown-box" class="text-center mt-3 h1" width="100" height="128">  
         
      </div>
-    
+     <a href="/user/user_virtual_box" target="_blank">See in Virtual Room</a>
+     <br>
+     <a href="/user/user_cart/{{event_id.event_id}}" > Purchase Any Art</a>
      <div id="img_gallery" style="display:none">
       
       {% for image in image %}
       <img src="{{image.image.url}}">
+      {{image.img_price}}
       {% endfor %}
+
+
+    <br><br>
      </div>
      {% comment %} <div class="rt-container">
       <div class="col-rt-12">
@@ -76,6 +82,6 @@
       
 
 
-     <a href="/user/user_virtual_box" target="_blank">Virtual Room</a>
+   
        
 {% endblock content %}

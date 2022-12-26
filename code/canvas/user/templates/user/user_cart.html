@@ -38,7 +38,7 @@
   
 <section class="section-main"> 
      <!-- Start DEMO HTML (Use the following code into your project)-->
-<div class="cartbox">
+      <div class="cartbox">
      <div class="cart-modal-overlay">
     <div class="cart-modal">
       <i id="close-btn" class="fas fa-times"></i>
@@ -66,7 +66,8 @@
         <button class="add-to-cart">Add to cart</button>
           <span class="product-price">$1395</span>
     </div>
-    <div class="card-2 card">
+   
+    {% comment %} <div class="card-2 card">
       <img class="product-image" src="{% static 'images\1.jpg' %}" alt="">
       <button class="add-to-cart">Add to cart</button>
         <span class="product-price">$1175</span>
@@ -160,10 +161,15 @@
       <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
       <button class="add-to-cart">Add to cart</button>
       <span class="product-price">$1230</span>
-    </div>
+    </div> {% endcomment %}
   </div> 
-</div>
+</div> 
      <!-- END EDMO HTML (Happy Coding!)-->
+
+
+
+
+
  </section> 
   
   <script src="{% static 'js/user_cart.js' %}"></script>

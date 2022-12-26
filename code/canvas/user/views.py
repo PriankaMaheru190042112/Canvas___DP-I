@@ -126,32 +126,38 @@ def user_logout(request):
 
 
 def user_profile(request):  
-    
+
+    current_user = request.user.username
+    u_info = User.objects.all()
     if request.method == 'POST' and 'update_pass_btn' in request.POST:
        pass1= request.POST.get('pass1')
        pass2= request.POST.get('pass2')
-       pro_img= request.FILES.get('pro_img')
-       current_user = request.user.username
 
-       print(pass1)
-       print(pass2)
        u = authenticate(request, username=current_user, password = pass1)
        if (u is not None and u.isUser==True):
            print("vhjfvjehfjj")
            u.password= make_password(pass2)
            u.save()
+    
+    elif request.method == 'POST' and 'update_img_btn' in request.POST:
 
+        pro_img= request.POST.get('pro_img')
+        u = User.objects.get(username= current_user)
+        u.profile_picture = pro_img
+        u.save()
 
+    context={
+        'u_info' : u_info
+    }
 
-     
-
-
-    return render(request, 'user/user_profile.html') 
+    return render(request, 'user/user_profile.html',context) 
 
 
 def user_gallery(request):
     # return HttpResponse("Starting the project")
     return render(request, 'user/user_gallery.html') 
+
+    
 
 class EventDetail(DetailView):
     model= Event
@@ -165,18 +171,12 @@ class EventDetail(DetailView):
         context['image']= Image.objects.filter(event_id= self.object)
         return context
 
-# def event_detail_view(request, event_id):
-#     context={}
-#     context["data"] = Event.objects.get(event_id=event_id)
-    
 
-#     return render(request, 'event_detail.html',context)
-    
-    
-def user_cart(request):
-    # return HttpResponse("Starting the project")
-    return render(request, 'user/user_cart.html')        
 
+def user_cart(request,pk):
+    e = Event.objects.filter(event_id= pk)
+
+    return render(request, 'user/user_cart.html', {'e': e[0]})
 
 def user_virtual_box(request):
     # return HttpResponse("Starting the project")
