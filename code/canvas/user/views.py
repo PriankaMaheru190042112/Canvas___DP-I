@@ -175,12 +175,23 @@ class EventDetail(DetailView):
 
 def user_cart(request,pk):
     e = Event.objects.filter(event_id= pk)
+    print(e[0])
+    img= Image.objects.filter(event_id= e[0])
+    context={
+        'e': e[0] ,
+        'img':img
+    }
+    return render(request, 'user/user_cart.html', context)
 
-    return render(request, 'user/user_cart.html', {'e': e[0]})
-
-def user_virtual_box(request):
-    # return HttpResponse("Starting the project")
-    return render(request, 'user/user_virtual_box.html')        
+def user_virtual_box(request,pk):
+    e = Event.objects.filter(event_id= pk)
+    print(e[0])
+    img= Image.objects.filter(event_id= e[0])
+    context={
+        'e': e[0] ,
+        'img':img
+    }
+    return render(request, 'user/user_virtual_box.html',context)        
 
 
 def user_join_form(request,pk):
