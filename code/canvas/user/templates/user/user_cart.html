@@ -60,13 +60,15 @@
       <span class ="cart-quantity">0</span>
   </div>
 <!--  products  -->
+{% for img in img %} 
   <div class="items-container">
     <div class="card-1 card">
-      <img class="product-image" src="{% static 'images\5.jpg' %}" alt="">
+      <img class="product-image" src="{{img.image.url}}" alt="">
         <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1395</span>
+          <span class="product-price">{{img.img_price}}</span>
     </div>
-   
+    
+  {% endfor %} 
     {% comment %} <div class="card-2 card">
       <img class="product-image" src="{% static 'images\1.jpg' %}" alt="">
       <button class="add-to-cart">Add to cart</button>
