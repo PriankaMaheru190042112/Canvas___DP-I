@@ -3,7 +3,7 @@ from authentication_user.models import User
 from django.contrib.auth import login, authenticate ,logout
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from events.models import Event,Image, Genre,Participant
+from events.models import Event,Images, Genre,Participant
 from django.views.generic import ListView, DetailView
 
 
@@ -76,5 +76,5 @@ class EventDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context=super(EventDetail,self).get_context_data(**kwargs)
-        context['image']= Image.objects.filter(event_id= self.object)
+        context['image']= Images.objects.filter(event_id= self.object)
         return context

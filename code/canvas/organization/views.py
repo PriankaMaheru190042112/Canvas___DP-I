@@ -8,13 +8,15 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import login, authenticate ,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from events.models import Event, Image
+from events.models import Event, Images
 from authentication_user.models import User
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
 from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
-
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
 from .forms import CreateUserForm
 # Create your views here.
@@ -45,7 +47,7 @@ def eventform(request):
         
         for i in images:
         
-               image = Image.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
+               image = Images.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
             #    photo = Image.open(image)
             #    w, h = photo.size
     
@@ -59,7 +61,7 @@ def eventform(request):
             #    drawing.text((0,0), text, fill="#ffffff", font=font)
             #    c_text.putalpha(100)
             #    photo.paste(c_text, pos, c_text)
-            #    photo.save(image)
+            #    p= photo.save(image)
     
 
                image.save() 
@@ -166,5 +168,5 @@ class EventDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context=super(EventDetail,self).get_context_data(**kwargs)
-        context['image']= Image.objects.filter(event_id= self.object)
+        context['image']= Images.objects.filter(event_id= self.object)
         return context

@@ -13,6 +13,9 @@ import os
 from django.template.defaultfilters import slugify
 from authentication_user.models import User
 from django.conf import settings
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
 
 # Create your models here.
 
@@ -34,6 +37,8 @@ class Event(models.Model):
     def __str__(self):
         return str(self.name)
     
+    def get_org_name(self):
+        return str(self.org)
 
     def get_absolute_url1(self):
         return reverse('events:event-detail', kwargs={'pk': self.pk})
@@ -69,14 +74,29 @@ class Event(models.Model):
         return reverse('user:user_join_form', kwargs={'pk': self.pk})
 
 
-class Image(models.Model):
+class Images(models.Model):
     
     def get_folder_name(self, filename):
         return f'{self.event_id}/{filename}'
 
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        photo = Image.open(self.image.path)
+        draw = ImageDraw.Draw(photo)
+        font = ImageFont.load_default()
+        width, height = photo.size
+        myword = Event.get_org_name(self.event_id)
+        margin = 10
+        textwidth, textheight = draw.textsize(myword, font)
+        x = width - textwidth - margin
+        y = height - textheight - margin
+        draw.text((x,y), myword, (255, 255, 255), font=font)
+        photo.save(self.image.path)
+
     img_id = models.AutoField(primary_key=True)
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
-    image= models.ImageField(upload_to=get_folder_name, verbose_name='Image')
+    image= models.ImageField(upload_to=get_folder_name, verbose_name='Images')
     img_price =models.IntegerField(max_length = 100, default=0, null= True)
     frame_height = models.IntegerField(max_length=200)
     frame_width = models.IntegerField(max_length= 200)

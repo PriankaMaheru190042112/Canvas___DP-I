@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
 from authentication_user.models import User
-from events.models import Event,Image
+from events.models import Event,Images
 
 genres =(
     ("1", "Photography"),

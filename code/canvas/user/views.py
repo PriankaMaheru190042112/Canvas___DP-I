@@ -1,6 +1,6 @@
 import random
 from django.shortcuts import render
-from events.models import Event,Image, Genre,Participant
+from events.models import Event,Images, Genre,Participant
 from django.views.generic import ListView, DetailView
 # Create your views here.
 from django.utils.timezone import now
@@ -168,7 +168,7 @@ class EventDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context=super(EventDetail,self).get_context_data(**kwargs)
-        context['image']= Image.objects.filter(event_id= self.object)
+        context['image']= Images.objects.filter(event_id= self.object)
         return context
 
 
@@ -176,7 +176,7 @@ class EventDetail(DetailView):
 def user_cart(request,pk):
     e = Event.objects.filter(event_id= pk)
     print(e[0])
-    img= Image.objects.filter(event_id= e[0])
+    img= Images.objects.filter(event_id= e[0])
     print(img)
     
     context={
@@ -188,7 +188,7 @@ def user_cart(request,pk):
 def user_virtual_box(request,pk):
     e = Event.objects.filter(event_id= pk)
     print(e[0])
-    img= Image.objects.filter(event_id= e[0])
+    img= Images.objects.filter(event_id= e[0])
     context={
         'e': e[0] ,
         'img':img
