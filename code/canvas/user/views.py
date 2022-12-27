@@ -12,7 +12,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
-
+from django.db.models import Count, F
 
 def registerlogin(request):
     # return HttpResponse("Starting the project")
@@ -177,6 +177,8 @@ def user_cart(request,pk):
     e = Event.objects.filter(event_id= pk)
     print(e[0])
     img= Image.objects.filter(event_id= e[0])
+    print(img)
+    
     context={
         'e': e[0] ,
         'img':img

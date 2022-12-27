@@ -27,7 +27,8 @@ class Event(models.Model):
     end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
     genre= models.CharField(max_length=200)
     fee= models.IntegerField(max_length=200, default=0, null=True)
-    is_approved= models.BooleanField(default=False)
+    is_accepted= models.BooleanField(default=False)
+    is_rejected= models.BooleanField(default=False)
    
 
     def __str__(self):
@@ -73,6 +74,7 @@ class Image(models.Model):
     def get_folder_name(self, filename):
         return f'{self.event_id}/{filename}'
 
+    img_id = models.AutoField(primary_key=True)
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
     image= models.ImageField(upload_to=get_folder_name, verbose_name='Image')
     img_price =models.IntegerField(max_length = 100, default=0, null= True)
