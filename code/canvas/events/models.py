@@ -27,7 +27,8 @@ class Event(models.Model):
     end_time= models.TimeField(auto_now=False, auto_now_add=False,blank=True, null=True)
     genre= models.CharField(max_length=200)
     fee= models.IntegerField(max_length=200, default=0, null=True)
-    is_approved= models.BooleanField(default=False)
+    is_accepted= models.BooleanField(default=False)
+    is_rejected= models.BooleanField(default=False)
    
 
     def __str__(self):

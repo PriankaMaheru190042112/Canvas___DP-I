@@ -115,7 +115,7 @@
                                   <input type="hidden" name="eid" id="eid" value= "{{object.event_id}}"> 
 
                                   <button value="Rejected" type="submit" class="btn btn-danger float-right" name="rj" id="rj"> Reject </button>
-                                  <button   value="Approved" type="submit" class="btn btn-success float-right" name="ac" id="ac{{object.event_id}}" onclick="setLocation('/Admin/Admin_home')">Approve</button> &nbsp; &nbsp;
+                                  <button   value="Approved" type="submit" class="btn btn-success float-right" name="ac" id="ac">Approve</button> &nbsp; &nbsp;
                                 
                                 </form>
                           </div>
@@ -130,13 +130,13 @@
               <div id="approved" class="tab-pane"><p></p> <!--Approved requests-->
 
                 <div class="list-group p-0">
-
+                  {% for accepted in accepted %}
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_room">
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
-                        <h5 class="mb-1"><b>&nbsp; iutps,</b> had requested for event 1</h5>
+                        <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <a href="{{object.get_absolute_url4}}">{{accepted.name}}</a></h5>
 
                         <br>
 
@@ -144,7 +144,7 @@
                         
                       </div>
                     </a>
-
+                    {% endfor %}
                   </div>
         
               </div> 
@@ -153,13 +153,13 @@
               <div id="rejected" class="tab-pane"><p></p> 
 
                 <div class="list-group p-0">
-
+               {% for rejected in rejected %}
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_room">
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
-                        <h5 class="mb-1"><b>&nbsp; iutps,</b> had requested for event 1 </h5>
+                        <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for {{rejected.name}} </h5>
 
 
                         <br>
@@ -168,7 +168,7 @@
                         
                       </div>
                     </a>
-
+                    {% endfor %}
                   </div>
         
               </div> 

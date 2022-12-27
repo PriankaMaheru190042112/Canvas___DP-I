@@ -30,23 +30,27 @@ def Admin_auth(request):
 
 @login_required
 def Admin_home(request):  
-    objects= Event.objects.all().order_by('start_date')
+    objects= Event.objects.filter(is_accepted= False, is_rejected= False).order_by('start_date')
+    accepted= Event.objects.filter(is_accepted= True,is_rejected= False)
+    rejected= Event.objects.filter(is_accepted= False,is_rejected= True)
+
     
     if request.method == 'POST' and 'ac' in request.POST:
         eid= request.POST.get('eid')
         e = Event.objects.get(event_id= eid)
-        e.is_approved= True
+        e.is_accepted= True
         e.save()
     
     elif request.method == 'POST' and 'rj' in request.POST:
         eid= request.POST.get('eid')
         e = Event.objects.get(event_id= eid)
-        e.is_approved= False
+        e.is_rejected= True
         e.save()
 
     context={
-        'objects': objects
-      
+        'objects': objects,
+        'accepted': accepted,
+        'rejected': rejected
     }
 
     return render(request, 'Admin/Admin_home.html',context) 
