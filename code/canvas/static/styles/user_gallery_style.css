@@ -196,6 +196,7 @@ h2{
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  
 }
 .gallery-item.item-2x3 {
   flex-basis: calc(175px * 0.666);
@@ -280,7 +281,7 @@ h2{
   width: auto;
 }
 .gallery-item .placeholder {
-  filter: blur(20px);
+  /* filter: blur(20px); */
 }
 
 .lightbox-wrapper {
@@ -305,7 +306,7 @@ h2{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(55, 172, 57, 0.3);
   padding: 1em;
   font-weight: 600;
   text-align: center;
@@ -342,7 +343,7 @@ h2{
 }
 .lightbox .lightbox-slides-wrapper {
   flex-grow: 1;
-  display: flex;
+  display: none;
   overflow: hidden;
   position: relative;
 }
@@ -371,7 +372,7 @@ h2{
   background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 26.5L4.68293 53L0 48.4571L22.6341 26.5L3.83911e-06 4.54286L4.68293 0L32 26.5Z' fill='white'/%3E%3C/svg%3E");
 }
 .lightbox .lightbox-slide {
-  display: flex;
+  display: inline;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
