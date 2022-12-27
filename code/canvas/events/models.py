@@ -73,6 +73,7 @@ class Image(models.Model):
     def get_folder_name(self, filename):
         return f'{self.event_id}/{filename}'
 
+    img_id = models.AutoField(primary_key=True)
     event_id= models.ForeignKey(Event, on_delete=models.CASCADE)
     image= models.ImageField(upload_to=get_folder_name, verbose_name='Image')
     img_price =models.IntegerField(max_length = 100, default=0, null= True)

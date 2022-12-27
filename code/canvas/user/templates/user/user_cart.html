@@ -61,13 +61,18 @@
   </div>
 <!--  products  -->
 {% for img in img %} 
+   
+
   <div class="items-container">
     <div class="card-1 card">
       <img class="product-image" src="{{img.image.url}}" alt="">
         <button class="add-to-cart">Add to cart</button>
           <span class="product-price">{{img.img_price}}</span>
+          <span class="product-price">{{img.img_id}}</span>
+          
     </div>
-    
+
+
   {% endfor %} 
     {% comment %} <div class="card-2 card">
       <img class="product-image" src="{% static 'images\1.jpg' %}" alt="">

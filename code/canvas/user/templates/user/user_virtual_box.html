@@ -1,3 +1,5 @@
+
+
 {% load static %}
 
 
@@ -54,9 +56,10 @@
         <div class="room-arena">
           <div class="walls">
             <div class="wall">
+              {% for img in img %}
               <div class="item">
                 <a class="item-image">
-                  <img src="{% static 'images\1.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                  <img src="{% static 'images\1.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w1">
 
                 </a>
                 <p class="item-desc">
@@ -65,7 +68,9 @@
                   </span>
                 </p>
               </div>
-               <div class="item">
+
+              {% endfor %}
+               {% comment %} <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\5.jpg' %}" class="img-radius" alt="User-Profile-Image">
                 </a>
@@ -74,7 +79,7 @@
                     5th. element
                   </span>
                 </p>
-              </div>
+              </div> {% endcomment %}
            <!--   <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\5.jpg' %}" class="img-radius" alt="User-Profile-Image">
@@ -147,9 +152,10 @@
               </div> -->
             </div>
             <div class="wall">
+              {% for img in img %}
               <div class="item">
                 <a class="item-image">
-                  <img src="{% static 'images\2.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                  <img src="{% static 'images\2.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w2">
                 </a>
                 <p class="item-desc">
                   <span>
@@ -157,6 +163,7 @@
                   </span>
                 </p>
               </div>
+              {% endfor %}
               <!-- <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\6.jpg' %}" class="img-radius" alt="User-Profile-Image">
@@ -526,5 +533,38 @@
       </div>
     </div>
     
+    <script>
+      const wall1 = [
+      {% for img in img %}
+      {
+       imgs: "{{img.image.url}}"
+      
+      },
+      {% endfor %}
+      ]
+      
+      for(let i=0; i< wall1.length; i+=2){
+        console.log(wall1[i].imgs)
+        document.getElementById("w1").src = wall1[i].imgs
+      }
+
+      const wall2 = [
+      {% for img in img %}
+      {
+       imgs: "{{img.image.url}}"
+      
+      },
+      {% endfor %}
+      ]
+      
+      for(let i=1; i< wall1.length; i+=2){
+        console.log(wall2[i].imgs)
+        document.getElementById("w2").src = wall2[i].imgs
+      }
+ 
+
+    </script>
+
+
   </body>
 </html>
