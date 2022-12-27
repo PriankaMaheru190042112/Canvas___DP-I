@@ -136,7 +136,7 @@
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
-                        <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <a href="{{object.get_absolute_url4}}">{{accepted.name}}</a></h5>
+                        <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5>
 
                         <br>
 
