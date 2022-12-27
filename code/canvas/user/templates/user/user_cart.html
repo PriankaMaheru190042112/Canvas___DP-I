@@ -38,10 +38,10 @@
   
 <section class="section-main"> 
      <!-- Start DEMO HTML (Use the following code into your project)-->
-      <div class="cartbox">
-     <div class="cart-modal-overlay">
-    <div class="cart-modal">
-      <i id="close-btn" class="fas fa-times"></i>
+  <div class="cartbox">
+    <div class="cart-modal-overlay">
+      <div class="cart-modal">
+        <i id="close-btn" class="fas fa-times"></i>
         <h1 class="cart-is-empty">Cart is empty</h1>
       
         <div class="product-rows">
@@ -52,7 +52,7 @@
               <button class="purchase-btn">PURCHASE</button>
         </div>
       </div>
-</div>
+    </div>
       
 <!--   end of cart modal -->
   <div class="cart-btn">
@@ -60,113 +60,22 @@
       <span class ="cart-quantity">0</span>
   </div>
 <!--  products  -->
-{% for img in img %} 
-  <div class="items-container">
-    <div class="card-1 card">
+
+<div class="items-container">
+
+  {% for img in img %}  
+
+     <div class="card">
       <img class="product-image" src="{{img.image.url}}" alt="">
         <button class="add-to-cart">Add to cart</button>
           <span class="product-price">{{img.img_price}}</span>
-    </div>
-    
-  {% endfor %} 
-    {% comment %} <div class="card-2 card">
-      <img class="product-image" src="{% static 'images\1.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-        <span class="product-price">$1175</span>
-    </div>
-    <div class="card-3 card">
-      <img class="product-image" src="{% static 'images\3.jpg' %}" alt="">
-        <button class="add-to-cart">Add to cart</button>
-          <span class="product-price">$1150</span>
-    </div>
-    <div class="card-4 card">
-      <img class="product-image" src="{% static 'images\4.jpg' %}" alt="">
-         <button class="add-to-cart">Add to cart</button>
-        <span class="product-price">$1575</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div>
-    <div class="card-5 card">
-      <img class="product-image" src="{% static 'images\2.jpg' %}" alt="">
-      <button class="add-to-cart">Add to cart</button>
-      <span class="product-price">$1230</span>
-    </div> {% endcomment %}
+    </div> 
+
+  {% endfor %}
   </div> 
-</div> 
-     <!-- END EDMO HTML (Happy Coding!)-->
+  
+</div><!--cart-box ends here-->
+
 
 
 
