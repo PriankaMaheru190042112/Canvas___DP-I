@@ -225,7 +225,7 @@ header .btn{
 
 #filter_events{
   width: 100%;
-  padding: 50px 0;
+  padding: 150px 0;
   min-height: 100vh;
 }
 
@@ -293,4 +293,19 @@ header .btn{
   padding: 10px;
   margin-top: -25px;
   padding-left: 25%;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+  .tab-content>.tab-pane {
+    display: block;
+    opacity: 1;
+  }
 }
