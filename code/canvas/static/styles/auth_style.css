@@ -23,7 +23,7 @@ body{
  .cont{
     overflow: hidden;
     position: relative;
-    width: 900px;
+    width: 1000px;
     height: 550px;
     background: rgb(253, 251, 251);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -94,39 +94,7 @@ body{
    background:  -webkit-linear-gradient(left, #097669, hsl(169, 51%, 57%));
 }
 
-.forget-pass{
-   margin-top: 15px;
-   text-align: center;
-   font-size: 14px;
-   font-weight: 600;
-   color: #0c0101;
-   cursor: pointer;
-}
 
-.forget-pass:hover{
-   color: red;
-}
-
-.social-media{
-   width: 100%;
-   text-align: center;
-   margin-top: 20px;
-}
-
-.social-media ul{
-   list-style: none;
-}
-
-.social-media ul li{
-   display: inline-block;
-   cursor: pointer;
-   margin: 25px 15px;
-}
-
-.social-media img{
-   width: 40px;
-   height: 40px;
-}
 
 .sub-cont{
    overflow: hidden;

@@ -29,16 +29,7 @@
                     <input type="password" name="password">
                 </label>
                 <button class="submit" type="submit" name="loginbtn">Sign In</button>
-                <p class="forget-pass">Forget Password ?</p>
 
-                <div class="social-media">
-                    <ul>
-                        <li><img src="{% static 'images/facebook.png' %}" class="facebook"></li>
-                        <li><img src="{% static 'images/twitter.png' %}" class="twitter"></li>
-                        <li><img src="{% static 'images/linkedin.png' %}" class="linkedin"></li>
-                        <li><img src="{% static 'images/instagram.png' %}" class="instagram"></li>
-                    </ul>
-                </div>
             </form>
             </div>
 
@@ -61,24 +52,28 @@
             <div class="form Sign-up">
                 <form action="/user/user_auth/" method="post"> {% csrf_token %}
                 <h2>Sign up</h2>
-                {% comment %} <label>
-                    <span>Name</span>
-                    <input type="text">
+                <label>
+                    <!-- <span>Name</span>
+                    <input type="text"> -->
+                    {{form.username}}
                 </label>
                 <label>
-                    <span>Email</span>
-                    <input type="email">
+                    <!-- <span>Email</span>
+                    <input type="email"> -->
+                    {{form.email}}
                 </label>
                 <label>
-                    <span>Password</span>
-                    <input type="password">
+                    <!-- <span>Password</span>
+                    <input type="password"> -->
+                    {{form.password1}}
                 </label>
                 <label>
-                    <span>Confirm Password</span>
-                    <input type="password">
-                </label> {% endcomment %}
-                {{form.username}} {{form.email}} {{form.password1}}
-              {{form.password2}}
+                    <!-- <span>Confirm Password</span>
+                    <input type="password"> -->
+                    {{form.password2}}
+                </label> 
+                <!-- {{form.username}} {{form.email}} {{form.password1}}
+              {{form.password2}} -->
 
               <div>
                 {{form.errors.password2}} {{form.errors.email}}
