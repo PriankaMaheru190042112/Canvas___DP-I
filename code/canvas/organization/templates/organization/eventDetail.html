@@ -4,6 +4,10 @@
 {% block scripts %}
 
        <script src={% static 'main.js' %} defer> </script>
+        <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <!-- Gallery JS -->
+  <script src={% static 'js/user_gallery_js.js' %} defer> </script>
 
 {% endblock scripts %}
 
@@ -25,11 +29,14 @@
 
 
 <br><br>
-     <div id="img_gallery" style="display:block">
-      
-      {% for image in image %}
-      <img src="{{image.image.url}}">
-      {% endfor %}
-  
-     </div>
+<section>
+  <div class="gallery">
+    {% for image in image %}
+      <div class="gallery-item item-3x4">
+          <img class="thumb placeholder"  src="{{image.image.url}}" data-src="{{image.image.url}}" data-image="{{image.image.url}}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+          <div class="caption"><span>Caption </span></div>
+      </div>
+      {% endfor %}  
+  </div>
+<section>
 {% endblock content %}

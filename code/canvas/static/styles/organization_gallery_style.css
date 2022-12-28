@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  min-height: 100vh;
+}
+
+.section-main{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* background: url(images/bg.jpg) no-repeat; */
+  background-color: #f6f6f6;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  padding: 20px 100px;
+}
+
+.section-main h1{
+  /* color: rgba(255, 255, 255, 0.5); */
+  font-size: 60px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 80px;
+}
+
+header{
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  transition: 0.6s;
+}
+
+header.sticky{
+  /* background: #d2551b; */
+  padding: 15px 100px;
+}
+
+header .brand{
+  color: rgb(9, 9, 9);
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+header .menu{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .menu a{
+  color: rgb(19, 12, 12);
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 30px;
+  padding: 0 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property: color, background;
+}
+
+header .menu a:hover{
+  color: rgb(3, 0, 0);
+  background: rgb(230, 123, 70);
+}
+
+header .btn{
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+@media (max-width: 1060px){
+  header .btn{
+    display: block;
+  }
+
+  header .menu{
+    position: fixed;
+    background: #1483D5;
+    /* background: #1c9e58; */
+    flex-direction: column;
+    min-width: 400px;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    padding: 80px 50px;
+    transition: 0.5s;
+    transition-property: right;
+  }
+
+  header .menu.active{
+    right: 0;
+  }
+
+  header .menu .close-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 25px;
+  }
+
+  header .menu a{
+    display: block;
+    font-size: 20px;
+    margin: 20px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 630px){
+  .section-main h1{
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+
+
+.active{
+  background: rgb(76, 170, 151);
+  font-weight: 900;
+  color: rgb(243, 243, 243);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1st css */
+
+
+
+.lead {
+  font-weight: 600;
+  color: #777;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  flex: 1 1 auto;
+  flex-basis: 175px;
+  margin: .5em;
+  max-width: 530px;
+  max-height: 300px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.gallery-item.item-2x3 {
+  flex-basis: calc(175px * 0.666);
+}
+.gallery-item.item-3x4 {
+  flex-basis: calc(175px * 0.75);
+}
+.gallery-item.item-1x1 {
+  flex-basis: 175px;
+}
+.gallery-item.item-4x3 {
+  flex-basis: calc(175px * 1.333);
+}
+.gallery-item.item-3x2 {
+  flex-basis: calc(175px * 1.5);
+}
+.gallery-item.item-8x5 {
+  flex-basis: calc(175px * 1.6);
+}
+.gallery-item.item-2x1 {
+  flex-basis: calc(175px * 2);
+}
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.5 13.75C4.5 8.64137 8.64137 4.5 13.75 4.5C18.8586 4.5 23 8.64137 23 13.75C23 18.8586 18.8586 23 13.75 23C8.64137 23 4.5 18.8586 4.5 13.75ZM13.75 0C6.15609 0 0 6.15609 0 13.75C0 21.3439 6.15609 27.5 13.75 27.5C16.3774 27.5 18.8327 26.7631 20.9205 25.4846L30.4906 35.0547C31.7509 36.3151 33.7944 36.3151 35.0547 35.0547C36.3151 33.7944 36.3151 31.7509 35.0547 30.4906L25.4846 20.9205C26.7631 18.8327 27.5 16.3774 27.5 13.75C27.5 6.15609 21.3439 0 13.75 0Z' fill='white'/%3E%3C/svg%3E");
+  background-position: center;
+  background-size: 1.85rem;
+  background-repeat: no-repeat;
+  transition: opacity 250ms;
+  z-index: 10;
+}
+.gallery-item .caption {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1em 0;
+  line-height: 1em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(4em);
+  transition: transform 250ms;
+  z-index: 20;
+}
+.gallery-item .caption span {
+  display: inline-block;
+  max-width: calc(100% - 2em);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.gallery-item:hover .thumb {
+  transform: scale(1.05);
+}
+@media (hover: hover) {
+  .gallery-item:hover::after {
+    opacity: 1;
+  }
+  .gallery-item:hover .caption {
+    transform: translateY(0);
+  }
+}
+.gallery-item .thumb {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: unset;
+  text-align: center;
+  background-color: #333;
+  transition: filter 500ms, transform 500ms;
+}
+.ie-fix .gallery-item .thumb {
+  width: auto;
+}
+.gallery-item .placeholder {
+  filter: blur(20px);
+}
+
+.lightbox-wrapper {
+  display: none;
+  background-color: #2e2e35;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.lightbox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+}
+.lightbox .lightbox-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  font-weight: 600;
+  text-align: center;
+}
+.lightbox .lightbox-header > * {
+  opacity: .75;
+}
+.lightbox .lightbox-close {
+  position: relative;
+  height: 1.85rem;
+  width: 1.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  padding: 0;
+  border: none;
+}
+.lightbox .lightbox-close::before, .lightbox .lightbox-close::after {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 80%;
+  background-color: #fff;
+}
+.lightbox .lightbox-close::before {
+  transform: rotate(-45deg);
+}
+.lightbox .lightbox-close::after {
+  transform: rotate(45deg);
+}
+.lightbox .lightbox-close:hover {
+  opacity: 1;
+}
+.lightbox .lightbox-slides-wrapper {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+.lightbox .lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  width: 4rem;
+  height: 4rem;
+  padding: .5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.5em;
+  opacity: .75;
+  cursor: pointer;
+  filter: drop-shadow(0 0 7px #000);
+}
+.lightbox .lightbox-arrow:hover {
+  opacity: 1;
+}
+.lightbox .lightbox-arrow.arrow-left {
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 26.5L27.3171 0L32 4.54286L9.36585 26.5L32 48.4571L27.3171 53L0 26.5Z' fill='white'/%3E%3C/svg%3E");
+}
+.lightbox .lightbox-arrow.arrow-right {
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 26.5L4.68293 53L0 48.4571L22.6341 26.5L3.83911e-06 4.54286L4.68293 0L32 26.5Z' fill='white'/%3E%3C/svg%3E");
+}
+.lightbox .lightbox-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  transition: all 0ms ease;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.lightbox .lightbox-slide[data-state="prev"] {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.lightbox .lightbox-slide[data-state="next"] {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.lightbox .lightbox-image {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+.lightbox .spinner {
+  display: none;
+}
+
+/* .Scriptcontent{
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+} */
