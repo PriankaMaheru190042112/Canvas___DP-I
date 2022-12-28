@@ -137,12 +137,15 @@
                                       {% endif %}
             
                             {% else %}
-                                  {% comment %} {% if object.fee %}
-                                  <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
+                                 {% if object.fee %}
+                                  {% comment %} <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a> {% endcomment %}
+                                  <a href={{object.get_absolute_url3}}>Event Details</a>   
 
+                                  {% else %}
+                          
+                                  <a href={{object.get_absolute_url3}}>Event Details</a>    
+                                  
                                   {% endif %}
-                               {% endcomment %}
-                                  <a href={{object.get_absolute_url3}}>Event Details</a>                           
                                   
                             {% endif %}
                             
