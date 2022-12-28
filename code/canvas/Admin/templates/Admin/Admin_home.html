@@ -92,7 +92,9 @@
                           <div class=" w-100 justify-content-between p-2">
                             {% for u_info in u_info %}
                                 {% if u_info.username == object.org %}
+                                {% if u_info.profile_picture %}
                               <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                              {% endif %}
                                  {% endif %}
                               {% endfor %}
                               
@@ -124,7 +126,9 @@
 
                         {% for u_info in u_info %}
                             {% if u_info.username == accepted.org %}
+                            {% if u_info.profile_picture %}
                               <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                              {% endif %}
                             {% endif %}
                       {% endfor %}
 
@@ -147,7 +151,9 @@
 
                         {% for u_info in u_info %}
                         {% if u_info.username == rejected.org %}
+                        {% if u_info.profile_picture %}
                           <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                          {% endif %}
                         {% endif %}
                           {% endfor %}
 
