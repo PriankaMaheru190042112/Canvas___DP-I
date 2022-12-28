@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'Admin_base.html' %}
 {% load static %}
 
 {% block scripts %}
@@ -41,18 +41,31 @@
 
     <br><br>
      </div> {% endcomment %}
-    <div class="rt-container">
-      <div class="col-rt-12">
+{% comment %} <section class="section-main">  
+   <div class="rt-container">
+    <div class="col-rt-12">
+      <section>
         <div class="gallery">
           {% for image in image %}  
             <div class="gallery-item item-3x4">
                 <img class="thumb placeholder" src="{{image.image.url}}" alt="">
                 <div class="caption"><span>Caption 1</span></div>
             </div>
-            {% endfor %}
-        </div>
-      </div>
-    </div>
+            {% endfor %} {% endcomment %}
+   
+            <section>
+              <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
+              <div class="gallery">
+                {% for image in image %}
+                  <div class="gallery-item item-3x4">
+                      <img class="thumb placeholder"  src="{{image.image.url}}" data-src="{{image.image.url}}" data-image="{{image.image.url}}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                      <div class="caption"><span>Caption </span></div>
+                  </div>
+                  {% endfor %}  
+              </div>
+            <section>
+      
+    
       {% comment %} </div> {% endcomment %}
       
 

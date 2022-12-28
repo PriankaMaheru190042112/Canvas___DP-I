@@ -1,4 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'Admin_base.html' %}
+{% load static %}
+
+{% block scripts %}
+
+    <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <!-- Gallery JS -->
+  <script src={% static 'js/user_gallery_js.js' %} defer> </script>
+
+{% endblock scripts %}
 
 {% block content %}
 
@@ -6,15 +16,17 @@
       <div id="ename"> <h1>{{object.name}} </h1></div>
         <div> {{object.name}} will take place:  {{object.start_date|date:"M d, Y"}} </div>
         <br>
-     <div id="img_gallery">
-      
-      {% for image in image %}
-      <img src="{{image.image.url}}">
-      
-      {% endfor %}
-  
-     </div>
-     <br><br>
+        <section>
+          <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
+          <div class="gallery">
+            {% for image in image %}
+              <div class="gallery-item item-3x4">
+                  <img class="thumb placeholder"  src="{{image.image.url}}" data-src="{{image.image.url}}" data-image="{{image.image.url}}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
+                  <div class="caption"><span>Caption </span></div>
+              </div>
+              {% endfor %}  
+          </div>
+        <section>
      
        
 {% endblock content %}

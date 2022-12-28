@@ -196,16 +196,18 @@ header .btn{
   .items-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    margin-top: 1em;
-    padding-right: 15px;
+    margin-top: 2em;
+    padding-right: 170px;
+   
+    
   }
   
   .card {
-  width: 10rem;
+    width: 10rem;
     margin: 1em;
     position: relative;
     overflow: hidden; 
-    text-align: center
+    text-align: center;
   }
   
   .card:hover .add-to-cart {
@@ -213,7 +215,7 @@ header .btn{
   }
   
   .product-image {
-  padding: 5px;
+  padding: 1px;
   width: 170px;
   height: 160px;
   }
