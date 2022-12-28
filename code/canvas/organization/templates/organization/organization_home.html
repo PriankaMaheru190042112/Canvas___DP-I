@@ -4,7 +4,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Organization | Home</title>
      <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -129,8 +129,6 @@
           <div id="pending" class="tab-pane active">
               
             <div class="list-group p-0">
-
-              <!-- {% for object in objects %} -->
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
 
@@ -139,8 +137,7 @@
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
                               
                     <!-- <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                    -->
-                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event2 </h5> 
-                    <h2>hello</h2>                                                  
+                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event2 </h5>                                                  
                               
                     <!-- <form action="" method="POST"> {% csrf_token %}
 
@@ -150,28 +147,26 @@
                   </div>
                 </a>
 
-              <!-- {% endfor %} -->
-
             </div>            
 
           </div>
               
-          <div id="approved" class="tab-pane"><p></p> <!--Approved requests-->
+          <div id="approved" class="tab-pane"> <!--Approved requests-->
 
             <div class="list-group p-0">
-              <!-- {% for accepted in accepted %} -->
+              
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                   <div class=" w-100 justify-content-between p-2">
 
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                     <!-- <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested  for <input type="button" onclick="location.href='{{accepted.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5> -->
-                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event1 </h5>                                                   
+                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event5 </h5>                                                   
 
                     
                   </div>
                 </a>
-                <!-- {% endfor %} -->
+              
               </div>
       
             </div> 
@@ -179,18 +174,18 @@
               <div id="rejected" class="tab-pane"><p></p> 
 
                 <div class="list-group p-0">
-                  <!-- {% for rejected in rejected %} -->
+                  
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                         <!-- <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url4}}';" value="{{rejected.name}}" /> </h5> -->
-                        <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event2 </h5>                                                   
+                        <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event10 </h5>                                                   
                         
                       </div>
                     </a>
-                  <!-- {% endfor %} -->
+                  
                 </div>
         
               </div> 
