@@ -48,21 +48,6 @@ def eventform(request):
         for i in images:
         
                image = Images.objects.create(event_id= event, image=i, img_price= img_price, frame_height= frame_height ,frame_width = frame_width)
-            #    photo = Image.open(image)
-            #    w, h = photo.size
-    
-            #    drawing = ImageDraw.Draw(photo)
-            #    font = ImageFont.truetype("RobotoBlack.ttf", 68)
-            #    text = "© " + current_user + "   "
-            #    text_w, text_h = drawing.textsize(text, font)
-            #    pos = w - text_w, (h - text_h) - 50
-            #    c_text = Image.new('RGB', (text_w, (text_h)), color = '#000000')
-            #    drawing = ImageDraw.Draw(c_text)
-            #    drawing.text((0,0), text, fill="#ffffff", font=font)
-            #    c_text.putalpha(100)
-            #    photo.paste(c_text, pos, c_text)
-            #    p= photo.save(image)
-    
 
                image.save() 
         
@@ -95,11 +80,9 @@ def registerlogin(request):
         # email= request.POST.get('email')
         name= request.POST.get('name')
         password = request.POST.get('password')  
-        print("done")
         org = authenticate(request, username= name , password = password)
         if (org is not None and org.isOrganization==True):
                 login(request, org)
-                print("success")
                 return redirect('/organization/organization_home/')
                 
         else:
@@ -133,14 +116,15 @@ def organization_profile(request):
 
        u = authenticate(request, username=current_user, password = pass1)
        if (u is not None and u.isOrganization==True):
-           print("vhjfvjehfjj")
            u.password= make_password(pass2)
            u.save()
     
     elif request.method == 'POST' and 'update_img_btn' in request.POST:
 
-        pro_img= request.POST.get('pro_img')
+        pro_img= request.FILES.get('pro_img')
+        print(pro_img)
         u = User.objects.get(username= current_user)
+        print(u)
         u.profile_picture = pro_img
         u.save()
 

@@ -46,10 +46,11 @@
         <div class="row m-l-0 m-r-0">
             <div class="col-sm-4 bg-c-lite-green user-profile">
                 <div class="card-block text-center text-white txt">
+                  {% if u_info.profile_picture %}
                     <div class="m-b-25">
-                        <img src="{% static 'images\org_img.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                        <img src="{{u_info.profile_picture.url}}" class="img-radius" alt="User-Profile-Image">
                     </div>
-                    
+                    {% endif %} 
                     <h6 class="f-w-700 name">   
                         {{request.user.username}}
                     </h6>
@@ -116,8 +117,8 @@
                           <div class="inputs px-4">
                             <div class="profile-pic-div">
                               <br>
-                                <label for="file" id="uploadBtn">Choose Photo</label>
-                                <input type="file" id="file" name="pro_img">
+                                <label for="pro_img" id="uploadBtn">Choose Photo</label>
+                                <input type="file" id="pro_img" accept="image/*" name="pro_img">
                               </div>
                             </div>
                         </div>
