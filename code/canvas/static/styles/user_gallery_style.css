@@ -92,10 +92,7 @@ header .btn{
   cursor: pointer;
   display: none;
 }
- .row{
-  margin-top: 80px;
-  padding-top: 40px;
- }
+
 
 
 
@@ -171,10 +168,6 @@ header .btn{
 
 /* 1st css */
 
-h2{
-  text-align: center;
-}
-
 
 
 .lead {
@@ -196,7 +189,6 @@ h2{
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  
 }
 .gallery-item.item-2x3 {
   flex-basis: calc(175px * 0.666);
@@ -281,7 +273,7 @@ h2{
   width: auto;
 }
 .gallery-item .placeholder {
-  /* filter: blur(20px); */
+  filter: blur(20px);
 }
 
 .lightbox-wrapper {
@@ -306,7 +298,7 @@ h2{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(55, 172, 57, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 1em;
   font-weight: 600;
   text-align: center;
@@ -343,7 +335,7 @@ h2{
 }
 .lightbox .lightbox-slides-wrapper {
   flex-grow: 1;
-  display: none;
+  display: flex;
   overflow: hidden;
   position: relative;
 }
@@ -372,7 +364,7 @@ h2{
   background-image: url("data:image/svg+xml,%3Csvg width='32' height='53' viewBox='0 0 32 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 26.5L4.68293 53L0 48.4571L22.6341 26.5L3.83911e-06 4.54286L4.68293 0L32 26.5Z' fill='white'/%3E%3C/svg%3E");
 }
 .lightbox .lightbox-slide {
-  display: inline;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
@@ -400,91 +392,8 @@ h2{
   display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Rating */
-
-
-
-.rating {
-  display: inline-block;
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  font-size: 50px;
-}
-
-.rating label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  cursor: pointer;
-}
-
-.rating label:last-child {
-  position: static;
-}
-
-.rating label:nth-child(1) {
-  z-index: 5;
-}
-
-.rating label:nth-child(2) {
-  z-index: 4;
-}
-
-.rating label:nth-child(3) {
-  z-index: 3;
-}
-
-.rating label:nth-child(4) {
-  z-index: 2;
-}
-
-.rating label:nth-child(5) {
-  z-index: 1;
-}
-
-.rating label input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.rating label .icon {
-  float: left;
-  color: transparent;
-}
-
-.rating label:last-child .icon {
-  color: #000;
-}
-
-.rating:not(:hover) label input:checked ~ .icon,
-.rating:hover label:hover input ~ .icon {
-  color: #09f;
-}
-
-.rating label input:focus:not(:checked) ~ .icon:last-child {
-  color: #000;
-  text-shadow: 0 0 5px #09f;
-}
+/* .Scriptcontent{
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+} */
