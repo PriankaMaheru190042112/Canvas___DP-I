@@ -66,48 +66,6 @@
     </header>
 
 
-    <!-- <section class="section-main">
-      <h3>
-
-       {% if user.is_authenticated%}
-         
-        hello {{request.user.username}}    
-     
-           {% for object in objects%}    
-      
-               {% if object.org == request.user.username %}
-                    {% if object.is_accepted == False and object.is_rejected == False%}
-
-                        <div id= "eventName">
-                          
-                          Your request for <a href={{object.get_absolute_url2}}>{{object.name}}</a> is pending
-                        </div>
-                    {% elif object.is_accepted == True and object.is_rejected == False %}
-                    <div id= "eventName">
-                          
-                      Your request for <a href={{object.get_absolute_url2}}>{{object.name}}</a> has been accepted
-                    </div>
-                    {% elif  object.is_accepted == False and object.is_rejected == True %}
-                    <div id= "eventName">
-                          
-                      Your request for <a href={{object.get_absolute_url2}}>{{object.name}}</a> has been rejected
-                    </div>
-
-
-                    {% endif %}
-
-              {% endif %}
-              
-           {% endfor %}
-      
-
-       
-        {% endif %} 
-
-
-      </h3> 
-      
-    </section> -->
     {% if user.is_authenticated%}
 
     <section id = "filter_events">
@@ -129,26 +87,25 @@
           <div id="pending" class="tab-pane active">
               
             <div class="list-group p-0">
+
+              {% for pending in pending %}
+              {% if pending.org == request.user.username %}
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
-                {% for pending in pending %}
-                   {% if pending.org == request.user.username %}
+
                   <div class=" w-100 justify-content-between p-2">
 
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
                               
                     <!-- <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                    -->
-                    <h5 class="mb-1"><b>&nbsp; {{pending.org}}</b> had requested for <a href="{{pending.get_absolute_url2}}">{{pending.name}}</a> </h5>                                                  
+                    <h5 class="mb-1"><b>&nbsp; {{pending.org}}</b> had requested for <input type="button" onclick="location.href='{{pending.get_absolute_url2}}';" value="{{pending.name}}" />  </h5>                                                  
                               
-                    <!-- <form action="" method="POST"> {% csrf_token %}
-
-                      <input type="hidden" name="eid" id="eid" value= "{{object.event_id}}"> 
-                                
-                    </form> -->
                   </div>
-                  {% endif %}
-                  {% endfor %}
+
                 </a>
+
+                {% endif %}
+                {% endfor %}
 
             </div>            
 
@@ -157,22 +114,21 @@
           <div id="approved" class="tab-pane"> <!--Approved requests-->
 
             <div class="list-group p-0">
+              {% for accepted in accepted %}
+              {% if accepted.org == request.user.username %}
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
-                  {% for accepted in accepted %}
-                  {% if accepted.org == request.user.username %}
                   <div class=" w-100 justify-content-between p-2">
 
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
-
-                    <!-- <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested  for <input type="button" onclick="location.href='{{accepted.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5> -->
-                    <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <a href="{{accepted.get_absolute_url2}}">{{accepted.name}}</a> </h5>                                                   
-
-                    
+                    <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <input type="button" onclick="location.href='{{accepted.get_absolute_url2}}';" value="{{accepted.name}}" />  </h5>                                                  
+       
                   </div>
-                  {% endif %}
-                  {% endfor %}
+
                 </a>
+
+                {% endif %}
+                {% endfor %}
               
               </div>
       
@@ -181,21 +137,22 @@
               <div id="rejected" class="tab-pane"><p></p> 
 
                 <div class="list-group p-0">
-                  
+                  {% for rejected in rejected %}
+                  {% if rejected.org == request.user.username %}
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
-                      {% for rejected in rejected %}
-                      {% if rejected.org == request.user.username %}
+
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
-                        <!-- <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url4}}';" value="{{rejected.name}}" /> </h5> -->
-                        <h5 class="mb-1"><b>&nbsp;  {{rejected.org}}</b> had requested for <a href="{{rejected.get_absolute_url2}}">{{rejected.name}}</a></h5>                                                   
+                        <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url2}}';" value="{{rejected.name}}" />  </h5>                                                  
                         
                       </div>
-                      {% endif %}
-                      {% endfor %}
+
                     </a>
+
+                    {% endif %}
+                    {% endfor %}
                   
                 </div>
         
