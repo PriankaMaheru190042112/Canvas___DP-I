@@ -71,7 +71,13 @@
             <div>     
             <div class="filterDiv">
                 <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
+                  {% for u_info in u_info %}
+                                {% if u_info.username == object.org %}
+                              {% comment %} <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;">  {% endcomment %}
+                              <img src="{{u_info.profile_picture.url}}"  style="width:100%">
+
+                                 {% endif %}
+                              {% endfor %}
                     <div class="container2">
                         <div id= "eventName" class="text-dark">
                            <div id="event_name">{{object.name}}</div> 

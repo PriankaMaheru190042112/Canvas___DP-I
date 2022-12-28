@@ -90,8 +90,11 @@
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
 
                           <div class=" w-100 justify-content-between p-2">
-
-                              <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                            {% for u_info in u_info %}
+                                {% if u_info.username == object.org %}
+                              <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                                 {% endif %}
+                              {% endfor %}
                               
                               <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                   
                               
@@ -119,7 +122,11 @@
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                       <div class=" w-100 justify-content-between p-2">
 
-                        <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
+                        {% for u_info in u_info %}
+                            {% if u_info.username == accepted.org %}
+                              <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                            {% endif %}
+                      {% endfor %}
 
                         <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested  for <input type="button" onclick="location.href='{{accepted.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5>
                         
@@ -138,7 +145,11 @@
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                       <div class=" w-100 justify-content-between p-2">
 
-                        <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
+                        {% for u_info in u_info %}
+                        {% if u_info.username == rejected.org %}
+                          <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                        {% endif %}
+                          {% endfor %}
 
                         <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url4}}';" value="{{rejected.name}}" /> </h5>
                         

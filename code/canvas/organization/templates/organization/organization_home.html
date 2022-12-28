@@ -108,7 +108,7 @@
       </h3> 
       
     </section> -->
-
+    {% if user.is_authenticated%}
 
     <section id = "filter_events">
 
@@ -131,13 +131,14 @@
             <div class="list-group p-0">
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
-
+                {% for pending in pending %}
+                   {% if pending.org == request.user.username %}
                   <div class=" w-100 justify-content-between p-2">
 
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
                               
                     <!-- <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                    -->
-                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event2 </h5>                                                  
+                    <h5 class="mb-1"><b>&nbsp; {{pending.org}}</b> had requested for <a href="{{pending.get_absolute_url2}}">{{pending.name}}</a> </h5>                                                  
                               
                     <!-- <form action="" method="POST"> {% csrf_token %}
 
@@ -145,6 +146,8 @@
                                 
                     </form> -->
                   </div>
+                  {% endif %}
+                  {% endfor %}
                 </a>
 
             </div>            
@@ -156,15 +159,19 @@
             <div class="list-group p-0">
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
+                  {% for accepted in accepted %}
+                  {% if accepted.org == request.user.username %}
                   <div class=" w-100 justify-content-between p-2">
 
                     <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                     <!-- <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested  for <input type="button" onclick="location.href='{{accepted.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5> -->
-                    <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event5 </h5>                                                   
+                    <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <a href="{{accepted.get_absolute_url2}}">{{accepted.name}}</a> </h5>                                                   
 
                     
                   </div>
+                  {% endif %}
+                  {% endfor %}
                 </a>
               
               </div>
@@ -176,14 +183,18 @@
                 <div class="list-group p-0">
                   
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
+                      {% for rejected in rejected %}
+                      {% if rejected.org == request.user.username %}
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                         <!-- <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url4}}';" value="{{rejected.name}}" /> </h5> -->
-                        <h5 class="mb-1"><b>&nbsp;  iutps,</b> had requested for event10 </h5>                                                   
+                        <h5 class="mb-1"><b>&nbsp;  {{rejected.org}}</b> had requested for <a href="{{rejected.get_absolute_url2}}">{{rejected.name}}</a></h5>                                                   
                         
                       </div>
+                      {% endif %}
+                      {% endfor %}
                     </a>
                   
                 </div>
@@ -195,7 +206,7 @@
     </section>
 
 
-
+{% endif %}
 
 
       <!-- Optional JavaScript -->

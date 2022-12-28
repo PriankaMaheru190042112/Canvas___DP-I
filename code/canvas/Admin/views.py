@@ -33,7 +33,7 @@ def Admin_home(request):
     objects= Event.objects.filter(is_accepted= False, is_rejected= False).order_by('start_date')
     accepted= Event.objects.filter(is_accepted= True,is_rejected= False)
     rejected= Event.objects.filter(is_accepted= False,is_rejected= True)
-
+    u_info = User.objects.all()
     
     if request.method == 'POST' and 'ac' in request.POST:
         eid= request.POST.get('eid')
@@ -50,7 +50,8 @@ def Admin_home(request):
     context={
         'objects': objects,
         'accepted': accepted,
-        'rejected': rejected
+        'rejected': rejected,
+        'u_info' : u_info
     }
 
     return render(request, 'Admin/Admin_home.html',context) 

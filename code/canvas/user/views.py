@@ -55,6 +55,7 @@ def user_home(request):
    objects= Event.objects.all()
    genres = Genre.objects.all()
    participants= Participant.objects.filter(participant_name= request.user.username)
+   u_info = User.objects.all()
 
    print(participants)
    if(participants):
@@ -82,7 +83,8 @@ def user_home(request):
         'genres': genres ,
         'objects': objects,
         'participants': participants,
-        'flag': flag
+        'flag': flag,
+        'u_info': u_info
     }
 
    
@@ -141,7 +143,7 @@ def user_profile(request):
     
     elif request.method == 'POST' and 'update_img_btn' in request.POST:
 
-        pro_img= request.POST.get('pro_img')
+        pro_img= request.FILES.get('pro_img')
         u = User.objects.get(username= current_user)
         u.profile_picture = pro_img
         u.save()

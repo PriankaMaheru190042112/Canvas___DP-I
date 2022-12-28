@@ -98,7 +98,17 @@ def registerlogin(request):
 def organization_home(request):
     # return HttpResponse("Starting the project")
     objects = Event.objects.all()
-    return render(request, 'organization/organization_home.html',{'objects':objects}) 
+    pending = Event.objects.filter(is_accepted=False, is_rejected= False)
+    accepted= Event.objects.filter(is_accepted= True, is_rejected= False)
+    rejected= Event.objects.filter(is_accepted= False, is_rejected=True)
+
+    context={
+     'objects' : objects,
+     'pending' : pending,
+     'accepted' : accepted,
+     'rejected' : rejected
+    }
+    return render(request, 'organization/organization_home.html',context) 
 
 @login_required
 def organization_logout(request):  
