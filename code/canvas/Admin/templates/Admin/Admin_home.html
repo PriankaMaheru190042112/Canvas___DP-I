@@ -26,17 +26,7 @@
           margin-right: 3px;
       }
 
-
-      #profile_picture{
-          height: 100px;
-          border: 1px solid black;
-          border-radius: 50%;
-          float: left;
-          padding: 1px;
-          margin-left: 50px;
-      }
-
-      #request_of_room:hover{
+      #request_of_event:hover{
         background-color: cornsilk;
       }
 
@@ -98,17 +88,13 @@
 
                   {% for object in objects %}
               
-                    <!-- <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_room"> -->
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
 
                           <div class=" w-100 justify-content-between p-2">
 
                               <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
                               
-                              <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                       
-                    
-                              <br>
-                                <small class="text-muted">&nbsp;   {{ forloop.counter }} </small>
-                              
+                              <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                   
                               
                                 <form action="/Admin/Admin_home/" method="POST"> {% csrf_token %}
 
@@ -119,7 +105,7 @@
                                 
                                 </form>
                           </div>
-                    <!-- </a> -->
+                    </a>
 
                     {% endfor %}
 
@@ -131,16 +117,12 @@
 
                 <div class="list-group p-0">
                   {% for accepted in accepted %}
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_room">
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                         <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested  for <input type="button" onclick="location.href='{{accepted.get_absolute_url4}}';" value="{{accepted.name}}" /> </h5>
-
-                        <br>
-
-                        <small class="text-muted"> &nbsp;  {{ forloop.counter }} </small>
                         
                       </div>
                     </a>
@@ -154,17 +136,12 @@
 
                 <div class="list-group p-0">
                   {% for rejected in rejected %}
-                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_room">
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                       <div class=" w-100 justify-content-between p-2">
 
                         <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
                         <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url4}}';" value="{{rejected.name}}" /> </h5>
-
-
-                        <br>
-
-                        <small class="text-muted"> &nbsp;  {{ forloop.counter }} </small>
                         
                       </div>
                     </a>
