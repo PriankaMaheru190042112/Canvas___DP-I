@@ -73,9 +73,10 @@
                 <div class="card">
                   {% for u_info in u_info %}
                                 {% if u_info.username == object.org %}
+                                {% if u_info.profile_picture %}
                               {% comment %} <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;">  {% endcomment %}
                               <img src="{{u_info.profile_picture.url}}"  style="width:100%">
-
+                              {% endif %}
                                  {% endif %}
                               {% endfor %}
                     <div class="container2">
@@ -224,7 +225,9 @@
 
                       {% for u_info in u_info %}
                      {% if object.org == u_info.username %}
+                     {% if u_info.profile_picture %}
                       <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% endif %}
                       {% endif %}
                      {% endfor %}
                       
@@ -261,8 +264,10 @@
 
                       {% for u_info in u_info %}
                      {% if object.org == u_info.username %}
-                      <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
-                      {% endif %}
+                     {% if u_info.profile_picture %}
+                     <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                     {% endif %}
+                    {% endif %}
                      {% endfor %}
                           
                       <div id="notify" class="notify" style="display:block"> 
