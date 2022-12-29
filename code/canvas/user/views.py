@@ -161,9 +161,9 @@ def user_profile(request):
     return render(request, 'user/user_profile.html',context) 
 
 
-def user_gallery(request):
+def user_notification(request):
     # return HttpResponse("Starting the project")
-    return render(request, 'user/user_gallery.html') 
+    return render(request, 'user/user_notification.html') 
 
     
 
