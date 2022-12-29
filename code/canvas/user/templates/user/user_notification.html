@@ -91,10 +91,29 @@
 
                   <div class=" w-100 justify-content-between p-2">
 
-                              
-                    <!-- <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                    -->
-                    <h5 class="mb-1">&nbsp; (event name with link) will held on (start date)  </h5>                                                  
-                              
+              
+                      {% for participant in  participants %}
+                      {% for object in objects %}
+                      {% if participant.event_name == object.name %}
+                      {% if object.is_not_finished %}
+
+
+
+                      {% for u_info in u_info %}
+                      {% if object.org == u_info.username %}
+                      <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% endif %}
+                      {% endfor %}
+                       
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}}   </h5>   
+
+                    </div>
+                    {% endif %}
+                    {% endif %} 
+                    {% endfor %}
+                    {% endfor %}                              
                   </div>
 
                 </a>
@@ -103,15 +122,33 @@
 
           </div>
               
-          <div id="previous" class="tab-pane"> <!--Approved requests-->
+          <div id="previous" class="tab-pane"> 
 
             <div class="list-group p-0">
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                   <div class=" w-100 justify-content-between p-2">
                 
-                    <h5 class="mb-1">&nbsp; (event name with link) ended on (start date)  </h5>                                                  
-                                                  
+                    {% for participant in  participants %}
+                    {% for object in objects %}
+                    {% if participant.event_name == object.name %}
+                    {% if object.is_finished  %}
+
+                    {% for u_info in u_info %}
+                   {% if object.org == u_info.username %}
+                    <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                    {% endif %}
+                   {% endfor %}
+                        
+                    <div id="notify" class="notify" style="display:block"> 
+                    
+                    <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> was held on {{object.start_date}}   </h5>   
+
+                  </div>
+                  {% endif %}
+                  {% endif %} 
+                  {% endfor %}
+                  {% endfor %}                                                  
        
                   </div>
 

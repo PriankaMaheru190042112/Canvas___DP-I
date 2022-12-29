@@ -162,8 +162,19 @@ def user_profile(request):
 
 
 def user_notification(request):
-    # return HttpResponse("Starting the project")
-    return render(request, 'user/user_notification.html') 
+
+    objects= Event.objects.all().order_by('start_date')
+    participants= Participant.objects.filter(participant_name= request.user.username)
+    u_info = User.objects.all()
+
+    context={
+ 
+        'objects': objects,
+        'participants': participants,
+        'u_info': u_info
+     }
+ 
+    return render(request, 'user/user_notification.html',context) 
 
     
 
