@@ -54,21 +54,18 @@
         <div class="room-arena">
           <div class="walls">
             <div class="wall">
+              {% for img in img %}
               <div class="item">
                 <a class="item-image">
-              {% for image in image %}  
-
-                  <img src="{{image.image.url}}" class="img-radius" alt="User-Profile-Image">
-              {% endfor %}
-
-
+                  <img src="{% static 'images\2444.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w1">
                 </a>
                 <p class="item-desc">
                   <span>
-                    1st. element
+                    1st element
                   </span>
                 </p>
               </div>
+              {% endfor %}
 
 
            <!--   <div class="item">
@@ -244,7 +241,7 @@
                 </a>
                 <p class="item-desc">
                   <span>
-                    2nd element
+                    3rd element
                   </span>
                 </p>
               </div>
@@ -533,9 +530,9 @@
 
       const wall1 = [
       
-        {% for img in img %}
+        {% for img1 in img %}
         {
-        imgs: "{{img.image.url}}" 
+        imgs: "{{img1.image.url}}" 
               
         },
 
@@ -546,30 +543,30 @@
       
 
 
-      for(let i=0; i< wall1.length; i+=4){
+      for(let i=0; i< wall1.length; i = i + 4){
         console.log(wall1[i].imgs)
         document.getElementById("w1").src = wall1[i].imgs
       }
 
       const wall2 = [
-      {% for img in img %}
+      {% for img2 in img %}
       {
-       imgs: "{{img.image.url}}"
+       imgs: "{{img2.image.url}}"
       
       },
       {% endfor %}
       ]
       
-      for(let i=1; i< wall1.length; i+=4){
+      for(let i=1; i< wall1.length; i += 4){
         console.log(wall2[i].imgs)
         document.getElementById("w2").src = wall2[i].imgs
       }
 
 
       const wall3 = [
-      {% for img in img %}
+      {% for img3 in img %}
       {
-       imgs: "{{img.image.url}}"
+       imgs: "{{img3.image.url}}"
       
       },
       {% endfor %}
@@ -582,9 +579,9 @@
 
 
       const wall4 = [
-      {% for img in img %}
+      {% for img4 in img %}
       {
-       imgs: "{{img.image.url}}"
+       imgs: "{{img4.image.url}}"
       
       },
       {% endfor %}
