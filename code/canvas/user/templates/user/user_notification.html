@@ -101,7 +101,9 @@
 
                       {% for u_info in u_info %}
                       {% if object.org == u_info.username %}
+                      {% if u_info.profile_picture  %}
                       <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% endif %}
                       {% endif %}
                       {% endfor %}
                        
@@ -136,7 +138,9 @@
 
                     {% for u_info in u_info %}
                    {% if object.org == u_info.username %}
+                   {% if u_info.profile_picture %}
                     <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                    {% endif %}
                     {% endif %}
                    {% endfor %}
                         
