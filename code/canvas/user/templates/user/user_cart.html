@@ -24,8 +24,7 @@
         </div>
         <a href="/user/user_home" >Home</a>
         <a href="/user/user_profile">Profile</a>
-        <a href="/user/user_gallery">Events</a>
-        <a href="/user/user_cart" class="active">Purchase</a>
+        <a href="/user/user_notification">Notification</a>
         <a href="{% url 'user:user_logout' %}">Logout</a>
       </div>
       <div class="btn">
@@ -103,10 +102,13 @@
     closeBtn.addEventListener("click", () => {
       menu.classList.remove('active');
     });
+
+  </script>
+  
     <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener('click', function(e) {
         e.preventDefault();
-      });</script>
+      });
     </script>
     <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener('click', function(e) {
