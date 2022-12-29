@@ -152,6 +152,17 @@ header .btn{
 }
 
 
+.countdown-style{
+    background-color: rgb(205, 238, 231);
+    height: 60px;
+    width: 1100px;
+    margin-top: 50px;
+    margin-left: 6px;
+    padding: 10px; 
+    font-size: x-large; 
+    font-weight: bold;
+    justify-content: center;
+}
 
 
 
