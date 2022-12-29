@@ -57,7 +57,7 @@ class Event(models.Model):
     def start_date_difference(self):
         return (date.today() - self.start_date) == 0   
     
-    def is_finished(self):
+    def is_not_finished(self):
         # today = datetime.datetime.strftime(date.today(),"%Y/%m/%d")
         # endDate= datetime.datetime.strptime(self.end_date, "%Y/%m/%d")
 
@@ -65,6 +65,15 @@ class Event(models.Model):
         diff= diff.days * 24 *60 *60
 
         return(diff<0)
+
+    def is_finished(self):
+        # today = datetime.datetime.strftime(date.today(),"%Y/%m/%d")
+        # endDate= datetime.datetime.strptime(self.end_date, "%Y/%m/%d")
+
+        diff = date.today() - self.end_date
+        diff= diff.days * 24 *60 *60
+
+        return(diff>0)
 
 
     # def one_hr_difference(self):

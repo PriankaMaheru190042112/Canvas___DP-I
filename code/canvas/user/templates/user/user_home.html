@@ -212,34 +212,69 @@
                 
               <div class="list-group p-0">
                 
-                  <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
+                
   
                     <div class=" w-100 justify-content-between p-2">
-                      <img src="" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% for participant in  participants %}
+                      {% for object in objects %}
+                      {% if participant.event_name == object.name %}
+                      {% if object.is_not_finished %}
 
-                        <!-- <h5 class="mb-1">&nbsp; You had requested for <input type="button" onclick="location.href='{{pending.get_absolute_url2}}';" value="{{pending.name}}" />  </h5>                                                   -->
-                        <h5 class="mb-1">&nbsp; Event 4(link dewa) will held on (27-02-2002) Date dewa thakbe  </h5>    
+
+
+                      {% for u_info in u_info %}
+                     {% if object.org == u_info.username %}
+                      <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% endif %}
+                     {% endfor %}
+                      
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}}   </h5>   
+
+                    </div>
+                    {% endif %}
+                    {% endif %} 
+                    {% endfor %}
+                    {% endfor %}
+
+                        
 
                     </div>
   
-                  </a>
+                
   
               </div>            
   
             </div>
                 
-            <div id="previous" class="tab-pane"> <!--Approved requests-->
+            <div id="previous" class="tab-pane"> 
   
               <div class="list-group p-0">
                 
-                  <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                     <div class=" w-100 justify-content-between p-2">
-                  
-                      <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
 
-                      <!-- <h5 class="mb-1"> You had requested for <input type="button" onclick="location.href='{{accepted.get_absolute_url2}}';" value="{{accepted.name}}" />  </h5>                                                   -->
-                      <h5 class="mb-1">&nbsp; Event 4(link dewa) finished on (27-02-2002) Date dewa thakbe   </h5>    
-          
+                      {% for participant in  participants %}
+                      {% for object in objects %}
+                      {% if participant.event_name == object.name %}
+                      {% if object.is_finished  %}
+
+                      {% for u_info in u_info %}
+                     {% if object.org == u_info.username %}
+                      <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
+                      {% endif %}
+                     {% endfor %}
+                          
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> was held on {{object.start_date}}   </h5>   
+
+                    </div>
+                    {% endif %}
+                    {% endif %} 
+                    {% endfor %}
+                    {% endfor %}
+
                     </div>
   
                   </a>
