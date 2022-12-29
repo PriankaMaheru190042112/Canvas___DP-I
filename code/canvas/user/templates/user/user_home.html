@@ -145,7 +145,7 @@
             
                             {% else %}
                                  {% if object.fee %}
-                                  {% comment %} <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a> {% endcomment %}
+                                  <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
                                   <a href={{object.get_absolute_url3}}>Event Details</a>   
 
                                   {% else %}
