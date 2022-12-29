@@ -41,14 +41,14 @@
 
 
       
-    <section id = "filter_events">
-      <div class = "title-text">
-        <br> 
-          {% comment %} <h2> Events Coming Up! </h2> {% endcomment %}
-      </div>   
+      <section style="background-color:rgb(250, 253, 255); margin-top: 140px;" id="#filter_events">
+        <div class = "title-text">
+          <br> 
+            {% comment %} <h2> Events Coming Up! </h2> {% endcomment %}
+        </div>    
       {% if user.is_authenticated%}
          
-     <h1> hello {{request.user.username}} </h1>   
+     {% comment %} <h1> hello {{request.user.username}} </h1>    {% endcomment %}
 
   
       <div >
@@ -64,111 +64,121 @@
       </div>
 
     
-          <div class="container">
+         
+      <div class="container">
 
-            {% for object in objects %} 
-            {% if object.is_accepted == True %}
-            <div>     
-            <div class="filterDiv">
-                <div class="card">
-                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
-                    <div class="container2">
-                        <div id= "eventName" class="text-dark">
-                           <div id="event_name">{{object.name}}</div> 
-                           <div id="event_date">{{object.start_date}} </div>
-                            <b><p> {{object.genre}}</p></b>
+        {% for object in objects %} 
+        {% if object.is_accepted == True %}
+        {% if object.is_not_finished %}
+        <div>     
+        <div class="filterDiv">
+            <div class="card">
+              {% for u_info in u_info %}
+                            {% if u_info.username == object.org %}
+                            {% if u_info.profile_picture %}
+                          {% comment %} <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;">  {% endcomment %}
+                          <img src="{{u_info.profile_picture.url}}"  style="width:100%">
+                          {% endif %}
+                             {% endif %}
+                          {% endfor %}
+                <div class="container2">
+                    <div id= "eventName" class="text-dark">
+                       <div id="event_name">{{object.name}}</div> 
+                       <div id="event_date">{{object.start_date}} </div>
+                       <div id="end_date" style="display:none" > {{object.end_date|date:"M d, Y"}}</div>
+                        <b><p> {{object.genre}}</p></b>
 
-                            {% if object.fee %}
+                        {% if object.fee %}
 
+                    
+
+                           <div id ="{{object.event_id}}" ></div>
+                                  
+                            <div id="x{{object.event_id}}" style="display:block"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ object.name }}"> It's a private event,Register NOW!! </button> </div>
+
+                            </div>
+
+                                                          <!-- Modal for event register payment-->
+                            <div class="modal fade" id="{{object.name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header text-dark">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body text-dark">
+                                    You are registering for {{object.name}}
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                    <form method="POST" action="/user/user_home/">{% csrf_token %}
+                                      
+                                    <input type="hidden" name="ename" id="ename" value= "{{object.name}}"> 
+                                      <button type="submit" class="btn btn-primary" name="paybtn" id="paybtn" >Pay with Bkash</button>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                        {% else %}
+                    <form method="POST" action="/user/user_home/">{% csrf_token %}
+                      <input type="hidden" name="pub" id="pub" value= "{{object.name}}"> 
+
+                      <div id="z{{object.event_id}}">  </div>
+                      <div id="y{{object.event_id}}" style="display:block"> <button type="submit" class="btn btn-primary" name="pubbtn" id="pubbtn">  It is a public event. <br>Click if you are <br> interested!!! </button> </div>
+
+                    </form>     
+                        {% endif %}
+                        <br>
                         
 
-                               <div id ="{{object.event_id}}" ></div>
-                                      
-                                <div id="x{{object.event_id}}" style="display:block"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ object.name }}"> It's a private event,Register NOW!! </button> </div>
-
-                                </div>
-
-                                                                                               <!-- Modal for event register payment-->
-                                                                  <div class="modal fade" id="{{object.name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog">
-                                                                      <div class="modal-content">
-                                                                        <div class="modal-header text-dark">
-                                                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body text-dark">
-                                                                         You are registering for {{object.name}}
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                                                                          <form method="POST" action="/user/user_home/">{% csrf_token %}
-                                                                            
-                                                                          <input type="hidden" name="ename" id="ename" value= "{{object.name}}"> 
-                                                                            <button type="submit" class="btn btn-primary" name="paybtn" id="paybtn" >Pay with Bkash</button>
-                                                                          </form>
-                                                                        </div>
-                                                                      </div>
-                                                                    </div>
-                                                                  </div>
 
 
-                            {% else %}
-                        <form method="POST" action="/user/user_home/">{% csrf_token %}
-                          <input type="hidden" name="pub" id="pub" value= "{{object.name}}"> 
-
-                          <div id="z{{object.event_id}}">  </div>
-                          <div id="y{{object.event_id}}" style="display:block"> <button type="submit" class="btn btn-primary" name="pubbtn" id="pubbtn">  This is a public event. Click if you are interested!!! </button> </div>
-
-                        </form>     
-                            {% endif %}
-                            <br>
-                            
-
-
-
-                            {% if object.start_date_difference %}
-                                    {% if object.fee %}
-                                      <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
-
-                                      {% else %}
-                                      <a href={{object.get_absolute_url3}}>Event is going on, JOIN NOW!!!</a>
-
-                                      {% endif %}
-            
-                            {% else %}
-                                 {% if object.fee %}
-                                  {% comment %} <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a> {% endcomment %}
-                                  <a href={{object.get_absolute_url3}}>Event Details</a>   
+                        {% if object.start_date_difference %}
+                                {% if object.fee %}
+                                  <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
 
                                   {% else %}
-                          
-                                  <a href={{object.get_absolute_url3}}>Event Details</a>    
-                                  
+                                  <a href={{object.get_absolute_url3}}>Event is going on, JOIN NOW!!!</a>
+
                                   {% endif %}
-                                  
-                            {% endif %}
-                            
-                        </div>
+        
+                        {% else %}
+                             {% if object.fee %}
+                              <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
+                              <a href={{object.get_absolute_url3}}>Event Details</a>   
+
+                              {% else %}
+                      
+                              <a href={{object.get_absolute_url3}}>Event Details</a>    
+                              
+                              {% endif %}
+                              
+                        {% endif %}
+                        
                     </div>
                 </div>
             </div>
-            {% endif %}
-            {% endfor %}        
-            {% endif %}
-      
-          </div>
-        
+        </div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}        
+        {% endif %}
+  
+      </div>
 
   </section> 
 
 
-  <div class="container"> <h1>Notification Tab </h1> 
+  {% comment %} <div class="container"> <h1>Notification Tab </h1> 
     
                     <div id="notify">  </div>
                      <br>    
                      
-                    </div>
+                    </div> {% endcomment %}
   
 
 {% comment %} For filtering {% endcomment %}
@@ -244,7 +254,7 @@
     </script>
 
     <script>
-      const dates= [
+      {% comment %} const dates= [
       {% for participant in  participants %}
       {% for object in objects %}
       {% if participant.event_name == object.name %}
@@ -279,7 +289,7 @@
         }
 
 
-      }
+      } {% endcomment %}
 
   
 
@@ -371,7 +381,6 @@
     </script>  
     
     
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
   </body>
 </html>
