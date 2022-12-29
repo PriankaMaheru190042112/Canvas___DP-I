@@ -1,0 +1,25 @@
+.request_dp{
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 1px;
+    margin-right: 3px;
+}
+
+#request_of_event:hover{
+  background-color: cornsilk;
+}
+
+
+#notification{
+  width: 100%;
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+
+@media (max-width: 991px) {
+    .tab-content>.tab-pane {
+      display: block;
+      opacity: 1;
+    }
+  }
