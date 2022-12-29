@@ -102,8 +102,8 @@ class Images(models.Model):
         draw = ImageDraw.Draw(photo)
         font = ImageFont.load_default()
         width, height = photo.size
-        myword = Event.get_org_name(self.event_id)
-        margin = 10
+        myword = "© "+ Event.get_org_name(self.event_id)
+        margin = 20
         textwidth, textheight = draw.textsize(myword, font)
         x = width - textwidth - margin
         y = height - textheight - margin

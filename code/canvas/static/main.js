@@ -3,14 +3,15 @@
 const eventBox =document.getElementById('event-box')
 const countdownBox = document.getElementById('countdown-box')
 const eventnameBox =  document.getElementById('event_name')
-
 const gal = document.getElementById('img_gallery');
+const end_date = document.getElementById('end_date')
 
 
 event_name= eventnameBox.innerHTML
 
 
 const eventDate= Date.parse(eventBox.textContent)
+const endDate = Date.parse(end_date.textContent)
 
 var folder = "./media";
 
@@ -20,6 +21,9 @@ setInterval(()=>{
     // console.log(now)
     const diff = eventDate- now
     console.log(diff)
+
+    const end_diff= endDate - now
+    console.log(end_diff)
 
 
 
@@ -33,6 +37,11 @@ setInterval(()=>{
         countdownBox.innerHTML = d + " days, " +h + " hours, "+ m + " minutes, " +s  +" seconds" 
         gal.style.display= 'block'
     } 
+
+    else if(end_diff<0){
+        countdownBox.innerHTML = "Event has ended on " + end_date.innerHTML
+      
+    }
 
     else{
         countdownBox.innerHTML = "Countdown Completed"

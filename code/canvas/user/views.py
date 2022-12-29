@@ -52,7 +52,7 @@ def registerlogin(request):
 @login_required
 def user_home(request):
     # return HttpResponse("Starting the project")
-   objects= Event.objects.all()
+   objects= Event.objects.all().order_by('start_date')
    genres = Genre.objects.all()
    participants= Participant.objects.filter(participant_name= request.user.username)
    u_info = User.objects.all()
@@ -63,20 +63,26 @@ def user_home(request):
    else:
     flag=0 
 
+#    for obj in objects:
+#      today = now().date()
+#      obj = Event.objects.filter(start_date__gte=today).order_by('start_date')[:5]
+
    q= request.POST.get('genre')
-   today = now().date()
-   objects= Event.objects.filter(start_date__gte=today).order_by('start_date')[:5]
+   if(q):
+    today = now().date()
+    objects= Event.objects.filter(genre = q,start_date__gte=today ).order_by('start_date')[:3]
+    
    
 
-   if q =="Photography":
-        today = now().date()
-        objects= Event.objects.filter(genre = q,start_date__gte=today ).order_by('start_date')[:3]
-        print("boop")
+#    if q =="Photography":
+#         today = now().date()
+#         objects= Event.objects.filter(genre = q,start_date__gte=today ).order_by('start_date')[:3]
+#         print("boop")
 
-   elif q=="Abstract Art":
-        today = now().date()
-        objects= Event.objects.filter(genre = q, start_date__gte=today ).order_by('start_date')[:3]
-        print("nope")
+#    elif q=="Abstract Art":
+#         today = now().date()
+#         objects= Event.objects.filter(genre = q, start_date__gte=today ).order_by('start_date')[:3]
+#         print("nope")
 
    context={
 

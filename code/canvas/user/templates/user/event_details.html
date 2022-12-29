@@ -20,6 +20,7 @@
     </div>
     <div class="col-7">    
        <div id="event-box"> {{event_id.start_date|date:"M d, Y"}}</div>
+       <div id="end_date"> {{event_id.end_date|date:"M d, Y"}}</div>
 
     </div>
   </div>     
@@ -31,35 +32,17 @@
      <a href="/user/user_virtual_box/{{event_id.event_id}}" target="_blank">See in Virtual Room</a>
      <br>
      <a href="/user/user_cart/{{event_id.event_id}}" > Purchase Any Art</a>
-     {% comment %} <div id="img_gallery" style="display:none">
-      
-      {% for image in image %}
-      <img src="{{image.image.url}}">
-    
-      {% endfor %}
-
-
-    <br><br>
-     </div> {% endcomment %}
-{% comment %} <section class="section-main">  
-   <div class="rt-container">
-    <div class="col-rt-12">
-      <section>
-        <div class="gallery">
-          {% for image in image %}  
-            <div class="gallery-item item-3x4">
-                <img class="thumb placeholder" src="{{image.image.url}}" alt="">
-                <div class="caption"><span>Caption 1</span></div>
-            </div>
-            {% endfor %} {% endcomment %}
+     
    
             <section>
               <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
               <div class="gallery">
                 {% for image in image %}
                   <div class="gallery-item item-3x4">
+                    <div id="img_gallery" style="display:none">
                       <img class="thumb placeholder"  src="{{image.image.url}}" data-src="{{image.image.url}}" data-image="{{image.image.url}}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
                       <div class="caption"><span>Click here for display </span></div>
+                    </div>
                   </div>
                   {% endfor %}  
               </div>

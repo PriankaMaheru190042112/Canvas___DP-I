@@ -67,6 +67,7 @@
 
             {% for object in objects %} 
             {% if object.is_accepted == True %}
+            {% if object.is_not_finished %}
             <div>     
             <div class="filterDiv">
                 <div class="card">
@@ -159,6 +160,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endif %}
             {% endfor %}        
             {% endif %}
