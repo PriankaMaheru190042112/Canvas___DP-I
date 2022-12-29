@@ -95,10 +95,9 @@
 
                   <div class=" w-100 justify-content-between p-2">
 
-                    <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left " style="width:80px;height:80px;"> 
                               
                     <!-- <h5 class="mb-1"><b>&nbsp;  {{object.org}},</b> had requested for <input type="button" onclick="location.href='{{object.get_absolute_url4}}';" value="{{object.name}}" /> </h5>                                                    -->
-                    <h5 class="mb-1"><b>&nbsp; {{pending.org}}</b> had requested for <input type="button" onclick="location.href='{{pending.get_absolute_url2}}';" value="{{pending.name}}" />  </h5>                                                  
+                    <h5 class="mb-1">&nbsp; You had requested for <input type="button" onclick="location.href='{{pending.get_absolute_url2}}';" value="{{pending.name}}" />  </h5>                                                  
                               
                   </div>
 
@@ -120,8 +119,8 @@
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
                   <div class=" w-100 justify-content-between p-2">
 
-                    <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
-                    <h5 class="mb-1"><b>&nbsp; {{accepted.org}}</b> had requested for <input type="button" onclick="location.href='{{accepted.get_absolute_url2}}';" value="{{accepted.name}}" />  </h5>                                                  
+                
+                    <h5 class="mb-1"> You had requested for <input type="button" onclick="location.href='{{accepted.get_absolute_url2}}';" value="{{accepted.name}}" />  </h5>                                                  
        
                   </div>
 
@@ -143,9 +142,8 @@
 
                       <div class=" w-100 justify-content-between p-2">
 
-                        <img src="{% static 'images\Admin_img.png' %}" class="request_dp float-left" style="width:80px;height:80px;">
 
-                        <h5 class="mb-1"><b>&nbsp; {{rejected.org}}</b> had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url2}}';" value="{{rejected.name}}" />  </h5>                                                  
+                        <h5 class="mb-1">You had requested for <input type="button" onclick="location.href='{{rejected.get_absolute_url2}}';" value="{{rejected.name}}" />  </h5>                                                  
                         
                       </div>
 

@@ -65,7 +65,21 @@
   
       <!-- request togglable tab-->
 
+
+     
+
     <section id = "filter_events">
+
+      <div id="genre_create">
+        <form action="/Admin/Admin_home/" method="POST"> {% csrf_token %}
+
+        <input type="text" name="genre" id="genre">
+        <button type="submit" value="submit" name="create_genre"> Create Genre</button>
+
+        </form>
+      </div>
+
+      <br><br><br>
           
         <div>
 

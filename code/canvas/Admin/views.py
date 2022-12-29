@@ -34,6 +34,13 @@ def Admin_home(request):
     accepted= Event.objects.filter(is_accepted= True,is_rejected= False)
     rejected= Event.objects.filter(is_accepted= False,is_rejected= True)
     u_info = User.objects.all()
+
+    if request.method == 'POST' and 'create_genre' in request.POST:
+        g = request.POST.get('genre')
+
+        genre = Genre.objects.create(genre_name=g)
+
+        genre.save()
     
     if request.method == 'POST' and 'ac' in request.POST:
         eid= request.POST.get('eid')

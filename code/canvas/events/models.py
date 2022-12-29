@@ -117,7 +117,7 @@ class Images(models.Model):
         return str(self.event_id)
 
 class Genre(models.Model):
-    genre_id =models.IntegerField(primary_key= True)
+    genre_id =models.AutoField(primary_key= True)
     genre_name= models.CharField(max_length=200)
 
 
