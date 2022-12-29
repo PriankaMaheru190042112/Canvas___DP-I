@@ -8,18 +8,20 @@ const gal = document.getElementById('img_gallery');
 
 
 event_name= eventnameBox.innerHTML
-console.log(event_name)
+
 
 const eventDate= Date.parse(eventBox.textContent)
-console.log(eventDate)
+
 var folder = "./media";
 
 setInterval(()=>{
-    const now= new Date().getTime()
+    const now= new Date()
+    console.log(now)
     // console.log(now)
     const diff = eventDate- now
+    console.log(diff)
 
-     console.log(diff)
+
 
     const d= Math.floor((eventDate / (1000*60*60*24)) - (now /(1000*60*60*24)))
     const h= Math.floor((eventDate / (1000*60*60) - (now /(1000*60*60))) %24)
@@ -34,10 +36,11 @@ setInterval(()=>{
 
     else{
         countdownBox.innerHTML = "Countdown Completed"
-       
-
     
     }
+
+
+    
 
     
 
