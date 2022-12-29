@@ -36,16 +36,18 @@
    
             <section>
               <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
+              <div id="img_gallery" style="display:none">
               <div class="gallery">
                 {% for image in image %}
                   <div class="gallery-item item-3x4">
-                    <div id="img_gallery" style="display:none">
+                    
                       <img class="thumb placeholder"  src="{{image.image.url}}" data-src="{{image.image.url}}" data-image="{{image.image.url}}" data-title="Sample Photo" alt="Photo by Daniel J. Schwarz">
                       <div class="caption"><span>Click here for display </span></div>
                     </div>
-                  </div>
+                  
                   {% endfor %}  
               </div>
+            </div> 
             <section>
       
     

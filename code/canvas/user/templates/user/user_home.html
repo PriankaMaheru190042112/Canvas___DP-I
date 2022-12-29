@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User | Home</title>
     <link rel="stylesheet" type="text/css" href="{% static 'styles/user_home_style.css' %} ">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/tab_style.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+        </script>
 
-
+  
   </head>
   <body>
 
@@ -27,6 +26,8 @@
         </div>
         <a href="/user/user_home" class="active">Home</a>
         <a href="/user/user_profile">Profile</a>
+        <a href="/user/user_gallery">Events</a>
+        <a href="/user/user_cart">Purchase</a>
         <a href="{% url 'user:user_logout' %}">Logout</a>
       </div>
       <div class="btn">
@@ -40,14 +41,14 @@
 
 
       
-    <section style="background-color:rgb(250, 253, 255); margin-top: 140px;" id="#filter_events">
+    <section id = "filter_events">
       <div class = "title-text">
         <br> 
           {% comment %} <h2> Events Coming Up! </h2> {% endcomment %}
       </div>   
       {% if user.is_authenticated%}
          
-     <!-- <h1> hello {{request.user.username}} </h1>    -->
+     <h1> hello {{request.user.username}} </h1>   
 
   
       <div >
@@ -67,23 +68,14 @@
 
             {% for object in objects %} 
             {% if object.is_accepted == True %}
-            {% if object.is_not_finished %}
             <div>     
             <div class="filterDiv">
                 <div class="card">
-                  {% for u_info in u_info %}
-                                {% if u_info.username == object.org %}
-                                {% if u_info.profile_picture %}
-                              {% comment %} <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;">  {% endcomment %}
-                              <img src="{{u_info.profile_picture.url}}"  style="width:100%">
-                              {% endif %}
-                                 {% endif %}
-                              {% endfor %}
+                    <img src="{% static 'images/org_img.jpg' %}" alt="Avatar" style="width:100%">
                     <div class="container2">
                         <div id= "eventName" class="text-dark">
                            <div id="event_name">{{object.name}}</div> 
                            <div id="event_date">{{object.start_date}} </div>
-                           <div id="end_date" style="display:none" > {{object.end_date|date:"M d, Y"}}</div>
                             <b><p> {{object.genre}}</p></b>
 
                             {% if object.fee %}
@@ -96,29 +88,29 @@
 
                                 </div>
 
-                                                              <!-- Modal for event register payment-->
-                                <div class="modal fade" id="{{object.name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content">
-                                      <div class="modal-header text-dark">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body text-dark">
-                                        You are registering for {{object.name}}
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                               <!-- Modal for event register payment-->
+                                                                  <div class="modal fade" id="{{object.name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                      <div class="modal-content">
+                                                                        <div class="modal-header text-dark">
+                                                                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body text-dark">
+                                                                         You are registering for {{object.name}}
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                        <form method="POST" action="/user/user_home/">{% csrf_token %}
-                                          
-                                        <input type="hidden" name="ename" id="ename" value= "{{object.name}}"> 
-                                          <button type="submit" class="btn btn-primary" name="paybtn" id="paybtn" >Pay with Bkash</button>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                                                                          <form method="POST" action="/user/user_home/">{% csrf_token %}
+                                                                            
+                                                                          <input type="hidden" name="ename" id="ename" value= "{{object.name}}"> 
+                                                                            <button type="submit" class="btn btn-primary" name="paybtn" id="paybtn" >Pay with Bkash</button>
+                                                                          </form>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
 
 
                             {% else %}
@@ -126,7 +118,7 @@
                           <input type="hidden" name="pub" id="pub" value= "{{object.name}}"> 
 
                           <div id="z{{object.event_id}}">  </div>
-                          <div id="y{{object.event_id}}" style="display:block"> <button type="submit" class="btn btn-primary" name="pubbtn" id="pubbtn">  It is a public event. <br>Click if you are <br> interested!!! </button> </div>
+                          <div id="y{{object.event_id}}" style="display:block"> <button type="submit" class="btn btn-primary" name="pubbtn" id="pubbtn">  This is a public event. Click if you are interested!!! </button> </div>
 
                         </form>     
                             {% endif %}
@@ -146,7 +138,7 @@
             
                             {% else %}
                                  {% if object.fee %}
-                                  <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a>
+                                  {% comment %} <a href="/user/user_join_form/{{object.event_id}}">Event is going on, JOIN NOW!!!</a> {% endcomment %}
                                   <a href={{object.get_absolute_url3}}>Event Details</a>   
 
                                   {% else %}
@@ -162,7 +154,6 @@
                 </div>
             </div>
             {% endif %}
-            {% endif %}
             {% endfor %}        
             {% endif %}
       
@@ -172,127 +163,13 @@
   </section> 
 
 
-  <!-- <div class="container"> <h1>Notification Tab </h1> 
+  <div class="container"> <h1>Notification Tab </h1> 
     
-                   
-                      {% for participant in  participants %}
-                      {% for object in objects %}
-                      {% if participant.event_name == object.name %}
-                      {% if object.is_finished %}
-                      <div id="notify" class="notify" style="display:block"> 
-                      
-                      {{participant.participant_name}} has shown interest in {{participant.event_name}}<br>
-
-                    </div>
-                    {% endif %}
-                    {% endif %} 
-                    {% endfor %}
-                    {% endfor %}
-                  
+                    <div id="notify">  </div>
                      <br>    
                      
-                    </div> -->
-  
-
-        <section id = "notification">
-
-          <div>
-  
-            <ul class="nav nav-tabs">
-          
-              <li class="nav-item "><a data-toggle="tab" class="nav-link active" href="#upcoming"><b>Upcoming &nbsp; Event</b></a></li>
-              <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#previous"><b>Previous &nbsp; Event</b></a></li>
-          
-            </ul>
-  
-          </div>
-    
-          <div class="tab-content">
-              
-            <div id="upcoming" class="tab-pane active">
-                
-              <div class="list-group p-0">
-                
-                
-  
-                    <div class=" w-100 justify-content-between p-2">
-                      {% for participant in  participants %}
-                      {% for object in objects %}
-                      {% if participant.event_name == object.name %}
-                      {% if object.is_not_finished %}
-
-
-
-                      {% for u_info in u_info %}
-                     {% if object.org == u_info.username %}
-                     {% if u_info.profile_picture %}
-                      <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
-                      {% endif %}
-                      {% endif %}
-                     {% endfor %}
-                      
-                      <div id="notify" class="notify" style="display:block"> 
-                      
-                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}}   </h5>   
-
-                    </div>
-                    {% endif %}
-                    {% endif %} 
-                    {% endfor %}
-                    {% endfor %}
-
-                        
-
                     </div>
   
-                
-  
-              </div>            
-  
-            </div>
-                
-            <div id="previous" class="tab-pane"> 
-  
-              <div class="list-group p-0">
-                
-                    <div class=" w-100 justify-content-between p-2">
-
-                      {% for participant in  participants %}
-                      {% for object in objects %}
-                      {% if participant.event_name == object.name %}
-                      {% if object.is_finished  %}
-
-                      {% for u_info in u_info %}
-                     {% if object.org == u_info.username %}
-                     {% if u_info.profile_picture %}
-                     <img src="{{u_info.profile_picture.url}}" class="request_dp float-left " style="width:80px;height:80px;"> 
-                     {% endif %}
-                    {% endif %}
-                     {% endfor %}
-                          
-                      <div id="notify" class="notify" style="display:block"> 
-                      
-                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> was held on {{object.start_date}}   </h5>   
-
-                    </div>
-                    {% endif %}
-                    {% endif %} 
-                    {% endfor %}
-                    {% endfor %}
-
-                    </div>
-  
-                  </a>
-                
-                </div>
-        
-              </div> 
-  
-        </div>
-  
-      </section>
-
-
 
 {% comment %} For filtering {% endcomment %}
 <script>
@@ -367,7 +244,7 @@
     </script>
 
     <script>
-      {% comment %} const dates= [
+      const dates= [
       {% for participant in  participants %}
       {% for object in objects %}
       {% if participant.event_name == object.name %}
@@ -396,18 +273,15 @@
         if(d!=0 && h <= 15){
           
           s = dates[i].pname +"  has shown interest in " + dates[i].ename
-          console.log(s)           
-                             
-          document.getElementById("notify").innerHTML= s
-
+          console.log(s)     
+          document.getElementById("notify").innerHTML =  s
 
         }
 
-      } {% endcomment %}
 
-       
+      }
+
   
-
 
      const regbtn = [
      {% for participant in  participants %}
@@ -497,10 +371,7 @@
     </script>  
     
     
- <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" int egrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
   </body>
 </html>
