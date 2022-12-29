@@ -11,11 +11,10 @@
 {% endblock scripts %}
 
 {% block content %}
-
-
-      <div id="ename"> <h1>{{object.name}} </h1></div>
-        <div> {{object.name}} will take place:  {{object.start_date|date:"M d, Y"}} </div>
-        <br>
+  <div class="row countdown-style">
+    <div> {{object.name}} will take place:  {{object.start_date|date:"M d, Y"}} </div>
+  </div>
+  <br><br><br>
         <section>
           <!-- Photos by Daniel J. Schwarz (unsplash.com/@danieljschwarz) -->
           <div class="gallery">
