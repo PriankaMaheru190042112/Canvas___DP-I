@@ -23,7 +23,7 @@ body{
  .cont{
     overflow: hidden;
     position: relative;
-    width: 1000px;
+    width: 900px;
     height: 550px;
     background: rgb(253, 251, 251);
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
