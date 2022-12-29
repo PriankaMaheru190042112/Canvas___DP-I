@@ -52,6 +52,7 @@ def eventform(request):
                image.save() 
         
         event.save()
+        return redirect('/organization/organization_home/')
         
         
 

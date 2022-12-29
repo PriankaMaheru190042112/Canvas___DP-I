@@ -82,6 +82,7 @@
                         <div id= "eventName" class="text-dark">
                            <div id="event_name">{{object.name}}</div> 
                            <div id="event_date">{{object.start_date}} </div>
+                           <div id="end_date" style="display:none" > {{object.end_date|date:"M d, Y"}}</div>
                             <b><p> {{object.genre}}</p></b>
 
                             {% if object.fee %}
@@ -171,7 +172,21 @@
 
   <div class="container"> <h1>Notification Tab </h1> 
     
-                    <div id="notify">  </div>
+                   
+                      {% for participant in  participants %}
+                      {% for object in objects %}
+                      {% if participant.event_name == object.name %}
+                      {% if object.is_finished %}
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                      {{participant.participant_name}} has shown interest in {{participant.event_name}}<br>
+
+                    </div>
+                    {% endif %}
+                    {% endif %} 
+                    {% endfor %}
+                    {% endfor %}
+                  
                      <br>    
                      
                     </div>
@@ -250,7 +265,7 @@
     </script>
 
     <script>
-      const dates= [
+      {% comment %} const dates= [
       {% for participant in  participants %}
       {% for object in objects %}
       {% if participant.event_name == object.name %}
@@ -279,15 +294,18 @@
         if(d!=0 && h <= 15){
           
           s = dates[i].pname +"  has shown interest in " + dates[i].ename
-          console.log(s)     
-          document.getElementById("notify").innerHTML =  s
+          console.log(s)           
+                             
+          document.getElementById("notify").innerHTML= s
+
 
         }
 
+      } {% endcomment %}
 
-      }
-
+       
   
+
 
      const regbtn = [
      {% for participant in  participants %}

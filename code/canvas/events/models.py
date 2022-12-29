@@ -16,6 +16,7 @@ from django.conf import settings
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
+import datetime
 
 # Create your models here.
 
@@ -32,6 +33,7 @@ class Event(models.Model):
     fee= models.IntegerField(max_length=200, default=0, null=True)
     is_accepted= models.BooleanField(default=False)
     is_rejected= models.BooleanField(default=False)
+
    
 
     def __str__(self):
@@ -54,11 +56,16 @@ class Event(models.Model):
 
     def start_date_difference(self):
         return (date.today() - self.start_date) == 0   
+    
+    def is_finished(self):
+        # today = datetime.datetime.strftime(date.today(),"%Y/%m/%d")
+        # endDate= datetime.datetime.strptime(self.end_date, "%Y/%m/%d")
 
-    def start_time_difference(self):
-        time = datetime.now().strftime("%H:%M")
-        diff=  time - self.start_time
-        return(diff) < 0     
+        diff = date.today() - self.end_date
+        diff= diff.days * 24 *60 *60
+
+        return(diff<0)
+
 
     # def one_hr_difference(self):
     #     time = datetime.now()
