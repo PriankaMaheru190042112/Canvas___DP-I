@@ -111,7 +111,7 @@ class Images(models.Model):
         textwidth, textheight = draw.textsize(myword, font)
         x = width - textwidth - margin
         y = height - textheight - margin
-        draw.text((x,y), myword, (255, 255, 255), font=font)
+        draw.text((10,10), myword, (255, 255, 255), font=font)
         photo.save(self.image.path)
 
     img_id = models.AutoField(primary_key=True)
