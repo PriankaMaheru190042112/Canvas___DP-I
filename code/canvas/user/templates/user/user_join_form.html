@@ -1,4 +1,4 @@
-<form method="POST" action="/user/user_join_form/{{e.event_id}}/">{% csrf_token %}
+<!-- <form method="POST" action="/user/user_join_form/{{e.event_id}}/">{% csrf_token %}
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" name="name" id="name" placeholder="Enter your username">
@@ -18,4 +18,279 @@
   </form>
 
 
-  {{e.name}}
+  {{e.name}} -->
+
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User | Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/user_home_style.css' %} ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+  </head>
+
+  <body>
+
+    <header>
+      <a href="#" class="brand">Canvas</a>
+      <div class="menu">
+        <div class="btn">
+          <i class="fas fa-times close-btn"></i>
+        </div>
+        <a href="/user/user_home">Home</a>
+        <a href="/user/user_profile">Profile</a>
+        <a href="/user/user_notification">Notification</a>
+        <a href="{% url 'user:user_logout' %}">Logout</a>
+      </div>
+      <div class="btn">
+        <i class="fas fa-bars menu-btn"></i>
+      </div>
+    </header>
+
+
+
+    <section style="background-color:rgb(250, 253, 255); margin-top: 140px; width:50%; margin-left: 25%;" id="#filter_events">
+   
+    <form method="POST" action="/user/user_join_form/{{e.event_id}}/">{% csrf_token %}
+      <div class="form-group text-center">
+        <label for="name"><b>Name</b></label> <br><br>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your username">
+      </div>
+      <br>
+
+      <div class="form-group text-center">
+        <label for="code"><b>Code</b></label> <br><br>
+        <input type="number" class="form-control" id="code" name="code" placeholder="Enter the code to join ">
+      </div>
+     <br>
+  
+     <input type="hidden" name="eid" id="eid" value="{{e.event_id}}"> 
+  
+  
+      <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+
+      <div class="row justify-content-center" style="width: 20%; margin-left: 40%;">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+
+
+  </section>
+
+
+    </body>
+
+
+      
+      
+<script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+  
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+  
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+  
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  </script>
+
+
+
+
+    <script type="text/javascript">
+    //javascript for navigation bar effect on scroll
+    window.addEventListener("scroll", function(){
+      var header = document.querySelector("header");
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    //javascript for responsive navigation sidebar menu
+    var menu = document.querySelector('.menu');
+    var menuBtn = document.querySelector('.menu-btn');
+    var closeBtn = document.querySelector('.close-btn');
+
+    menuBtn.addEventListener("click", () => {
+      menu.classList.add('active');
+    });
+
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove('active');
+    });
+
+
+    </script>
+
+    <script>
+      {% comment %} const dates= [
+      {% for participant in  participants %}
+      {% for object in objects %}
+      {% if participant.event_name == object.name %}
+      {
+       edate: "{{object.start_date}}",
+       etime: "{{object.start_time}}",
+       pname: "{{participant.participant_name}}",
+       ename: "{{participant.event_name}}"
+      },
+      {% endif %} 
+      {% endfor %}
+      {% endfor %}
+      ]
+
+      for(let i=0 ; i< dates.length; i++){
+
+        const now= new Date().getTime()
+        const edate= Date.parse(dates[i].edate)
+        console.log(edate)
+        const d= Math.floor((edate / (1000*60*60*24)) - (now /(1000*60*60*24)))
+        const h= Math.floor((edate  / (1000*60*60) - (now /(1000*60*60))) %24)
+        console.log(d)
+        console.log(h)
+
+       
+        if(d!=0 && h <= 15){
+          
+          s = dates[i].pname +"  has shown interest in " + dates[i].ename
+          console.log(s)     
+          document.getElementById("notify").innerHTML =  s
+
+        }
+
+
+      } {% endcomment %}
+
+  
+
+     const regbtn = [
+     {% for participant in  participants %}
+     {% for object in objects %}
+     {% if participant.event_name == object.name %}
+     {% if object.fee %}
+     {
+      pname: "{{participant.participant_name}}",
+      ename: "{{participant.event_name}}",
+      eid : "{{object.event_id}}"
+     },
+     {% endif %}
+     {% endif %} 
+     {% endfor %}
+     {% endfor %}
+     ]
+
+     const obj= [
+     {% for object in objects %}
+     {% if object.fee %}
+     {
+      edate: "{{object.start_date}}",
+      etime: "{{object.start_time}}",
+      eid : "{{object.event_id}}",
+      ename: "{{object.name}}"
+     },
+     {% endif %}
+     {% endfor %}
+     ]
+      
+     for(let j=0 ; j< obj.length; j++){
+       for(let k=0; k<regbtn.length; k++){
+            if(obj[j].ename == regbtn[k].ename){
+
+                    document.getElementById(regbtn[k].eid).innerHTML= "You Have registered for this event"
+                    document.getElementById('x'+ regbtn[k].eid).style.display= 'none'
+            }
+            
+        }
+     }
+
+     const pub_obj= [
+     {% for object in objects %}
+     {% if object.fee == null %}
+     {
+      edate: "{{object.start_date}}",
+      etime: "{{object.start_time}}",
+      eid : "{{object.event_id}}",
+      ename: "{{object.name}}"
+     },
+     {% endif %}
+     {% endfor %}
+     ]
+    
+      
+     const pub_btn = [
+     {% for participant in  participants %}
+     {% for object in objects %}
+     {% if participant.event_name == object.name %}
+     {% if object.fee == null %}
+     {
+      pname: "{{participant.participant_name}}",
+      ename: "{{participant.event_name}}",
+      eid : "{{object.event_id}}"
+     },
+     {% endif %}
+     {% endif %} 
+     {% endfor %}
+     {% endfor %}
+     ]
+     
+     for(let a=0 ; a< pub_obj.length; a++){
+     
+      for(let b=0; b<pub_btn.length; b++){
+           if(pub_obj[a].ename == pub_btn[b].ename){
+                 
+                   document.getElementById('z'+pub_btn[b].eid).innerHTML= "You Have registered for this event"
+                   document.getElementById('y'+ pub_btn[b].eid).style.display= 'none'
+           }
+           
+       }
+    }
+
+
+
+     
+    </script>  
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>    
+  </body>
+</html>

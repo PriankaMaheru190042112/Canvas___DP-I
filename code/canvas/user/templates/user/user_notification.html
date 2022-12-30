@@ -86,18 +86,17 @@
           <div id="upcoming" class="tab-pane active">
               
             <div class="list-group p-0">
+              {% for participant in  participants %}
+              {% for object in objects %}
+              {% if participant.event_name == object.name %}
+              {% if object.is_not_finished %}
+
               
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true" id="request_of_event">
 
                   <div class=" w-100 justify-content-between p-2">
 
-              
-                      {% for participant in  participants %}
-                      {% for object in objects %}
-                      {% if participant.event_name == object.name %}
-                      {% if object.is_not_finished %}
-
-
+      
 
                       {% for u_info in u_info %}
                       {% if object.org == u_info.username %}
@@ -107,20 +106,33 @@
                       {% endif %}
                       {% endfor %}
                        
+
+                      {% if object.fee %}
                       <div id="notify" class="notify" style="display:block"> 
                       
-                      <h5 class="mb-1">&nbsp; <input type="button" onclick="location.href='{{object.get_absolute_url3}}';" value="{{object.name}}"/> will held on {{object.start_date}}  </h5>           
+                        <h5 class="mb-1">&nbsp; <input type="button" onclick="location.href='{{object.get_absolute_url3}}';" value="{{object.name}}"/> will held on {{object.start_date}}. Your code is {{participant.code}}  </h5>   
+  
+                      </div>
 
+                      {% else %}
 
-                    </div>
-                    {% endif %}
-                    {% endif %} 
-                    {% endfor %}
-                    {% endfor %}                              
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                        <h5 class="mb-1">&nbsp; <input type="button" onclick="location.href='{{object.get_absolute_url3}}';" value="{{object.name}}"/> will held on {{object.start_date}}.   </h5>           
+
+  
+                      </div>
+
+                      {% endif %}
+                     
+                                               
                   </div>
-
+                  
                 </a>
-
+                {% endif %}
+                {% endif %} 
+                {% endfor %}
+                {% endfor %}  
             </div>            
 
           </div>
