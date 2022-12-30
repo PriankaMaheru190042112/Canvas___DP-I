@@ -194,6 +194,8 @@ border-radius: 5px;
 box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 border: none;
 margin-bottom: 30px;
+height: 680px;
+width: 1000px;
 }
 
 .m-r-0 {
@@ -354,9 +356,13 @@ button{
 .row{
   padding-bottom: -50px;
   font-weight: 400;
-  margin-top: 10px;
- 
+  row-gap: 1em;
 }
+
+.info1{
+  padding-left: 15px;
+}
+
 
 .btn{
   padding-left: 10px;
@@ -366,16 +372,34 @@ button{
 
 .submit{
   margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 20px;
+  margin-bottom: 30px;
+  margin-left: 25px;
+  width: 100px;
   text-transform: uppercase;
   font-weight: 450;
   font-family: "Poppins", sans-serif;
   background: -webkit-linear-gradient(left,#52af7e, #063e1a);
 }
+
 .submit:hover{
   background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
 }
+.submit-pic{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 1px;
+  width: 100px;
+  text-transform: uppercase;
+  font-weight: 450;
+  font-family: "Poppins", sans-serif;
+  background: -webkit-linear-gradient(left,#52af7e, #063e1a);
+}
+
+.submit-pic:hover{
+  background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
+}
+
+
 
 .name1{
   color:black;

@@ -83,8 +83,10 @@
                 <div class="container2">
                     <div id= "eventName" class="text-dark">
                        <div id="event_name">{{object.name}}</div> 
-                       <div id="event_date">{{object.start_date}} </div>
-                       <div id="end_date" style="display:none" > {{object.end_date|date:"M d, Y"}}</div>
+                       <div id="event_date">Start Date: {{object.start_date|date:"M d, Y"}} </div>
+                     
+                       <div id="end_date">End Date: {{object.end_date|date:"M d, Y"}}</div>
+                       <div id="org">Organization: {{object.org}} </div>
                         <b><p> {{object.genre}}</p></b>
 
                         {% if object.fee %}

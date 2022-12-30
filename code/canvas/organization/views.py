@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import login, authenticate ,logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from events.models import Event, Images
+from events.models import Event, Images,Genre
 from authentication_user.models import User
 from django.views.generic import ListView, DetailView
 from cryptography.fernet import Fernet
@@ -28,9 +28,9 @@ def eventform(request):
         name = request.POST.get('name')
         desc = request.POST.get('description')
         start_date= request.POST.get('start_date',None)
-        start_time = request.POST.get('start_time',None)
+        # start_time = request.POST.get('start_time',None)
         end_date= request.POST.get('end_date',None)
-        end_time = request.POST.get('end_time', None)
+        # end_time = request.POST.get('end_time', None)
         fee= request.POST.get('fees')
         genre = request.POST.get('genre')
 
@@ -39,7 +39,7 @@ def eventform(request):
         frame_width= request.POST.get('frame_w')
         frame_height= request.POST.get('frame_h') 
         
-        event= Event.objects.create(org=request.user.username, name= name, description= desc, start_date=start_date ,start_time=start_time, end_date=end_date ,end_time=end_time,
+        event= Event.objects.create(org=request.user.username, name= name, description= desc, start_date=start_date , end_date=end_date ,
                      fee=fee, genre=genre)
         
         print(images)

@@ -10,7 +10,9 @@
 
 body{
   min-height: 100vh;
-  
+  background: url(bg.jpg)no-repeat;
+ background-size: cover;
+ background-position: center;
  
 }
 
@@ -19,7 +21,7 @@ body{
   width: 100%;
   min-height: 100vh;
   /* background: url(images/bg.jpg) no-repeat; */
-  background-color: #f6f6f6;
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -49,7 +51,7 @@ header{
   align-items: center;
   padding: 20px 100px;
   transition: 0.6s;
-} 
+}
 
 header.sticky{
   background: #1483D5;
@@ -87,7 +89,7 @@ header .menu a{
 
 header .menu a:hover{
   color: rgb(3, 0, 0);
-  background: rgb(230, 123, 70);;
+  background: rgb(230, 123, 70);
 }
 
 header .btn{
@@ -192,6 +194,8 @@ border-radius: 5px;
 box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 border: none;
 margin-bottom: 30px;
+height: 680px;
+width: 1000px;
 }
 
 .m-r-0 {
@@ -352,9 +356,9 @@ button{
 .row{
   padding-bottom: -50px;
   font-weight: 400;
-  margin-top: 10px;
- 
+  row-gap: 1em;
 }
+
 
 .btn{
   padding-left: 10px;
@@ -364,14 +368,28 @@ button{
 
 .submit{
   margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 20px;
+  margin-bottom: 30px;
+  margin-left: 25px;
   text-transform: uppercase;
   font-weight: 450;
   font-family: "Poppins", sans-serif;
   background: -webkit-linear-gradient(left,#52af7e, #063e1a);
 }
+
 .submit:hover{
+  background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
+}
+.submit-pic{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 1px;
+  text-transform: uppercase;
+  font-weight: 450;
+  font-family: "Poppins", sans-serif;
+  background: -webkit-linear-gradient(left,#52af7e, #063e1a);
+}
+
+.submit-pic:hover{
   background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
 }
 
@@ -385,4 +403,8 @@ button{
   color: #070707;
   font-weight: 400;
   font-size: 18px;
+}
+
+.checked {
+  color: orange;
 }

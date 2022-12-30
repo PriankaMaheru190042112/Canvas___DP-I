@@ -70,15 +70,15 @@
                             {{request.user.username}}
                       
                         </h6>
-                    </div>
-                        <div class="col-sm-6">
+                      </div>
+                      <div class="col-sm-6">
                             <p class="m-b-10 f-w-600 email">Email</p>
                             <h6 class="text-muted f-w-400">
                           
                                 {{request.user.email}}
                         
                             </h6>
-                        </div>
+                      </div>
                        
                     </div>
                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Update Profile</h6>
@@ -92,18 +92,18 @@
                       <input type="password" class="form-control" name="pass1">
                     </div>
                   </div>
+                  
 
-                   <div class="row">    
+                   <class="row">    
                       <div class="col-md-8">
                       <div class="inputs px-4">
                         <span>New Password</span>
                         <input type="password" class="form-control" name="pass2">
                       </div>
                     </div>
-                     
-                    <div class="btn">
-                      <button type="submit" class="submit" name="update_pass_btn">Update</button></div>
-                  </div>
+                      <button type="submit" class="submit" name="update_pass_btn">Update</button>
+                    </div>
+        
 
                 </form>
           
@@ -111,17 +111,14 @@
                 <form action="/user/user_profile/" method="POST" enctype="multipart/form-data"> {% csrf_token %}   
                     <div class="col-md-8">
                       <div class="inputs px-4">
-                        <div class="profile-pic-div">
+                        <class="profile-pic-div">
                           <br>
                             <label for="pro_img" id="uploadBtn">Choose Photo</label>
                             <input type="file" id="pro_img" name="pro_img">
+                            <button type="submit" class="submit-pic" name="update_img_btn">Update</button
                           </div>
                         </div>
                     </div>
-
-                    <div class="btn">
-                      <button type="submit" class="submit" name="update_img_btn">Update</button></div>
-                  </div>
                   
 
               </form>
