@@ -55,12 +55,7 @@
                         {{request.user.username}}
                     </h6>
                     <p>Organization</p>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                    
                     
                   </div>
                     
@@ -91,9 +86,10 @@
 
                       <div class="row">    
                         <div class="col-md-8">
-                        <div class="inputs px-4">
-                          <span>Old Password</span>
-                          <input type="password" class="form-control" name="pass1">
+                          <div class="inputs px-4">
+                            <span>Old Password</span>
+                            <input type="password" class="form-control" name="pass1">
+                          </div>
                         </div>
                       </div>
     
@@ -104,10 +100,15 @@
                             <input type="password" class="form-control" name="pass2">
                           </div>
                         </div>
-                         
-                        <div class="btn">
-                          <button type="submit" class="submit" name="update_pass_btn">Update</button></div>
                       </div>
+
+                      <div>
+                        <button type="submit" class="submit" name="update_pass_btn">Update</button>
+                      </div>
+                         
+                        {% comment %} <div class="btn">
+                          <button type="submit" class="submit" name="update_pass_btn">Update</button></div>
+                      </div> {% endcomment %}
     
                     </form>
               
@@ -119,22 +120,18 @@
                               <br>
                                 <label for="pro_img" id="uploadBtn">Choose Photo</label>
                                 <input type="file" id="pro_img" accept="image/*" name="pro_img">
+                                <button type="submit" class="submit-pic" name="update_img_btn">Update</button></div>
                               </div>
                             </div>
                         </div>
-    
-                        <div class="btn">
-                          <button type="submit" class="submit" name="update_img_btn">Update</button></div>
-                      </div>
                       
     
                   </form>
-            </div>
+            
         </div>
     </div>
 </div>
  </div>
-    </div>
 </div>
 {% endif %}
 {% endfor %}
