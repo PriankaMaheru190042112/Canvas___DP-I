@@ -107,11 +107,24 @@
                       {% endif %}
                       {% endfor %}
                        
+
+                      {% if object.fee %}
                       <div id="notify" class="notify" style="display:block"> 
                       
-                      <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}}   </h5>   
+                        <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}} . Your code is {{participant.code}}  </h5>   
+  
+                      </div>
 
-                    </div>
+                      {% else %}
+
+                      <div id="notify" class="notify" style="display:block"> 
+                      
+                        <h5 class="mb-1">&nbsp; <a href="{{object.get_absolute_url3}}">{{object.name}}</a> will held on {{object.start_date}}.    </h5>   
+  
+                      </div>
+
+                      {% endif %}
+                     
                     {% endif %}
                     {% endif %} 
                     {% endfor %}
