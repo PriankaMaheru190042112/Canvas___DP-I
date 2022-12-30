@@ -54,7 +54,7 @@
         <div class="room-arena">
           <div class="walls">
             <div class="wall">
-              {% for img in img %}
+              
               <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\2444.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w1">
@@ -65,20 +65,20 @@
                   </span>
                 </p>
               </div>
-              {% endfor %}
+              
 
-
-           <!--   <div class="item">
+              <div class="item">
                 <a class="item-image">
-                  <img src="{% static 'images\5.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                  <img src="{% static 'images\6.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w5">
                 </a>
                 <p class="item-desc">
                   <span>
-                    9th. element
+                    5th. element
                   </span>
                 </p>
               </div>
-              <div class="item">
+
+            <!--    <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\5.jpg' %}" class="img-radius" alt="User-Profile-Image">
                 </a>
@@ -140,7 +140,7 @@
               </div> -->
             </div>
             <div class="wall">
-              {% for img in img %}
+              
               <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\2.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w2">
@@ -151,10 +151,10 @@
                   </span>
                 </p>
               </div>
-              {% endfor %}
-              <!-- <div class="item">
+              
+               <div class="item">
                 <a class="item-image">
-                  <img src="{% static 'images\6.jpg' %}" class="img-radius" alt="User-Profile-Image">
+                  <img src="{% static 'images\6.jpg' %}" class="img-radius" alt="User-Profile-Image" id="w6">
                 </a>
                 <p class="item-desc">
                   <span>
@@ -162,7 +162,7 @@
                   </span>
                 </p>
               </div>
-              <div class="item">
+              <!-- <div class="item">
                 <a class="item-image">
                   <img src="{% static 'images\6.jpg' %}" class="img-radius" alt="User-Profile-Image">
                 </a>
@@ -421,11 +421,11 @@
           </label>
           <label for="room-sample-0-5">
             <span>5</span>
-         <!--  </label>
+           </label>
           <label for="room-sample-0-6">
             <span>6</span>
           </label>
-          <label for="room-sample-0-7">
+        <!--  <label for="room-sample-0-7">
             <span>7</span>
           </label>
           <label for="room-sample-0-8">
@@ -543,7 +543,7 @@
       
 
 
-      for(let i=0; i< wall1.length; i = i + 4){
+      for(let i=0; i< 1; i = i + 4){
         console.log(wall1[i].imgs)
         document.getElementById("w1").src = wall1[i].imgs
       }
@@ -557,7 +557,7 @@
       {% endfor %}
       ]
       
-      for(let i=1; i< wall1.length; i += 4){
+      for(let i=1; i< 2; i += 4){
         console.log(wall2[i].imgs)
         document.getElementById("w2").src = wall2[i].imgs
       }
@@ -572,7 +572,7 @@
       {% endfor %}
       ]
       
-      for(let i=2; i< wall1.length; i+=4){
+      for(let i=2; i< 3; i+=4){
         console.log(wall3[i].imgs)
         document.getElementById("w3").src = wall3[i].imgs
       }
@@ -587,9 +587,39 @@
       {% endfor %}
       ]
       
-      for(let i=3; i< wall1.length; i+=4){
+      for(let i=3; i< 4; i+=4){
         console.log(wall4[i].imgs)
         document.getElementById("w4").src = wall4[i].imgs
+      }
+
+
+      const wall5 = [
+      {% for img5 in img %}
+      {
+       imgs: "{{img5.image.url}}"
+      
+      },
+      {% endfor %}
+      ]
+      
+      for(let i=4; i< 5; i+=4){
+        console.log(wall5[i].imgs)
+        document.getElementById("w5").src = wall5[i].imgs
+      }
+
+
+      const wall6 = [
+      {% for img6 in img %}
+      {
+       imgs: "{{img6.image.url}}"
+      
+      },
+      {% endfor %}
+      ]
+      
+      for(let i=5; i< 6; i+=4){
+        console.log(wall5[i].imgs)
+        document.getElementById("w6").src = wall6[i].imgs
       }
 
     </script>
