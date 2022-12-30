@@ -190,6 +190,7 @@ overflow: hidden;
 
 .card {
 border-radius: 5px;
+height: 600px;
 -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
 border: none;
@@ -367,7 +368,7 @@ button{
 .submit{
   margin-top: 10px;
   margin-bottom: 40px;
-  margin-left: 20px;
+  margin-left: 10px;
   text-transform: uppercase;
   font-weight: 450;
   font-family: "Poppins", sans-serif;
@@ -375,6 +376,9 @@ button{
 }
 .submit:hover{
   background:  -webkit-linear-gradient(left, #063e1a, #52af7e);
+}
+.update-pic{
+  padding-top: 70px;
 }
 
 .name1{
