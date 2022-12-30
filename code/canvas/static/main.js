@@ -35,7 +35,7 @@ setInterval(()=>{
     if(diff>0){
        
         countdownBox.innerHTML = d + " days, " +h + " hours, "+ m + " minutes, " +s  +" seconds" 
-        gal.style.display= 'block'
+        
     } 
 
     else if(end_diff<0){
@@ -44,7 +44,8 @@ setInterval(()=>{
     }
 
     else{
-        countdownBox.innerHTML = "Countdown Completed"
+        // countdownBox.innerHTML = "Countdown Completed"
+        gal.style.display= 'block'
     
     }
 
