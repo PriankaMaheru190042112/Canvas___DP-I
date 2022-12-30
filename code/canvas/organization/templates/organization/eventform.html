@@ -61,11 +61,11 @@
           <input required type="date" class="form-control" id="start_date" name="start_date" placeholder="Enter Start Event time">
         </div>
        
-        <div class="form-group">
+        {% comment %} <div class="form-group">
           <label for="time1">Start Time</label>
           <input required type="time" class="form-control" id="start_time" name="start_time">
         </div>
-       
+        {% endcomment %}
     
         
         <div class="form-group">
@@ -74,10 +74,10 @@
         </div>
 
        
-        <div class="form-group">
+        {% comment %} <div class="form-group">
           <label for="time2">End Time</label>
           <input required type="time" class="form-control" id="end_time" name="end_time">
-        </div>
+        </div> {% endcomment %}
         
       
         <div class="form-group">
@@ -97,7 +97,9 @@
             <option name="genre" value="Photography">Photography</option>
             <option name="genre" value="Abstract Art">Abstract Art</option>
             <option name="genre" value="Handicraft">Handicraft</option>
-          </select>
+          </select> 
+         
+    
         </div>
         
   

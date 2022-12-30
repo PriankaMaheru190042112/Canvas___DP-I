@@ -4,6 +4,8 @@ const eventBox =document.getElementById('event-box')
 const countdownBox = document.getElementById('countdown-box')
 const eventnameBox =  document.getElementById('event_name')
 const gal = document.getElementById('img_gallery');
+const pur = document.getElementById('purchase')
+const vir = document.getElementById('virtual')
 const end_date = document.getElementById('end_date')
 
 
@@ -46,6 +48,9 @@ setInterval(()=>{
     else{
         // countdownBox.innerHTML = "Countdown Completed"
         gal.style.display= 'block'
+        pur.style.display ='block'
+        vir.style.display ='block'
+
     
     }
 
